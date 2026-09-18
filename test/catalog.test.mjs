@@ -7,10 +7,11 @@ import { model, snapshot } from './helpers.mjs';
 const level = (score) => ({ default: { aaSlug: 'x', evaluations: { artificial_analysis_intelligence_index: score } } });
 
 function fixture() {
-  let free = ['existing', 'new-free', 'paid', 'gpt-new-free', 'claude-new-free'];
+  let free = ['existing', 'new-free', 'paid', 'gpt-new-free', 'claude-new-free', 'retired-free'];
   const meta = { opencode: { npm: '@ai-sdk/openai-compatible', models: {
     existing: { cost: { input: 0, output: 0 }, limit: { context: 200000 }, tool_call: true },
     paid: { cost: { input: 1, output: 2 } },
+    'retired-free': { cost: { input: 0, output: 0 }, status: 'deprecated' },
   } }, 'opencode-go': { models: {
     'go-model': { cost: { input: 1, output: 2 }, provider: { npm: '@ai-sdk/anthropic' } },
   } } };
@@ -23,9 +24,10 @@ function fixture() {
   return { catalog: new Catalog(cache, { benchmarksUrl: 'https://example.com/benchmarks' }),
     add: (id) => free.push(id) };
 }
-test('Zen only includes free entries; neither pool can include OpenAI or Anthropic models', async () => {
+test('Zen only includes free entries; neither pool can include OpenAI, Anthropic or retired models', async () => {
   const { catalog } = fixture();
   const result = await catalog.load({ hasGo: true });
+  // retired-free is priced at zero but marked deprecated: Zen lists it and no longer serves it.
   assert.deepEqual(result.map((m) => m.id), ['existing', 'new-free', 'go-model', 'next-generation']);
   assert.equal(result[2].protocol, '@ai-sdk/anthropic'); // Go transport, not a Claude model.
   const fresh = result.find((m) => m.id === 'new-free');

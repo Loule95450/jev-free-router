@@ -36,6 +36,9 @@ export class Catalog {
         // A free alias may inherit capabilities, but never a different provider's price.
         const capabilities = exact ?? meta.opencode?.models?.[canonical(entry.id)] ?? identity;
         if (excluded(entry.id, { ...capabilities, owned_by: entry.owned_by }) || (identity && excluded(identity.id))) continue;
+        // Zen keeps retired models in /models but no longer serves them, and OpenCode hides them.
+        // Routing to one fails the whole turn, so a declared retirement removes the candidate.
+        if ((exact ?? capabilities)?.status === 'deprecated') continue;
         const freePrice = exact?.cost?.input === 0 && exact?.cost?.output === 0;
         if (pool === 'free' && !entry.id.endsWith('-free') && !freePrice) continue;
         // An explicit nonzero Zen price overrides the naming convention.
