@@ -1,18 +1,18 @@
-# Jev pour OpenCode
+# Jev for OpenCode
 
-Sélectionne **Jev / jev**, **jev-free** ou **jev-go** dans `/models`, puis discute normalement. À chaque nouveau message, TypeSafe Jev estime une distribution **P(meilleur modèle pour cette demande)** sur les identifiants exacts du catalogue OpenCode. Le fournisseur sélectionné dans l'interface reste Jev.
+Pick **Jev / jev**, **jev-free** or **jev-go** in `/models`, then chat normally. On every new message, TypeSafe Jev estimates a distribution of **P(best model for this request)** over the exact model IDs in the OpenCode catalogue. The provider shown in the UI stays Jev.
 
-| Choix | Candidats |
+| Choice | Candidates |
 | --- | --- |
-| `jev/jev` | Modèles gratuits Zen + Go si un compte Go est connecté |
-| `jev/jev-free` | Modèles gratuits Zen uniquement |
-| `jev/jev-go` | Modèles du catalogue Go ; connexion Go nécessaire |
+| `jev/jev` | Free Zen models, plus Go when a Go account is connected |
+| `jev/jev-free` | Free Zen models only |
+| `jev/jev-go` | Go catalogue; requires a Go connection |
 
-Les modèles OpenAI et Anthropic sont exclus, même lorsqu'ils figurent dans Go. Le dépôt remplace les anciens lanceurs Claude Code/Codex de [jev-router](https://github.com/gargpratyush/jev-router).
+OpenAI and Anthropic models are excluded, even when Go lists them. This repository replaces the former Claude Code / Codex launchers from [jev-router](https://github.com/gargpratyush/jev-router).
 
-## Installation depuis ce dépôt
+## Install from this repository
 
-Node.js 22+ et OpenCode compatible AI SDK v3 ; intégration vérifiée avec OpenCode 1.18.31.
+Requirements: **Node.js 22+** and an OpenCode build speaking AI SDK provider spec v3. Verified against **OpenCode 1.18.31**.
 
 ```sh
 git clone https://github.com/Loule95450/jev-free-router.git
@@ -21,107 +21,139 @@ npm ci
 node -e 'console.log(require("node:url").pathToFileURL(process.cwd() + "/src/plugin.mjs").href)'
 ```
 
-Ajoute l'URL affichée à la liste `plugin` de ton `opencode.json` (global : `~/.config/opencode/opencode.json`). Conserve tes autres plugins et réglages :
+The last command prints a `file://` URL. Add it to the `plugin` list of your `opencode.json` — global config lives at `~/.config/opencode/opencode.json`. Keep your existing plugins and settings:
 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": ["file:///chemin/vers/jev-free-router/src/plugin.mjs"],
-  "model": "jev/jev"
+  "plugin": ["file:///path/to/jev-free-router/src/plugin.mjs"]
 }
 ```
 
-Configure la clé du **cerveau TypeSafe** dans l'environnement qui lance OpenCode :
+Paths containing spaces must stay percent-encoded, exactly as the command prints them.
+
+Then set the **TypeSafe brain** key in the environment that launches OpenCode:
 
 ```sh
-export JEV_API_KEY='ta-cle-typesafe'
+export JEV_API_KEY='your-typesafe-key'
 opencode
 ```
 
-Cette clé reste nécessaire pour obtenir les probabilités de Jev. Sans elle, le plugin signale un mode de secours, sans prétendre calculer des probabilités. C'est la **seule clé** que l'utilisateur ait à fournir : les scores de qualité arrivent par un snapshot public, sans clé de benchmark. Pour Go, utilise `/connect` → **OpenCode Go**, ou `OPENCODE_GO_API_KEY`. La clé Zen existante est réutilisée si disponible ; les modèles publics gratuits peuvent fonctionner sans elle, selon la politique d'OpenCode.
+Put the `export` in your shell profile if you want it to persist — OpenCode inherits the environment of the shell that starts it, so a key exported in another terminal will not be visible.
 
-Le plugin ajoute les trois modèles au démarrage. Aucun proxy à lancer, port à ouvrir ni liste de modèles à maintenir. Si tu utilises `enabled_providers`, ajoute `jev` à cette liste. Ne charge pas le même plugin à la fois via `plugin` et via `.opencode/plugins/`.
+Confirm the install:
 
-## Données dynamiques, sans note écrite dans le code
+```sh
+opencode models jev
+```
 
-1. **Disponibilité** : catalogues officiels [Zen](https://opencode.ai/zen/v1/models) et [Go](https://opencode.ai/zen/go/v1/models). Zen contient aussi des modèles payants : Jev conserve les offres à coût nul connu ou les nouveaux IDs explicitement suffixés `-free`, sauf prix connu contradictoire.
-2. **Contexte, capacités, coûts** : [models.dev/api.json](https://models.dev/api.json), sans clé. Les prix Go sont des coûts de consommation du quota ; ils ne sont pas présentés comme une facture supplémentaire. Le solde personnel du quota n'est pas disponible dans `/models`.
-3. **Benchmarks publics** : [models.dev/models.json](https://models.dev/models.json), sans clé, avec les sources originales, versions, dates et conditions de test lorsqu'elles sont disponibles.
-4. **Qualité mesurée** : `data/benchmarks.json`, snapshot produit par la CI depuis [Artificial Analysis](https://artificialanalysis.ai/) et téléchargé indépendamment de la version du plugin. Il porte, **par niveau de raisonnement** (`default`, `xhigh`, `high`, `medium`, `low`, `minimal`, `non-reasoning`), les évaluations disponibles, les prix publiés et les mesures de débit et de latence. **Le plugin n'appelle jamais l'API Artificial Analysis** : l'utilisateur n'a aucune clé à fournir.
+It should print `jev/jev`, `jev/jev-free` and `jev/jev-go`. Select one in `/models` and start chatting.
 
-Le snapshot déclare l'échelle de chaque métrique (`index_0_100` ou `ratio_0_1`) dans son champ `metrics`, transmis à Jev pour qu'aucun score ne soit comparé à une échelle différente. Les scores ne sont pas fusionnés en un indice unique inventé.
+### What else you need
 
-Un nouveau modèle présent dans les catalogues live devient candidat dès leur prochaine vérification, sans release du plugin et sans attendre le snapshot GitHub. Une absence de benchmark est **inconnue**, jamais transformée en zéro. Les rapprochements utilisent les IDs exacts, insensibles à la casse, sans préfixe de fournisseur, sans suffixe `-free` ni `-contributor`, et avec les points normalisés en tirets (`gemini-3.8-flash` ↔ `gemini-3-8-flash`). Un suffixe n'est lu comme niveau de raisonnement que si le modèle de base est publié lui aussi : `qwen3.8-max` et `magistral-medium` sont des noms de modèles, pas des variantes d'effort. Aucun score d'une ancienne version n'est attribué à la suivante.
+- **TypeSafe key — required.** Without it the plugin reports an explicit fallback instead of pretending to compute probabilities. This is the **only key you have to provide**: quality scores arrive through a public snapshot, with no benchmark key.
+- **Free Zen models — no key needed.** They answer anonymously, as long as the request carries OpenCode's own identity (see below).
+- **Go models — a Go account.** Use `/connect` → **OpenCode Go**, or set `OPENCODE_GO_API_KEY`. An existing Zen key is reused when present.
 
-La « taille » en tokens est fournie par models.dev. Le nombre de paramètres n'est pas universellement publié et ne mesure pas l'intelligence. Avec `JEV_FETCH_PARAMETER_COUNTS=1`, Jev consulte aussi l'API publique Hugging Face pour les dépôts de poids liés par models.dev : nombre total de paramètres safetensors, cache de 7 jours. Pour les MoE, ce total n'est pas le nombre de paramètres actifs. Une valeur absente reste `null`.
+The plugin registers its three models at startup. No proxy to run, no port to open, no model list to maintain. If you use `enabled_providers`, add `jev` to it. Do not load the same plugin through both `plugin` and `.opencode/plugins/`.
 
-## Décision probabiliste
+### Why it must run inside OpenCode
 
-Un seul appel System One contient un `Choice` sur les IDs exacts, accompagné de scores de complexité, raisonnement et outils. Jev reçoit le dernier message (maximum 24 000 caractères), un extrait récent de conversation (maximum 12 000 caractères), la taille estimée du contexte et les métadonnées des candidats. Aucun contenu n'est envoyé aux sources de benchmarks ; les requêtes de scores ne contiennent aucun prompt.
+Zen rejects free-tier calls that do not come from OpenCode, with `OpenCode's free tier can only be used from within OpenCode`. The plugin runs in the OpenCode process and forwards the caller's `User-Agent` untouched, so free models work. Overwriting that header — or routing the same traffic through an external proxy — breaks the free tier. This is why Jev is a plugin rather than a standalone server.
 
-La distribution complète renvoyée par TypeSafe est validée et conservée. Un résultat incomplet ou invalide déclenche le secours. Les probabilités sont des **estimations du routeur**, pas une garantie ni des probabilités de réussite calibrées expérimentalement.
+## Dynamic data, with nothing hardcoded
 
-La sélection maximise `P(meilleur modèle) − poids_coût × coût_relatif_estimé`. Le poids vaut `0.02` par défaut : le prix influence les décisions proches, sans remplacer une forte préférence de qualité. `JEV_COST_WEIGHT=0` désactive ce facteur. Les coûts inconnus ne sont pas assimilés à la gratuité. La confiance globale, les probabilités et l'utilité après coût sont des champs distincts.
+1. **Availability** — official [Zen](https://opencode.ai/zen/v1/models) and [Go](https://opencode.ai/zen/go/v1/models) catalogues. Zen also lists paid models: Jev keeps entries with a known zero price, or new IDs explicitly suffixed `-free`, unless a known price contradicts it.
+2. **Context, capabilities, cost** — [models.dev/api.json](https://models.dev/api.json), no key. Go prices are quota consumption costs, not an extra bill. Personal quota balance is not exposed by `/models`.
+3. **Public benchmarks** — [models.dev/models.json](https://models.dev/models.json), no key, carrying original sources, versions, dates and test conditions where available.
+4. **Measured quality** — `data/benchmarks.json`, a snapshot built by CI from [Artificial Analysis](https://artificialanalysis.ai/) and downloaded independently of the plugin version. It carries, **per reasoning level** (`default`, `xhigh`, `high`, `medium`, `low`, `minimal`, `non-reasoning`), the available evaluations, published prices, and throughput and latency measurements. **The plugin never calls the Artificial Analysis API**: users supply no key for it.
 
-Les contextes connus trop petits et les incompatibilités connues d'outils sont filtrés. Pour une pièce jointe non textuelle, la modalité doit être connue comme supportée. Un nouveau modèle sans métadonnées reste éligible aux demandes textuelles, avec limites inconnues. Le SDK choisit le protocole indiqué par models.dev ; les SDK nommés OpenAI-compatible et Anthropic servent uniquement au transport vers **opencode.ai**, jamais vers ces fournisseurs.
+The snapshot declares each metric's scale (`index_0_100` or `ratio_0_1`) in its `metrics` field, passed to Jev so no score is ever compared against a different scale. Scores are never merged into an invented single index.
 
-Une décision reste fixe pendant les boucles d'outils et les reprises réseau d'un même message. Chaque nouveau message est réévalué ; les sessions et agents sont séparés. Les flux, outils, annulations et blocs de raisonnement passent par les SDK natifs. Si TypeSafe échoue, Jev garde le modèle précédent s'il est encore éligible, sinon prend le moins cher connu, avec indication explicite du secours et probabilités `null`.
+Models that models.dev marks `status: deprecated` are dropped from both the catalogue and the snapshot. Zen keeps retired models in `/models` but no longer serves them, so routing to one would fail the turn.
 
-## Cache et nombre d'appels
+A model that appears in the live catalogues becomes a candidate at their next refresh, with no plugin release and without waiting for the GitHub snapshot. A missing benchmark means **unknown**, never zero. Matching uses exact IDs, case-insensitive, without provider prefix, without the `-free` or `-contributor` suffix, and with dots normalised to dashes (`gemini-3.8-flash` ↔ `gemini-3-8-flash`). A suffix counts as a reasoning level only when the bare model is published too: `qwen3.8-max` and `magistral-medium` are model names, not effort variants. No score from an older version is ever attributed to its successor.
 
-| Source | Actualisation | Secours en cas de panne |
+Token "size" comes from models.dev. Parameter count is not universally published and does not measure intelligence. With `JEV_FETCH_PARAMETER_COUNTS=1`, Jev also queries the public Hugging Face API for weight repositories linked by models.dev: total safetensors parameters, cached 7 days. For MoE models that total is not the active parameter count. A missing value stays `null`.
+
+## Probabilistic decision
+
+A single System One call carries a `Choice` over the exact IDs, alongside complexity, reasoning and tool scores. Jev receives the latest message (max 24,000 characters), a recent conversation excerpt (max 12,000 characters), the estimated context size and the candidates' metadata. No content is sent to benchmark sources; score requests carry no prompt.
+
+The full distribution returned by TypeSafe is validated and kept. An incomplete or invalid result triggers the fallback. Probabilities are **router estimates**, not a guarantee nor experimentally calibrated success rates.
+
+Selection maximises `P(best model) − cost_weight × estimated_relative_cost`. The weight defaults to `0.02`: price breaks near ties without overriding a strong quality preference. `JEV_COST_WEIGHT=0` disables it. Unknown costs are not treated as free. Overall confidence, probabilities and post-cost utility are separate fields.
+
+Known-too-small contexts and known tool incompatibilities are filtered out. For a non-text attachment, the modality must be known to be supported. A new model with no metadata stays eligible for text requests, with unknown limits. The transport follows the protocol declared by models.dev — OpenAI-compatible, OpenAI Responses, Anthropic or Google SDKs — used **only** to reach **opencode.ai**, never those vendors.
+
+A decision stays fixed across tool loops and network retries within one message. Every new message is re-evaluated; sessions and agents are isolated. Streaming, tools, cancellation and reasoning blocks pass through the native SDKs.
+
+**Fallback to the next candidate.** Zen retires and rate-limits free models without notice. When inference fails, the transport walks down Jev's own ranking, up to three models. Nothing has been streamed at that point, so the retry is invisible; a toast reports it. A cancelled turn never spends a second model. If TypeSafe itself fails, Jev keeps the previous model when still eligible, otherwise the cheapest known one, with an explicit fallback reason and `null` probabilities.
+
+## Cache and request counts
+
+| Source | Refresh | Failure fallback |
 | --- | --- | --- |
-| Catalogues Zen / Go | Début de conversation, puis au plus une fois toutes les 5 min aux nouveaux messages | Dernier catalogue, jusqu'à 24 h |
-| Métadonnées et benchmarks models.dev | 24 h | Cache jusqu'à 7 jours |
-| Snapshot de qualité GitHub | 24 h | Cache jusqu'à 30 jours, puis snapshot livré dans le paquet |
-| Paramètres Hugging Face optionnels | 7 jours | Cache jusqu'à 30 jours |
+| Zen / Go catalogues | Conversation start, then at most every 5 min on new messages | Last catalogue, up to 24 h |
+| models.dev metadata and benchmarks | 24 h | Cached up to 7 days |
+| GitHub quality snapshot | 24 h | Cached up to 30 days, then the copy shipped in the package |
+| Optional Hugging Face parameters | 7 days | Cached up to 30 days |
 
-Le cache persiste entre les redémarrages. Les requêtes simultanées vers la même source dans le processus sont mutualisées, les ETags sont réutilisés et un échec impose un délai avant nouvel essai. Deux processus démarrés simultanément avec un cache vide peuvent chacun effectuer un appel. Aucun score n'est rafraîchi pendant une boucle d'outils. Côté utilisateur, **zéro appel** vers l'API Artificial Analysis.
+The cache persists across restarts. Concurrent requests to the same source within a process are shared, ETags are reused, and a failure imposes a backoff before retrying. Two processes started simultaneously with a cold cache may each make one call. No score is refreshed during a tool loop. On the user side, **zero calls** to the Artificial Analysis API.
 
-## Publier un cache commun
+## Publishing the shared snapshot
 
-La workflow `.github/workflows/benchmarks.yml` actualise `data/benchmarks.json` sur `master` chaque jour, sans version npm. Elle doit être présente sur la branche par défaut du dépôt, avec Actions et l'écriture du bot autorisées. Les installations téléchargent le fichier public au maximum quotidiennement ; l'arrivée des modèles reste indépendante.
+`.github/workflows/benchmarks.yml` refreshes `data/benchmarks.json` on `master` daily, with no npm release. It must live on the repository's default branch, with Actions and bot writes enabled. Installations download the public file at most once a day; new models arrive independently.
 
 ```sh
 ARTIFICIAL_ANALYSIS_API_KEY='...' npm run benchmarks:sync
 ```
 
-Configure le secret `ARTIFICIAL_ANALYSIS_API_KEY` (clé du mainteneur) dans GitHub :
+Set the `ARTIFICIAL_ANALYSIS_API_KEY` secret (the maintainer's key) on GitHub:
 
 ```sh
 gh secret set ARTIFICIAL_ANALYSIS_API_KEY
 ```
 
-La workflow effectue **trois requêtes par jour** pour l'ensemble des utilisateurs : une vers Artificial Analysis, qui renvoie tous ses modèles en une fois, et une vers chaque catalogue Zen. Aucune requête par modèle n'est effectuée. Les modèles que les catalogues Zen exposent mais qu'Artificial Analysis n'a pas mesurés sont ignorés plutôt qu'estimés. La clé reste dans GitHub Secrets ; les utilisateurs lisent le snapshot public. Ne publie jamais la clé dans le dépôt.
+The workflow makes **three requests per day** for all users combined: one to Artificial Analysis, which returns every model it publishes in a single response, and one per Zen catalogue. There is no per-model polling. Models that Zen exposes but Artificial Analysis has not measured are skipped rather than estimated, and retired models are dropped. The key stays in GitHub Secrets; users read the public snapshot. Never commit the key.
 
-La redistribution du JSON Artificial Analysis relève de leurs [conditions](https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf) : vérifie tes droits avant de rendre le dépôt public.
+Redistributing Artificial Analysis JSON falls under their [terms](https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf): check your rights before making the repository public.
 
 ## Configuration
 
-| Variable | Rôle |
+| Variable | Purpose |
 | --- | --- |
-| `JEV_API_KEY` / `TYPESAFE_API_KEY` | Clé TypeSafe pour le routage |
-| `OPENCODE_GO_API_KEY` | Remplace la clé Go stockée par OpenCode |
-| `OPENCODE_API_KEY` | Remplace la clé Zen stockée par OpenCode |
-| `JEV_COST_WEIGHT` | Facteur de coût entre 0 et 1 ; défaut `0.02` |
-| `JEV_BENCHMARKS_URL` | URL HTTPS du snapshot commun ; défaut ce dépôt sur `master` |
-| `JEV_FETCH_PARAMETER_COUNTS` | `1` pour activer les consultations Hugging Face |
-| `JEV_CACHE_DIR` | Défaut `$XDG_CACHE_HOME/jev-opencode` ou `~/.cache/jev-opencode` |
-| `JEV_AUTH_FILE` | Chemin alternatif du `auth.json` OpenCode |
+| `JEV_API_KEY` / `TYPESAFE_API_KEY` | TypeSafe key used for routing |
+| `OPENCODE_GO_API_KEY` | Overrides the Go key stored by OpenCode |
+| `OPENCODE_API_KEY` | Overrides the Zen key stored by OpenCode |
+| `JEV_COST_WEIGHT` | Cost factor between 0 and 1; defaults to `0.02` |
+| `JEV_BENCHMARKS_URL` | HTTPS URL of the shared snapshot; defaults to this repository on `master` |
+| `JEV_FETCH_PARAMETER_COUNTS` | `1` enables Hugging Face lookups |
+| `JEV_CACHE_DIR` | Defaults to `$XDG_CACHE_HOME/jev-opencode` or `~/.cache/jev-opencode` |
+| `JEV_AUTH_FILE` | Alternative path to OpenCode's `auth.json` |
 
-Le format `OPENCODE_AUTH_CONTENT` et les clés déclarées dans la configuration des fournisseurs OpenCode sont également reconnus. Les clés ne sont jamais enregistrées dans le cache. Les fichiers `.env` ne sont pas chargés automatiquement par ce plugin.
+The `OPENCODE_AUTH_CONTENT` format and keys declared in OpenCode provider configuration are recognised too. Keys are never written to the cache. This plugin does not load `.env` files.
 
-Une notification indique le modèle réellement utilisé ; les logs OpenCode contiennent la distribution et les critères de décision, sans texte du prompt. Le budget de contexte affiché pour le fournisseur virtuel est conservateur (128k), les limites connues du modèle choisi étant revérifiées au moment de l'appel. L'estimation de tokens n'est pas un tokenizer propre à chaque modèle ; les limites restent contrôlées par le serveur OpenCode.
+A toast reports the model actually used; OpenCode logs carry the distribution and decision criteria, with no prompt text. The context budget advertised for the virtual provider is deliberately conservative (128k); the chosen model's real limits are re-checked at call time. Token estimation is not a per-model tokenizer, and limits remain enforced by the OpenCode server.
 
-## Développement
+## Troubleshooting
+
+| Symptom | Cause |
+| --- | --- |
+| `free tier can only be used from within OpenCode` | The request did not carry OpenCode's identity. Run the plugin inside OpenCode, not behind a proxy or `opencode serve`. |
+| `Model is unavailable` | The model was retired upstream. Refresh the catalogue, or clear `~/.cache/jev-opencode`. |
+| Fallback reported, `null` probabilities | `JEV_API_KEY` is missing from OpenCode's environment, or TypeSafe did not answer in time. |
+| `jev` models missing from `/models` | The plugin path is wrong, or `enabled_providers` omits `jev`. |
+
+## Development
 
 ```sh
 npm ci
 npm test
-npm run test:opencode # nécessite le binaire OpenCode ; serveurs LLM simulés
+npm run test:opencode # needs the OpenCode binary; LLM servers are stubbed
 npm pack --dry-run
 ```
 
-Les tests couvrent les nouveaux modèles inconnus, les exclusions, les probabilités, les contraintes de contexte, le cache et les pannes, l'isolation des tours, le streaming et les outils via les SDK réels. Les tests n'utilisent aucune clé réelle et ne consomment pas de crédit d'inférence.
+Tests cover unknown new models, exclusions, probabilities, context constraints, caching and outages, turn isolation, next-candidate fallback, streaming and tools through the real SDKs. They use no real key and consume no inference credit.
 
-MIT, adaptation de jev-router. Voir `NOTICE` pour les sources de données et licences tierces.
+MIT, adapted from jev-router. See `NOTICE` for data sources and third-party licences.
