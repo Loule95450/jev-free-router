@@ -1,0 +1,20 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import JevPlugin from '../src/plugin.mjs';
+import { runtimes } from '../src/runtime.mjs';
+test('plugin exposes the three persistent models and scopes routing headers', async () => {
+  const plugin = await JevPlugin({ client: {} });
+  const config = { model: 'another/model', provider: { existing: { name: 'keep' } } };
+  await plugin.config(config);
+  assert.deepEqual(Object.keys(config.provider.jev.models), ['jev', 'jev-free', 'jev-go']);
+  assert.equal(config.model, 'another/model');
+  assert.equal(config.provider.existing.name, 'keep');
+  assert.ok(runtimes.has(config.provider.jev.options.runtimeId));
+  const output = { headers: {} };
+  await plugin['chat.headers']({ model: { providerID: 'existing' } }, output);
+  assert.deepEqual(output.headers, {});
+  await plugin['chat.headers']({ model: { providerID: 'jev' }, message: { id: 'u1' }, sessionID: 's1', agent: 'build' }, output);
+  assert.equal(output.headers['x-jev-turn'], 'u1');
+  await plugin.dispose();
+  assert.equal(runtimes.has(config.provider.jev.options.runtimeId), false);
+});
