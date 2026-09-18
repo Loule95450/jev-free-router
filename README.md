@@ -1,278 +1,128 @@
-# jev-router
+# Jev pour OpenCode
 
-Automatic per-turn model routing for Claude Code and OpenAI Codex. Jev sends simple work to
-the fast tier and difficult work to the strong tier, while preserving each CLI's native
-interface, tools, sessions, permissions, and authentication.
+Sélectionne **Jev / jev**, **jev-free** ou **jev-go** dans `/models`, puis discute normalement. À chaque nouveau message, TypeSafe Jev estime une distribution **P(meilleur modèle pour cette demande)** sur les identifiants exacts du catalogue OpenCode. Le fournisseur sélectionné dans l'interface reste Jev.
 
-| Command | Interface | Authentication | Routing decision |
-| --- | --- | --- | --- |
-| `jev-claude` | Claude Code | Existing `claude login` | Status line |
-| `jev-codex` | OpenAI Codex | Existing `codex login` | Commentary line |
-
-Both commands launch the real upstream CLI. Jev only chooses the model for a fresh user turn.
-
-## Quick start
-
-Requires Node.js 20.12+ and at least one supported CLI:
-[Claude Code](https://code.claude.com/docs/en/setup) or
-[OpenAI Codex](https://developers.openai.com/codex/cli).
-
-### 1. npm package
-
-```bash
-npm install -g jev-router
-echo "JEV_API_KEY=..." > ~/.jev-router.env
-```
-
-### 2. Local repository
-
-```bash
-git clone https://github.com/gargpratyush/jev-router.git
-cd jev-router
-npm install
-npm link
-echo "JEV_API_KEY=..." > ~/.jev-router.env
-```
-
-On Windows PowerShell:
-
-```powershell
-Set-Content "$HOME\.jev-router.env" "JEV_API_KEY=..."
-```
-
-Get a key from [TypeSafe](https://docs.typesafe.ai). Then launch either interface from any
-repository:
-
-```bash
-jev-claude
-jev-codex
-```
-
-No Anthropic or OpenAI API key is required when the corresponding CLI is already logged in
-with a subscription. Every CLI argument is forwarded:
-
-```bash
-jev-claude --resume
-jev-claude -p "fix the failing test"
-jev-codex resume --last
-jev-codex exec "fix the failing test"
-```
-
-For a local checkout, `npm link` installs both commands. Without it, run
-`node bin/jev-claude.mjs` or `node bin/jev-codex.mjs`.
-
-## Claude Code interface
-
-![Jev Router in the Claude Code model picker](docs/model-picker.png)
-
-`jev-claude` launches Claude Code with **Jev Router** selected in `/model`. Selecting another
-model pauses routing; selecting **Jev Router** resumes it.
-
-The injected status line shows the model used for the last turn:
-
-```text
-⚡ haiku p=0.98 · my-project · 8% context
-⏸ manual Opus 4.6 · my-project · 21% context
-```
-
-Claude Code otherwise remains unchanged, including its keybindings, tools, permission prompts,
-`/compact`, `/resume`, and session handling. An existing custom `statusLine` is preserved;
-set `JEV_NO_STATUSLINE=1` to disable Jev's status line.
-
-The explanation skill is bundled with the npm package and loaded automatically: run
-`/jev-explain` in `jev-claude`, or `$jev-explain` in `jev-codex`, to see the factors behind
-the last routing decision:
-
-```text
-┌─────────────────────────────────┐
-│ Jev Router                      │
-│                                 │
-│ Jev request                     │
-│ Prompt: explain the router      │
-│ Current tier: HAIKU             │
-│ Context tokens: 6200            │
-│                                 │
-│ Jev response                    │
-│ Task complexity     0.82        │
-│ Reasoning required  0.91        │
-│ Tool complexity     0.64        │
-│ Context size        0.31        │
-│                                 │
-│ Recommended tier: SONNET        │
-│ Selected model: SONNET          │
-│                                 │
-│ Confidence: 94%                 │
-│ Decision: Jev recommendation    │
-└─────────────────────────────────┘
-```
-
-The report is rendered locally from the exact prompt, System One request, and System One
-response saved when routing occurred. Recent decisions are retained per CLI session; invoking
-the explanation skill does not ask Jev to score the prompt again.
-
-### Explanation data location
-
-Both `jev-claude` and `jev-codex` keep up to 20 recent routing exchanges in one JSON file per
-CLI session under Node.js's operating-system temporary directory:
-
-| Platform | Default location |
+| Choix | Candidats |
 | --- | --- |
-| Windows | `%TEMP%\jev-claude\<session-id>.json` |
-| macOS | `$TMPDIR/jev-claude/<session-id>.json` (normally under `/var/folders/.../T`) |
-| Ubuntu/Linux | `${TMPDIR:-/tmp}/jev-claude/<session-id>.json` |
+| `jev/jev` | Modèles gratuits Zen + Go si un compte Go est connecté |
+| `jev/jev-free` | Modèles gratuits Zen uniquement |
+| `jev/jev-go` | Modèles du catalogue Go ; connexion Go nécessaire |
 
-Print the exact directory selected on the current machine with:
+Les modèles OpenAI et Anthropic sont exclus, même lorsqu'ils figurent dans Go. Le dépôt remplace les anciens lanceurs Claude Code/Codex de [jev-router](https://github.com/gargpratyush/jev-router).
 
-```bash
-node -e "console.log(require('node:path').join(require('node:os').tmpdir(), 'jev-claude'))"
+## Installation depuis ce dépôt
+
+Node.js 22+ et OpenCode compatible AI SDK v3 ; intégration vérifiée avec OpenCode 1.18.31.
+
+```sh
+git clone https://github.com/Loule95450/jev-free-router.git
+cd jev-free-router
+npm ci
+node -e 'console.log(require("node:url").pathToFileURL(process.cwd() + "/src/plugin.mjs").href)'
 ```
 
-Claude filenames use Claude Code's session UUID. Codex filenames use
-`codex-<jev-codex-process-id>.json`. These temporary files contain prompt text and Jev's exact
-request and response; the operating system may remove them during normal temporary-file cleanup.
+Ajoute l'URL affichée à la liste `plugin` de ton `opencode.json` (global : `~/.config/opencode/opencode.json`). Conserve tes autres plugins et réglages :
 
-> Choosing a model with `Enter` can save it as Claude Code's default. `jev-claude` restores
-> the previous default on exit so `jev-auto` cannot break plain `claude`.
-
-## OpenAI Codex interface
-
-![Jev Router in the OpenAI Codex model picker](docs/codex-model-picker.png)
-
-`jev-codex` launches Codex with a temporary **Jev Router** provider and selects `jev-router`.
-The native `/model` picker still contains the models available to the account. Selecting a
-concrete model pauses routing; selecting **Jev Router** resumes it.
-
-Each fresh decision appears as Codex commentary:
-
-```text
-[Jev] routed this turn to gpt-5.6-sol (jev, confidence 0.91).
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": ["file:///chemin/vers/jev-free-router/src/plugin.mjs"],
+  "model": "jev/jev"
+}
 ```
 
-`jev-codex` installs or refreshes the packaged `$jev-explain` skill when it starts, so it is
-available from any repository without separate setup.
+Configure la clé du **cerveau TypeSafe** dans l'environnement qui lance OpenCode :
 
-Codex's footer shows `jev-router` because it displays the selected picker entry,
-not the model chosen behind that provider. If Jev is unavailable, the commentary names the
-fallback model and explains how to set `JEV_API_KEY`.
-
-## How it works
-
-Each command starts a loopback proxy, launches the real CLI, and forwards the CLI's existing
-authorization headers without reading, storing, or modifying them.
-
-```text
-you -> Claude Code -> jev-claude proxy -> Anthropic
-                         |
-                         +-> Jev: choose a tier
-
-you -> OpenAI Codex -> jev-codex proxy -> OpenAI
-                         |
-                         +-> Jev: choose a tier
+```sh
+export JEV_API_KEY='ta-cle-typesafe'
+opencode
 ```
 
-Claude Code uses `ANTHROPIC_BASE_URL`; Codex uses a temporary custom provider with
-`requires_openai_auth=true`. Claude uses `jev-auto` and Codex uses `jev-router` as the
-routing sentinel.
-Any concrete model selected by the user passes through unchanged.
+Cette clé reste nécessaire pour obtenir les probabilités de Jev. Sans elle, le plugin signale un mode de secours, sans prétendre calculer des probabilités. Aucune clé Artificial Analysis n'est nécessaire par défaut. Pour Go, utilise `/connect` → **OpenCode Go**, ou `OPENCODE_GO_API_KEY`. La clé Zen existante est réutilisée si disponible ; les modèles publics gratuits peuvent fonctionner sans elle, selon la politique d'OpenCode.
 
-## Routing policy
+Le plugin ajoute les trois modèles au démarrage. Aucun proxy à lancer, port à ouvrir ni liste de modèles à maintenir. Si tu utilises `enabled_providers`, ajoute `jev` à cette liste. Ne charge pas le même plugin à la fois via `plugin` et via `.opencode/plugins/`.
 
-One Jev call per fresh user turn selects a shared abstract tier:
+## Données dynamiques, sans note écrite dans le code
 
-| Tier | Claude Code default | Codex default |
+1. **Disponibilité** : catalogues officiels [Zen](https://opencode.ai/zen/v1/models) et [Go](https://opencode.ai/zen/go/v1/models). Zen contient aussi des modèles payants : Jev conserve les offres à coût nul connu ou les nouveaux IDs explicitement suffixés `-free`, sauf prix connu contradictoire.
+2. **Contexte, capacités, coûts** : [models.dev/api.json](https://models.dev/api.json), sans clé. Les prix Go sont des coûts de consommation du quota ; ils ne sont pas présentés comme une facture supplémentaire. Le solde personnel du quota n'est pas disponible dans `/models`.
+3. **Benchmarks** : [models.dev/models.json](https://models.dev/models.json), sans clé, avec les sources originales, versions, dates et conditions de test lorsqu'elles sont disponibles. Les mesures de fournisseurs et les évaluations indépendantes restent distinctes ; leurs scores ne sont pas fusionnés en un indice d'intelligence inventé.
+4. **Snapshot GitHub** : `data/benchmarks.json`, également téléchargé indépendamment de la version du plugin. Une GitHub Action quotidienne actualise ce fichier. Les scores Artificial Analysis et les copies de ses benchmarks identifiées comme telles sont exclus du snapshot public par défaut.
+5. **Artificial Analysis, optionnel** : `ARTIFICIAL_ANALYSIS_API_KEY` permet l'enrichissement par les évaluations de son API, avec cache local de 24 heures. Source : [Artificial Analysis](https://artificialanalysis.ai/).
+
+Un nouveau modèle présent dans les catalogues live devient candidat dès leur prochaine vérification, sans release du plugin et sans attendre le snapshot GitHub. Une absence de benchmark est **inconnue**, jamais transformée en zéro. Les rapprochements utilisent les IDs exacts, insensibles à la casse, sans préfixe de fournisseur et sans suffixe `-free` ; aucun score d'une ancienne version n'est attribué à la suivante. Les correspondances ambiguës sont ignorées.
+
+La « taille » en tokens est fournie par models.dev. Le nombre de paramètres n'est pas universellement publié et ne mesure pas l'intelligence. Avec `JEV_FETCH_PARAMETER_COUNTS=1`, Jev consulte aussi l'API publique Hugging Face pour les dépôts de poids liés par models.dev : nombre total de paramètres safetensors, cache de 7 jours. Pour les MoE, ce total n'est pas le nombre de paramètres actifs. Une valeur absente reste `null`.
+
+## Décision probabiliste
+
+Un seul appel System One contient un `Choice` sur les IDs exacts, accompagné de scores de complexité, raisonnement et outils. Jev reçoit le dernier message (maximum 24 000 caractères), un extrait récent de conversation (maximum 12 000 caractères), la taille estimée du contexte et les métadonnées des candidats. Aucun contenu n'est envoyé aux sources de benchmarks ; les requêtes de scores ne contiennent aucun prompt.
+
+La distribution complète renvoyée par TypeSafe est validée et conservée. Un résultat incomplet ou invalide déclenche le secours. Les probabilités sont des **estimations du routeur**, pas une garantie ni des probabilités de réussite calibrées expérimentalement.
+
+La sélection maximise `P(meilleur modèle) − poids_coût × coût_relatif_estimé`. Le poids vaut `0.02` par défaut : le prix influence les décisions proches, sans remplacer une forte préférence de qualité. `JEV_COST_WEIGHT=0` désactive ce facteur. Les coûts inconnus ne sont pas assimilés à la gratuité. La confiance globale, les probabilités et l'utilité après coût sont des champs distincts.
+
+Les contextes connus trop petits et les incompatibilités connues d'outils sont filtrés. Pour une pièce jointe non textuelle, la modalité doit être connue comme supportée. Un nouveau modèle sans métadonnées reste éligible aux demandes textuelles, avec limites inconnues. Le SDK choisit le protocole indiqué par models.dev ; les SDK nommés OpenAI-compatible et Anthropic servent uniquement au transport vers **opencode.ai**, jamais vers ces fournisseurs.
+
+Une décision reste fixe pendant les boucles d'outils et les reprises réseau d'un même message. Chaque nouveau message est réévalué ; les sessions et agents sont séparés. Les flux, outils, annulations et blocs de raisonnement passent par les SDK natifs. Si TypeSafe échoue, Jev garde le modèle précédent s'il est encore éligible, sinon prend le moins cher connu, avec indication explicite du secours et probabilités `null`.
+
+## Cache et nombre d'appels
+
+| Source | Actualisation | Secours en cas de panne |
 | --- | --- | --- |
-| Fast | Haiku | `gpt-5.6-luna` |
-| Balanced | Sonnet | `gpt-5.6-terra` |
-| Strong | Opus | `gpt-5.6-sol` |
-| Long | Fable | `gpt-6-astra` |
+| Catalogues Zen / Go | Début de conversation, puis au plus une fois toutes les 5 min aux nouveaux messages | Dernier catalogue, jusqu'à 24 h |
+| Métadonnées et benchmarks models.dev | 24 h | Cache jusqu'à 7 jours |
+| Snapshot GitHub | 24 h | Cache jusqu'à 30 jours, puis snapshot livré |
+| Artificial Analysis optionnel | 24 h | Cache jusqu'à 7 jours |
+| Paramètres Hugging Face optionnels | 7 jours | Cache jusqu'à 30 jours |
 
-`src/policy.mjs` then applies these rules:
+Le cache persiste entre les redémarrages. Les requêtes simultanées vers la même source dans le processus sont mutualisées, les ETags sont réutilisés et un échec impose un délai avant nouvel essai. Deux processus démarrés simultanément avec un cache vide peuvent chacun effectuer un appel. Aucun score n'est rafraîchi pendant une boucle d'outils. Sans clé Artificial Analysis, **zéro appel** vers son API.
 
-- explicit requests such as `use opus`, `use luna`, or `use strong` win;
-- failure, timeout, or an unrecognised Jev answer keeps the current model;
-- low confidence never downgrades and caps upgrades at the balanced tier;
-- large conversations refuse downgrades that would waste more prompt-cache work than they save;
-- unavailable tiers step upward rather than silently choosing a weaker model;
-- the long tier is disabled unless `JEV_ALLOW_FABLE=1`.
+## Publier un cache commun
 
-Tool-loop continuations keep the tier chosen at the start of the turn. Main conversations and
-sub-agents are pinned separately. Routing is fail-open: Jev failure never blocks the CLI.
+La workflow `.github/workflows/benchmarks.yml` actualise `data/benchmarks.json` sur `master` chaque jour, sans version npm. Elle doit être présente sur la branche par défaut du dépôt, avec Actions et l'écriture du bot autorisées. Les installations téléchargent le fichier public au maximum quotidiennement ; l'arrivée des modèles reste indépendante.
+
+```sh
+npm run benchmarks:sync
+# Source alternative de mesures de code, couverture plus ancienne :
+node scripts/sync-benchmarks.mjs aider
+```
+
+Pour partager des scores Artificial Analysis, ses [conditions](https://artificialanalysiscdn.com/legal/ProDataPlatformTerms.pdf) imposent un accord spécifique pour la redistribution de JSON. Après obtention de ce droit, configure dans GitHub :
+
+- Secret `ARTIFICIAL_ANALYSIS_API_KEY` : clé du mainteneur.
+- Variable `JEV_BENCHMARK_SOURCE=artificial-analysis`.
+- Variable `AA_ALLOW_REDISTRIBUTION=1`.
+
+La workflow effectue alors un appel quotidien pour l'ensemble des utilisateurs. La clé reste dans GitHub Secrets ; les utilisateurs lisent le snapshot public. Ne publie jamais la clé dans le dépôt. Le code et la workflow sont préparés ici ; leur présence locale n'active pas leur exécution sur GitHub.
 
 ## Configuration
 
-| Variable | Interface | Effect |
-| --- | --- | --- |
-| `JEV_API_KEY` | Both | Enables routing. `TYPESAFE_API_KEY` also works. |
-| `JEV_ALLOW_FABLE` | Both | Enables the opt-in long tier. |
-| `JEV_DEBUG` | Both | Logs decisions and rewrites to `~/.jev-claude.log` in interactive sessions. |
-| `JEV_DUMP` | Both | Dumps request bodies for debugging wire-format changes. |
-| `JEV_NO_STATUSLINE` | Claude | Disables the injected Claude status line. |
-| `JEV_CODEX_FAST_MODEL` | Codex | Fast model; defaults to `gpt-5.6-luna`. |
-| `JEV_CODEX_BALANCED_MODEL` | Codex | Balanced model; defaults to `gpt-5.6-terra`. |
-| `JEV_CODEX_STRONG_MODEL` | Codex | Strong model; defaults to `gpt-5.6-sol`. |
-| `JEV_CODEX_LONG_MODEL` | Codex | Long model; defaults to `gpt-6-astra`. |
+| Variable | Rôle |
+| --- | --- |
+| `JEV_API_KEY` / `TYPESAFE_API_KEY` | Clé TypeSafe pour le routage |
+| `OPENCODE_GO_API_KEY` | Remplace la clé Go stockée par OpenCode |
+| `OPENCODE_API_KEY` | Remplace la clé Zen stockée par OpenCode |
+| `ARTIFICIAL_ANALYSIS_API_KEY` | Enrichissement AA optionnel, cache 24 h |
+| `JEV_COST_WEIGHT` | Facteur de coût entre 0 et 1 ; défaut `0.02` |
+| `JEV_BENCHMARKS_URL` | URL HTTPS du snapshot commun ; défaut ce dépôt sur `master` |
+| `JEV_FETCH_PARAMETER_COUNTS` | `1` pour activer les consultations Hugging Face |
+| `JEV_CACHE_DIR` | Défaut `$XDG_CACHE_HOME/jev-opencode` ou `~/.cache/jev-opencode` |
+| `JEV_AUTH_FILE` | Chemin alternatif du `auth.json` OpenCode |
 
-Existing environment variables have highest precedence, followed by `.env` in the launch
-directory, `~/.jev-router.env`, and the legacy `~/.jev-claude.env`.
+Le format `OPENCODE_AUTH_CONTENT` et les clés déclarées dans la configuration des fournisseurs OpenCode sont également reconnus. Les clés ne sont jamais enregistrées dans le cache. Les fichiers `.env` ne sont pas chargés automatiquement par ce plugin.
 
-Tier definitions, Jev's question, confidence thresholds, and timeouts live in `src/config.mjs`.
-Both launchers send Jev the exact models in the signed-in account's native catalog, so model
-versions such as `claude-opus-4-8` and `claude-opus-5` remain separate choices. Static model
-ids are used only until the CLI fetches its catalog.
+Une notification indique le modèle réellement utilisé ; les logs OpenCode contiennent la distribution et les critères de décision, sans texte du prompt. Le budget de contexte affiché pour le fournisseur virtuel est conservateur (128k), les limites connues du modèle choisi étant revérifiées au moment de l'appel. L'estimation de tokens n'est pas un tokenizer propre à chaque modèle ; les limites restent contrôlées par le serveur OpenCode.
 
-## Compatibility notes
+## Développement
 
-- Claude Code needs schema normalisation for older MCP JSON Schema fields when a custom base
-  URL is active.
-- Claude request fields unsupported by a routed tier, such as adaptive thinking on Haiku,
-  are removed before forwarding.
-- Codex's current request format stores tool definitions inside its Responses API input.
-- Codex's ChatGPT backend may stream SSE without a `Content-Type` header; the proxy detects
-  the event stream from its first frame.
-- Codex workspace-specific enterprise origins are internal to its built-in provider and
-  cannot be reproduced by a custom provider.
-
-## Development
-
-```bash
-npm install
-echo "JEV_API_KEY=..." > .env
-
+```sh
+npm ci
 npm test
-node test/live-routing.mjs
-node bin/jev-claude.mjs -p "what is 2+2?"
-node bin/jev-codex.mjs exec "what is 2+2?"
+npm run test:opencode # nécessite le binaire OpenCode ; serveurs LLM simulés
+npm pack --dry-run
 ```
 
-The test suite covers shared policy, both request formats, model rewriting, capability
-handling, settings restoration, Codex authentication forwarding, native model-picker
-injection, and decision display.
+Les tests couvrent les nouveaux modèles inconnus, les exclusions, les probabilités, les contraintes de contexte, le cache et les pannes, l'isolation des tours, le streaming et les outils via les SDK réels. Les tests n'utilisent aucune clé réelle et ne consomment pas de crédit d'inférence.
 
-## Limitations
-
-- The user's prompt text is sent to TypeSafe for the routing decision. Nothing else is.
-- Jev adds latency only to the first request of a turn; tool-loop continuations add none.
-- Claude Code and Codex request formats are not public contracts. Use `JEV_DUMP` to diagnose
-  upstream changes.
-- Developed and tested on Windows against Claude Code v2.1.101 and OpenAI Codex v0.154.0.
-
-## Contributing
-
-Issues and pull requests are welcome. Use [Issues](https://github.com/gargpratyush/jev-router/issues)
-to report bugs, request improvements, or ask questions. Include the relevant Claude Code or
-Codex version, reproduction steps, expected behavior, and useful logs with secrets removed.
-
-For a pull request:
-
-1. Open an issue first - all PRs by contributors should be linked with an approved issue. Explain the problem and validation in the issue description.
-2. Fork the repository and create a focused branch from `master`.
-3. Make the smallest change that solves the problem.
-4. Run `npm test` and include tests for non-trivial behavior changes.
-5. Claude/Copilot/Codex shall not be the contributors. 
-
-Please do not commit API keys or other secrets. All contributions require review, and only the
-repository owner can merge pull requests.
-
-## License
-
-MIT
+MIT, adaptation de jev-router. Voir `NOTICE` pour les sources de données et licences tierces.
