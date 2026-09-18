@@ -1,85 +1,121 @@
-import { parse } from 'yaml';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { canonical, excluded, finite, AA_URL, CANONICAL_MODELS_URL } from '../src/config.mjs';
-import { validSnapshot, publicBenchmarks } from '../src/benchmarks.mjs';
+import { AA_URL, AA_SOURCE, ENDPOINTS, aaBase, aaEffort, excluded, finite } from '../src/config.mjs';
+import { validSnapshot } from '../src/benchmarks.mjs';
 
-export const AIDER_URL = 'https://raw.githubusercontent.com/Aider-AI/aider/main/aider/website/_data/polyglot_leaderboard.yml';
+/** Scale of every Artificial Analysis evaluation, so no consumer rescales a score by guessing. */
+export const METRICS = {
+  artificial_analysis_intelligence_index: { label: 'Artificial Analysis Intelligence Index', scale: 'index_0_100', higherIsBetter: true },
+  artificial_analysis_coding_index: { label: 'Artificial Analysis Coding Index', scale: 'index_0_100', higherIsBetter: true },
+  artificial_analysis_math_index: { label: 'Artificial Analysis Math Index', scale: 'index_0_100', higherIsBetter: true },
+  mmlu_pro: { label: 'MMLU-Pro', scale: 'ratio_0_1', higherIsBetter: true },
+  gpqa: { label: 'GPQA Diamond', scale: 'ratio_0_1', higherIsBetter: true },
+  hle: { label: "Humanity's Last Exam", scale: 'ratio_0_1', higherIsBetter: true },
+  livecodebench: { label: 'LiveCodeBench', scale: 'ratio_0_1', higherIsBetter: true },
+  scicode: { label: 'SciCode', scale: 'ratio_0_1', higherIsBetter: true },
+  math_500: { label: 'MATH-500', scale: 'ratio_0_1', higherIsBetter: true },
+  aime: { label: 'AIME', scale: 'ratio_0_1', higherIsBetter: true },
+  aime_25: { label: 'AIME 2025', scale: 'ratio_0_1', higherIsBetter: true },
+  ifbench: { label: 'IFBench (instruction following)', scale: 'ratio_0_1', higherIsBetter: true },
+  lcr: { label: 'Long Context Reasoning', scale: 'ratio_0_1', higherIsBetter: true },
+  terminalbench_hard: { label: 'Terminal-Bench Hard (agentic terminal use)', scale: 'ratio_0_1', higherIsBetter: true },
+  terminalbench_v2_1: { label: 'Terminal-Bench v2.1 (agentic terminal use)', scale: 'ratio_0_1', higherIsBetter: true },
+  tau2: { label: 'τ²-bench (tool use)', scale: 'ratio_0_1', higherIsBetter: true },
+  tau_banking: { label: 'τ-bench Banking (tool use)', scale: 'ratio_0_1', higherIsBetter: true },
+};
 
-export function fromAider(rows) {
-  const models = new Map();
+const numbers = (source) => Object.fromEntries(Object.entries(source ?? {}).filter(([, v]) => finite(v)));
+
+async function json(url, { headers = {} } = {}) {
+  const response = await fetch(url, { headers: { accept: 'application/json', ...headers }, signal: AbortSignal.timeout(30000), redirect: 'error' });
+  if (!response.ok) throw new Error(`${new URL(url).host} HTTP ${response.status}`);
+  return response.json();
+}
+
+/** Groups Artificial Analysis rows by model identity, keeping every reasoning effort. */
+export function indexArtificialAnalysis(rows) {
+  const known = new Set(rows.map((row) => row.slug).filter((slug) => typeof slug === 'string'));
+  const index = new Map();
   for (const row of rows) {
-    const match = row.command?.match(/(?:^|\s)--model\s+([^\s]+)/);
-    if (!match || !finite(row.pass_rate_2) || row.pass_rate_2 > 100 || row.test_cases !== 225) continue;
-    const id = canonical(match[1].replace(/^['"]|['"]$/g, ''));
-    if (excluded(id)) continue;
-    const entry = models.get(id) ?? { id, benchmarks: [] };
-    entry.benchmarks.push({
-      name: 'aider_polyglot_pass_rate_2', score: row.pass_rate_2, scale: 'percent',
-      source: 'https://aider.chat/docs/leaderboards/', date: String(row.date),
-      setup: { command: row.command, editFormat: row.edit_format, testCases: row.test_cases,
-        reasoningEffort: row.reasoning_effort ?? null, thinkingTokens: row.thinking_tokens ?? null },
-    });
-    models.set(id, entry);
+    if (typeof row.slug !== 'string') continue;
+    const [base, effort] = aaEffort(row.slug, known);
+    if (!index.has(base)) index.set(base, new Map());
+    // A duplicate effort would silently overwrite a sibling: keep the first and move on.
+    if (!index.get(base).has(effort)) index.get(base).set(effort, row);
   }
-  return [...models.values()];
+  return index;
 }
 
-export function fromArtificialAnalysis(rows) {
-  return rows.filter((row) => typeof row.slug === 'string' && !excluded(row.slug, { name: row.model_creator?.name }))
-    .map((row) => ({
-      id: canonical(row.slug), sourceModelId: row.id,
-      benchmarks: Object.entries(row.evaluations ?? {}).filter(([, n]) => finite(n)).map(([name, score]) => ({
-        name, score, source: 'https://artificialanalysis.ai/', date: new Date().toISOString(), dateKind: 'retrieved',
-      })),
-    }));
+export function levelOf(row) {
+  const evaluations = numbers(row.evaluations);
+  const pricing = numbers(row.pricing);
+  const throughput = numbers({
+    outputTokensPerSecond: row.median_output_tokens_per_second,
+    timeToFirstTokenSeconds: row.median_time_to_first_token_seconds,
+    timeToFirstAnswerTokenSeconds: row.median_time_to_first_answer_token,
+  });
+  const level = { aaModelId: row.id, aaSlug: row.slug, label: row.name };
+  if (Object.keys(evaluations).length) level.evaluations = evaluations;
+  if (Object.keys(pricing).length) level.pricing = pricing;
+  if (Object.keys(throughput).length) level.throughput = throughput;
+  return level;
 }
 
-export async function sync({ source = 'models-dev', output = 'data/benchmarks.json', input } = {}) {
-  let models;
-  if (source === 'artificial-analysis') {
-    if (process.env.AA_ALLOW_REDISTRIBUTION !== '1') {
-      throw new Error('Artificial Analysis JSON redistribution requires a separate agreement. Set AA_ALLOW_REDISTRIBUTION=1 only when that right has been obtained.');
-    }
-    if (!process.env.ARTIFICIAL_ANALYSIS_API_KEY) throw new Error('ARTIFICIAL_ANALYSIS_API_KEY is required for the publisher');
-    const response = await fetch(AA_URL, { headers: { 'x-api-key': process.env.ARTIFICIAL_ANALYSIS_API_KEY }, signal: AbortSignal.timeout(30000), redirect: 'error' });
-    if (!response.ok) throw new Error(`Artificial Analysis HTTP ${response.status}`);
-    const data = await response.json();
-    if (!Array.isArray(data.data)) throw new Error('Invalid Artificial Analysis response');
-    models = fromArtificialAnalysis(data.data);
-  } else if (source === 'models-dev') {
-    const data = input ? JSON.parse(await readFile(input, 'utf8')) : await (async () => {
-      const response = await fetch(CANONICAL_MODELS_URL, { signal: AbortSignal.timeout(30000), redirect: 'error' });
-      if (!response.ok) throw new Error(`models.dev HTTP ${response.status}`);
-      return response.json();
-    })();
-    models = Object.values(data).filter((m) => typeof m.id === 'string' && !excluded(m.id)).map((m) => ({
-      id: m.id, benchmarks: publicBenchmarks(m),
-    })).filter((m) => m.benchmarks.length);
-  } else if (source === 'aider') {
-    const text = input ? await readFile(input, 'utf8') : await (async () => {
-      const response = await fetch(AIDER_URL, { signal: AbortSignal.timeout(30000), redirect: 'error' });
-      if (!response.ok) throw new Error(`Aider HTTP ${response.status}`);
-      return response.text();
-    })();
-    const rows = parse(text, { maxAliasCount: 0 });
-    if (!Array.isArray(rows)) throw new Error('Invalid Aider benchmark data');
-    models = fromAider(rows);
-  } else throw new Error('Unknown benchmark source');
-  if (!models.length) throw new Error('Empty benchmark response: preserving existing snapshot');
-  models.sort((a, b) => a.id.localeCompare(b.id));
-  let previous;
-  try { previous = JSON.parse(await readFile(output, 'utf8')); } catch {}
-  if (previous?.source === source && JSON.stringify(previous.models) === JSON.stringify(models)) return false;
-  const snapshot = { version: 1, generatedAt: new Date().toISOString(), source, models };
+/** Live Zen catalogues decide which models are worth carrying; Artificial Analysis supplies the scores. */
+export function buildModels(zenIds, index) {
+  const models = [];
+  const skipped = [];
+  for (const id of [...new Set(zenIds)].sort()) {
+    const base = aaBase(id);
+    const variants = index.get(base);
+    // A model Artificial Analysis has not measured yet stays out rather than being guessed at.
+    if (!variants) { skipped.push(id); continue; }
+    const rows = [...variants.entries()];
+    const reasoningLevels = Object.fromEntries(rows.map(([effort, row]) => [effort, levelOf(row)]));
+    if (!Object.values(reasoningLevels).some((level) => level.evaluations)) { skipped.push(id); continue; }
+    const primary = variants.get('default') ?? rows[0][1];
+    models.push({
+      id, aaBase: base,
+      name: primary.name.replace(/\s*\([^()]*\)\s*$/, '').trim() || primary.name,
+      creator: primary.model_creator?.name ?? null,
+      releaseDate: typeof primary.release_date === 'string' ? primary.release_date : null,
+      reasoningLevels,
+    });
+  }
+  return { models, skipped };
+}
+
+export async function sync({ output = 'data/benchmarks.json', input, apiKey = process.env.ARTIFICIAL_ANALYSIS_API_KEY } = {}) {
+  if (!input && !apiKey) throw new Error('ARTIFICIAL_ANALYSIS_API_KEY is required to refresh the snapshot');
+  // One request covers every model Artificial Analysis publishes: never poll it per model.
+  const aa = input ? JSON.parse(await readFile(input, 'utf8')) : await json(AA_URL, { headers: { 'x-api-key': apiKey } });
+  if (!Array.isArray(aa.data) || !aa.data.length) throw new Error('Invalid Artificial Analysis response');
+  const catalogues = await Promise.allSettled(Object.values(ENDPOINTS).map((base) => json(`${base}/models`)));
+  const zenIds = catalogues.flatMap((result) => result.status === 'fulfilled' && Array.isArray(result.value?.data)
+    ? result.value.data.map((entry) => entry.id).filter((id) => typeof id === 'string' && !excluded(id)) : []);
+  if (!zenIds.length) throw new Error('Empty Zen catalogue: preserving existing snapshot');
+  const { models, skipped } = buildModels(zenIds, indexArtificialAnalysis(aa.data));
+  if (!models.length) throw new Error('No Zen model matched Artificial Analysis: preserving existing snapshot');
+  const snapshot = {
+    version: 2, generatedAt: new Date().toISOString(),
+    source: 'artificial-analysis', sourceUrl: AA_SOURCE,
+    metrics: METRICS, models,
+  };
   if (!validSnapshot(snapshot)) throw new Error('Invalid generated snapshot');
-  await mkdir(dirname(output), { recursive: true });
-  await writeFile(output, `${JSON.stringify(snapshot, null, 2)}\n`);
-  return true;
+  let previous;
+  try { previous = JSON.parse(await readFile(output, 'utf8')); } catch { /* First run writes a new file. */ }
+  const changed = JSON.stringify(previous?.models) !== JSON.stringify(models);
+  if (changed) {
+    await mkdir(dirname(output), { recursive: true });
+    await writeFile(output, `${JSON.stringify(snapshot, null, 2)}\n`);
+  }
+  return { changed, matched: models.length, skipped };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
-  const [source = 'models-dev', output = 'data/benchmarks.json', input] = process.argv.slice(2);
-  await sync({ source, output, input });
+  const [output = 'data/benchmarks.json', input] = process.argv.slice(2);
+  const { changed, matched, skipped } = await sync({ output, input });
+  console.log(`${matched} models matched, ${skipped.length} skipped (no Artificial Analysis entry): ${skipped.join(', ') || 'none'}`);
+  console.log(changed ? `Updated ${output}` : `${output} already current`);
 }

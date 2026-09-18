@@ -23,10 +23,8 @@ jobs:
       - run: npm test
       - name: Fetch benchmark source once for all users
         env:
-          BENCHMARK_SOURCE: ${{ vars.JEV_BENCHMARK_SOURCE || 'models-dev' }}
           ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
-          AA_ALLOW_REDISTRIBUTION: ${{ vars.AA_ALLOW_REDISTRIBUTION }}
-        run: node scripts/sync-benchmarks.mjs "$BENCHMARK_SOURCE"
+        run: node scripts/sync-benchmarks.mjs data/benchmarks.json
       - name: Publish updated data without a plugin release
         run: |
           if git diff --quiet -- data/benchmarks.json; then exit 0; fi

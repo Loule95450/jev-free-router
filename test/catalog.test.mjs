@@ -1,8 +1,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { Catalog, eligible } from '../src/catalog.mjs';
-import { benchmarksFor } from '../src/benchmarks.mjs';
-import { model } from './helpers.mjs';
+import { qualityFor } from '../src/benchmarks.mjs';
+import { model, snapshot } from './helpers.mjs';
+
+const level = (score) => ({ default: { aaSlug: 'x', evaluations: { artificial_analysis_intelligence_index: score } } });
 
 function fixture() {
   let free = ['existing', 'new-free', 'paid', 'gpt-new-free', 'claude-new-free'];
@@ -14,7 +16,8 @@ function fixture() {
   } } };
   const cache = { get: async (url) => ({ checkedAt: Date.now(), stale: false, value:
     url.endsWith('/models.json') ? { 'lab/new-free': { id: 'lab/new', benchmarks: [{ name: 'Coding', score: 92, source: 'https://lab.example/eval' }] } } :
-      url.includes('models.dev') ? meta : url.includes('benchmarks') ? { version: 1, generatedAt: new Date().toISOString(), models: [] } :
+      url.includes('models.dev') ? meta : url.includes('benchmarks')
+        ? snapshot([{ id: 'new-free', reasoningLevels: level(77) }]) :
       { data: (url.includes('/go/') ? ['go-model', 'next-generation', 'gpt-5.6-luna'] : free).map((id) => ({ id })) },
   }) };
   return { catalog: new Catalog(cache, { benchmarksUrl: 'https://example.com/benchmarks' }),
@@ -25,7 +28,9 @@ test('Zen only includes free entries; neither pool can include OpenAI or Anthrop
   const result = await catalog.load({ hasGo: true });
   assert.deepEqual(result.map((m) => m.id), ['existing', 'new-free', 'go-model', 'next-generation']);
   assert.equal(result[2].protocol, '@ai-sdk/anthropic'); // Go transport, not a Claude model.
-  assert.equal(result.find((m) => m.id === 'new-free').benchmarks[0].score, 92);
+  const fresh = result.find((m) => m.id === 'new-free');
+  assert.equal(fresh.benchmarks[0].score, 92); // Sourced models.dev score.
+  assert.equal(fresh.quality.reasoningLevels.default.evaluations.artificial_analysis_intelligence_index, 77);
 });
 test('a newly listed model immediately participates without a score or package update', async () => {
   const { catalog, add } = fixture();
@@ -34,6 +39,7 @@ test('a newly listed model immediately participates without a score or package u
   const result = await catalog.load({ force: true });
   const fresh = result.find((m) => m.id === 'tomorrow-free');
   assert.deepEqual(fresh.benchmarks, []);
+  assert.equal(fresh.quality, null);
   assert.equal(fresh.context, null);
   assert.equal(fresh.parameters, null);
 });
@@ -48,9 +54,9 @@ test('hard constraints filter known incompatibility without turning missing benc
   assert.deepEqual(eligible(candidates, { modalities: ['image'] }).map((m) => m.id), ['vision']);
 });
 test('benchmark matching preserves versions and never borrows a predecessor score', () => {
-  const data = { models: [{ id: 'model-2', benchmarks: [{ score: 90 }] }], aa: null };
-  assert.equal(benchmarksFor('model-2-free', data)[0].score, 90);
-  assert.deepEqual(benchmarksFor('model-3-free', data), []);
+  const data = { models: new Map([['model-2', { id: 'model-2', reasoningLevels: level(90) }]]), metrics: {}, generatedAt: null, source: null };
+  assert.equal(qualityFor('model-2-free', data).reasoningLevels.default.evaluations.artificial_analysis_intelligence_index, 90);
+  assert.equal(qualityFor('model-3-free', data), null);
 });
 
 test('optional Hugging Face parameter counts are sourced and do not become quality scores', async () => {
@@ -60,7 +66,7 @@ test('optional Hugging Face parameter counts are sourced and do not become quali
     const value = url.includes('huggingface.co/api') ? { safetensors: { total: 123456 } } :
       url.endsWith('/models.json') ? { 'lab/fresh': { id: 'lab/fresh', weights: [{ url: 'https://huggingface.co/lab/fresh' }] } } :
       url.endsWith('/api.json') ? { opencode: { models: {} } } :
-      url.includes('benchmarks') ? { version: 1, generatedAt: new Date().toISOString(), models: [] } :
+      url.includes('benchmarks') ? snapshot() :
       { data: [{ id: 'fresh-free' }] };
     return { value, checkedAt: Date.now(), stale: false };
   } };

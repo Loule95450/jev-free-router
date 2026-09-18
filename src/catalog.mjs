@@ -1,12 +1,12 @@
 import { ENDPOINTS, MODELS_URL, CANONICAL_MODELS_URL, DAY, MINUTE, canonical, excluded, finite } from './config.mjs';
-import { benchmarksFor, loadBenchmarks, publicBenchmarks } from './benchmarks.mjs';
+import { loadBenchmarks, publicBenchmarks, qualityFor } from './benchmarks.mjs';
 
 const validList = (v) => Array.isArray(v?.data) && v.data.every((m) => typeof m.id === 'string' && m.id.length > 0);
 const validMetadata = (v) => v && typeof v === 'object' && v.opencode?.models && typeof v.opencode.models === 'object';
 const number = (n) => finite(n) ? n : null;
 
 export class Catalog {
-  constructor(cache, config) { this.cache = cache; this.config = config; }
+  constructor(cache, config) { this.cache = cache; this.config = config; this.metrics = {}; }
 
   async load({ force = false, hasGo = false, mode = 'jev' } = {}) {
     const pools = mode === 'jev-free' ? ['free'] : mode === 'jev-go' ? ['go'] : ['free', ...(hasGo ? ['go'] : [])];
@@ -20,10 +20,9 @@ export class Catalog {
     ]);
     const meta = metadata.status === 'fulfilled' ? metadata.value.value : {};
     const canonicalModels = canonicalData.status === 'fulfilled' ? Object.values(canonicalData.value.value) : [];
-    const scores = benchmarks.status === 'fulfilled' ? benchmarks.value : { models: [], aa: null };
-    // The live canonical feed supersedes an older snapshot of the same source.
-    const supplemental = scores.source === 'models-dev' && canonicalData.status === 'fulfilled'
-      ? { ...scores, models: [] } : scores;
+    const scores = benchmarks.status === 'fulfilled' ? benchmarks.value : { models: new Map(), metrics: {}, generatedAt: null, source: null };
+    // Metric scales are shared by every model: the router explains them once, not per candidate.
+    this.metrics = scores.metrics;
     const candidates = [];
     pools.forEach((pool, index) => {
       const list = lists[index];
@@ -60,8 +59,7 @@ export class Catalog {
           temperature: capabilities?.temperature ?? null,
           parameters: null,
           weightSource: identity?.weights?.find((w) => /^https:\/\/huggingface.co\/[^/]+\/[^/]+\/?$/.test(w.url))?.url ?? null,
-          cost, benchmarks: [...new Map([...publicBenchmarks(identity), ...benchmarksFor(entry.id, supplemental)]
-            .map((b) => [JSON.stringify(b), b])).values()],
+          cost, benchmarks: publicBenchmarks(identity), quality: qualityFor(entry.id, scores),
           metadataSource: capabilities ? (capabilities === identity ? CANONICAL_MODELS_URL : MODELS_URL) : null,
           catalogCheckedAt: list.value.checkedAt,
           catalogStale: list.value.stale,

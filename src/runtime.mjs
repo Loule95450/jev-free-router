@@ -62,7 +62,8 @@ export class Runtime {
         options.abortSignal?.throwIfAborted();
         const candidates = eligible(models, info);
         if (!candidates.length) throw new Error('No eligible live model for this Jev mode, context, or attachments');
-        const decision = await this.router.route({ ...info, models: candidates, current: this.sessions.get(sessionKey)?.id }, options.abortSignal);
+        const decision = await this.router.route({ ...info, models: candidates, metrics: this.catalog.metrics,
+          current: this.sessions.get(sessionKey)?.id }, options.abortSignal);
         this.sessions.delete(sessionKey);
         this.sessions.set(sessionKey, { id: decision.model.id });
         if (this.sessions.size > 256) this.sessions.delete(this.sessions.keys().next().value);

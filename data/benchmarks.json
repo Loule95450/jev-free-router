@@ -1,2532 +1,2070 @@
 {
-  "version": 1,
-  "generatedAt": "2026-09-18T17:33:29.224Z",
-  "source": "models-dev",
+  "version": 2,
+  "generatedAt": "2026-09-18T20:34:23.892Z",
+  "source": "artificial-analysis",
+  "sourceUrl": "https://artificialanalysis.ai/",
+  "metrics": {
+    "artificial_analysis_intelligence_index": {
+      "label": "Artificial Analysis Intelligence Index",
+      "scale": "index_0_100",
+      "higherIsBetter": true
+    },
+    "artificial_analysis_coding_index": {
+      "label": "Artificial Analysis Coding Index",
+      "scale": "index_0_100",
+      "higherIsBetter": true
+    },
+    "artificial_analysis_math_index": {
+      "label": "Artificial Analysis Math Index",
+      "scale": "index_0_100",
+      "higherIsBetter": true
+    },
+    "mmlu_pro": {
+      "label": "MMLU-Pro",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "gpqa": {
+      "label": "GPQA Diamond",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "hle": {
+      "label": "Humanity's Last Exam",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "livecodebench": {
+      "label": "LiveCodeBench",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "scicode": {
+      "label": "SciCode",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "math_500": {
+      "label": "MATH-500",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "aime": {
+      "label": "AIME",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "aime_25": {
+      "label": "AIME 2025",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "ifbench": {
+      "label": "IFBench (instruction following)",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "lcr": {
+      "label": "Long Context Reasoning",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "terminalbench_hard": {
+      "label": "Terminal-Bench Hard (agentic terminal use)",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "terminalbench_v2_1": {
+      "label": "Terminal-Bench v2.1 (agentic terminal use)",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "tau2": {
+      "label": "τ²-bench (tool use)",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    },
+    "tau_banking": {
+      "label": "τ-bench Banking (tool use)",
+      "scale": "ratio_0_1",
+      "higherIsBetter": true
+    }
+  },
   "models": [
     {
-      "id": "alibaba/qwen-max",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 21.8,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-01-28"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3-235b-a22b",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 59.6,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-05-09"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 21.41,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3-32b",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 40,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-05-08"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3-coder-480b-a35b-instruct",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 38.7,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.5-122b-a10b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 72,
-          "metric": "resolved",
-          "source": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.5-27b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 72.4,
-          "metric": "resolved",
-          "source": "https://huggingface.co/Qwen/Qwen3.5-27B"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.5-397b-a17b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 76.4,
-          "metric": "resolved",
-          "source": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.6-27b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 77.2,
-          "metric": "resolved",
-          "source": "https://huggingface.co/Qwen/Qwen3.6-27B"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.6-35b-a3b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 73.4,
-          "metric": "resolved",
-          "source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.7-max",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 80.4,
-          "metric": "resolved",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 60.6,
-          "metric": "resolve rate",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 78.3,
-          "metric": "resolve rate",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 69.7,
-          "metric": "success rate",
-          "harness": "Terminus-2",
-          "version": "2.0",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 92.4,
-          "metric": "accuracy",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 41.4,
-          "metric": "accuracy",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "SciCode",
-          "score": 53.5,
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "MCP Atlas",
-          "score": 76.4,
-          "metric": "success rate",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "NL2Repo",
-          "score": 47.2,
-          "harness": "Claude Code",
-          "source": "https://qwen.ai/blog?id=qwen3.7",
-          "date": "2026-05-19"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.8-27b",
-      "benchmarks": [
-        {
-          "name": "SWE-bench Pro",
-          "score": 61.7,
-          "metric": "resolved",
-          "source": "https://huggingface.co/Qwen/Qwen3.8-27B"
-        }
-      ]
-    },
-    {
-      "id": "alibaba/qwen3.8-max-preview",
-      "benchmarks": [
-        {
-          "name": "Terminal-Bench",
-          "score": 86.6,
-          "metric": "accuracy",
-          "variant": "xhigh",
-          "version": "2.1",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 67.7,
-          "metric": "resolve rate",
-          "harness": "Claude Code",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 56.6,
-          "metric": "resolve rate",
-          "harness": "Claude Code",
-          "variant": "xhigh",
-          "version": "1.1",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "NL2Repo",
-          "score": 55.9,
-          "metric": "resolve rate",
-          "harness": "Claude Code",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "FrontierSWE",
-          "score": 73.5,
-          "metric": "dominance score",
-          "harness": "Claude Code",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "MLS-Bench-Lite",
-          "score": 41,
-          "metric": "score",
-          "harness": "Claude Code",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "AutomationBench",
-          "score": 27.3,
-          "metric": "pass@1",
-          "variant": "xhigh",
-          "dataset": "600-task public subset",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "Toolathlon Verified",
-          "score": 72.5,
-          "metric": "pass@1",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "WideSearch",
-          "score": 81.9,
-          "metric": "F1",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 56.2,
-          "metric": "accuracy",
-          "variant": "xhigh, with tools",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 92.6,
-          "metric": "accuracy",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 43.6,
-          "metric": "accuracy",
-          "variant": "xhigh, no tools",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "IFBench",
-          "score": 82.8,
-          "metric": "score",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 86.1,
-          "metric": "success rate",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        },
-        {
-          "name": "MMMU Pro",
-          "score": 82.3,
-          "metric": "accuracy",
-          "variant": "xhigh",
-          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
-          "date": "2026-08-03"
-        }
-      ]
-    },
-    {
-      "id": "cohere/command-a-03-2025",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 12,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-03-14"
-        }
-      ]
-    },
-    {
-      "id": "cohere/north-mini-code-1-0",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 67.6,
-          "metric": "resolved",
-          "harness": "SWE-agent",
-          "source": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0",
-          "date": "2026-06-09"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 40.2,
-          "metric": "resolve rate",
-          "harness": "SWE-agent",
-          "source": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0",
-          "date": "2026-06-09"
-        }
-      ]
-    },
-    {
-      "id": "deepreinforce/ornith-1.0-35b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 75.6,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 50.4,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 69.3,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
-        },
-        {
-          "name": "Terminal-Bench 2.1",
-          "score": 64.2,
-          "metric": "percent",
-          "variant": "Terminus-2",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
-        },
-        {
-          "name": "Terminal-Bench 2.1",
-          "score": 62.8,
-          "metric": "percent",
-          "variant": "Claude Code",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
-        },
-        {
-          "name": "NL2Repo",
-          "score": 34.6,
-          "metric": "percent",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
-        },
-        {
-          "name": "Claw-eval",
-          "score": 69.8,
-          "metric": "percent",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
-        }
-      ]
-    },
-    {
-      "id": "deepreinforce/ornith-1.0-397b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 82.4,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 62.2,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 78.9,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
-        },
-        {
-          "name": "Terminal-Bench 2.1",
-          "score": 77.5,
-          "metric": "percent",
-          "variant": "Terminus-2",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
-        },
-        {
-          "name": "Terminal-Bench 2.1",
-          "score": 78.2,
-          "metric": "percent",
-          "variant": "Claude Code",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
-        },
-        {
-          "name": "NL2Repo",
-          "score": 48.2,
-          "metric": "percent",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
-        },
-        {
-          "name": "Claw-eval",
-          "score": 77.1,
-          "metric": "percent",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
-        }
-      ]
-    },
-    {
-      "id": "deepreinforce/ornith-1.0-9b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 69.4,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 42.9,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 52,
-          "metric": "percent resolved",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
-        },
-        {
-          "name": "Terminal-Bench 2.1",
-          "score": 43.1,
-          "metric": "percent",
-          "variant": "Terminus-2",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
-        },
-        {
-          "name": "Terminal-Bench 2.1",
-          "score": 40.6,
-          "metric": "percent",
-          "variant": "Claude Code",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
-        },
-        {
-          "name": "NL2Repo",
-          "score": 27.2,
-          "metric": "percent",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
-        },
-        {
-          "name": "Claw-eval",
-          "score": 63.1,
-          "metric": "percent",
-          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
-        }
-      ]
-    },
-    {
-      "id": "deepseek/deepseek-chat",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 70.2,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-10-03"
-        }
-      ]
-    },
-    {
-      "id": "deepseek/deepseek-r1",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 56.9,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-01-20"
-        }
-      ]
-    },
-    {
-      "id": "deepseek/deepseek-reasoner",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 74.2,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-10-03"
-        }
-      ]
-    },
-    {
-      "id": "deepseek/deepseek-v4-flash",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 79,
-          "metric": "resolved",
-          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"
-        }
-      ]
-    },
-    {
-      "id": "deepseek/deepseek-v4-flash-0731",
-      "benchmarks": [
-        {
-          "name": "Terminal-Bench",
-          "score": 82.7,
-          "metric": "pass@1",
-          "variant": "max",
-          "version": "2.1",
-          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731"
-        },
-        {
-          "name": "NL2Repo",
-          "score": 54.2,
-          "metric": "resolve rate",
-          "harness": "DeepSeek Harness minimal mode",
-          "variant": "max effort",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        },
-        {
-          "name": "CyberGym",
-          "score": 76.7,
-          "metric": "score",
-          "harness": "DeepSeek Harness minimal mode",
-          "variant": "max effort",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 54.4,
-          "metric": "resolve rate",
-          "harness": "DeepSeek Harness minimal mode",
-          "variant": "max effort",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        },
-        {
-          "name": "Toolathlon-Verified",
-          "score": 70.3,
-          "metric": "score",
-          "harness": "DeepSeek Harness minimal mode",
-          "variant": "max effort",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        },
-        {
-          "name": "Agents' Last Exam",
-          "score": 25.2,
-          "metric": "score",
-          "harness": "DeepSeek Harness minimal mode",
-          "variant": "max effort",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        },
-        {
-          "name": "AutomationBench",
-          "score": 25.1,
-          "metric": "success rate",
-          "variant": "max effort",
-          "dataset": "public",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        },
-        {
-          "name": "DSBench-FullStack",
-          "score": 68.7,
-          "metric": "score",
-          "variant": "max effort",
-          "dataset": "internal",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        },
-        {
-          "name": "DSBench-Hard",
-          "score": 59.6,
-          "metric": "score",
-          "variant": "max effort",
-          "dataset": "internal",
-          "source": "https://api-docs.deepseek.com/updates/",
-          "date": "2026-07-31"
-        }
-      ]
-    },
-    {
-      "id": "deepseek/deepseek-v4-pro",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 80.6,
-          "metric": "resolved",
-          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-2.5-flash",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 55.1,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-05-25"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-2.5-pro",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 83.1,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-06-06"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-3-flash-preview",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 34.63,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        },
-        {
-          "name": "SWE-Atlas Codebase QnA",
-          "score": 8.2,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
-        },
-        {
-          "name": "SWE-Atlas Refactoring",
-          "score": 10,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
-        },
-        {
-          "name": "SWE-Atlas Test Writing",
-          "score": 30.3,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-3-pro-preview",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 43.3,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-3.1-pro-preview",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 54.2,
-          "metric": "resolve rate",
-          "source": "https://www.anthropic.com/news/claude-opus-4-8",
-          "date": "2026-05-28"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 70.3,
-          "metric": "success rate",
-          "harness": "Terminus-2",
-          "version": "2.1",
-          "source": "https://www.anthropic.com/news/claude-opus-4-8",
-          "date": "2026-05-28"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 46.1,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        },
-        {
-          "name": "SWE-Atlas Codebase QnA",
-          "score": 13.5,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
-        },
-        {
-          "name": "SWE-Atlas Refactoring",
-          "score": 33.81,
-          "metric": "score",
-          "harness": "Gemini CLI",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
-        },
-        {
-          "name": "SWE-Atlas Test Writing",
-          "score": 29.84,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 94.3,
-          "metric": "accuracy",
-          "source": "https://openai.com/index/introducing-gpt-5-5/",
-          "date": "2026-04-23"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 44.4,
-          "metric": "accuracy",
-          "dataset": "full set, text + MM",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "ARC-AGI-2",
-          "score": 77.1,
-          "metric": "accuracy",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "MMMU Pro",
-          "score": 80.5,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "MCP Atlas",
-          "score": 78.2,
-          "metric": "success rate",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 76.2,
-          "metric": "success rate",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 83.3,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "GDPval-AA",
-          "score": 1314,
-          "metric": "Elo",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-3.5-flash",
-      "benchmarks": [
-        {
-          "name": "Terminal-Bench",
-          "score": 76.2,
-          "metric": "success rate",
-          "harness": "Terminus-2",
-          "version": "2.1",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 55.1,
-          "metric": "resolve rate",
-          "variant": "single attempt",
-          "dataset": "public",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "MCP Atlas",
-          "score": 83.6,
-          "metric": "success rate",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "Toolathlon",
-          "score": 56.5,
-          "metric": "success rate",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 78.4,
-          "metric": "success rate",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "MMMU Pro",
-          "score": 83.6,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 84.2,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 40.2,
-          "metric": "accuracy",
-          "dataset": "full set, text + MM",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "ARC-AGI-2",
-          "score": 72.1,
-          "metric": "accuracy",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        },
-        {
-          "name": "GDPval-AA",
-          "score": 1656,
-          "metric": "Elo",
-          "source": "https://deepmind.google/models/gemini/flash/",
-          "date": "2026-05-19"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-3.5-flash-lite",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 54.2,
-          "metric": "resolve rate",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 54,
-          "metric": "accuracy",
-          "harness": "Terminus 2",
-          "version": "2.1",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "MLE-Bench",
-          "score": 39.2,
-          "metric": "average position score",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "GDPval-AA",
-          "score": 1140,
-          "metric": "Elo",
-          "version": "v2",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 74,
-          "metric": "success rate",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 74.5,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 76.5,
-          "metric": "accuracy",
-          "variant": "with tools",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "GDM-MRCR",
-          "score": 72.2,
-          "metric": "accuracy",
-          "variant": "128k average, 8-needle",
-          "version": "v2",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "GDM-MRCR",
-          "score": 21.3,
-          "metric": "accuracy",
-          "variant": "1M pointwise, 8-needle",
-          "version": "v2",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
-          "date": "2026-07-21"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-3.6-flash",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 58.7,
-          "metric": "resolve rate",
-          "harness": "Antigravity",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 49,
-          "metric": "resolve rate",
-          "variant": "high reasoning",
-          "version": "1.1",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 78,
-          "metric": "accuracy",
-          "harness": "Terminus 2",
-          "version": "2.1",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "MLE-Bench",
-          "score": 63.9,
-          "metric": "average position score",
-          "dataset": "Partial 30",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "GDPval-AA",
-          "score": 1421,
-          "metric": "Elo",
-          "version": "v2",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 83,
-          "metric": "success rate",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 85.2,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 89.4,
-          "metric": "accuracy",
-          "variant": "with tools",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "GDM-MRCR",
-          "score": 91.8,
-          "metric": "accuracy",
-          "variant": "128k average, 8-needle",
-          "version": "v2",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        },
-        {
-          "name": "GDM-MRCR",
-          "score": 54,
-          "metric": "accuracy",
-          "variant": "1M pointwise, 8-needle",
-          "version": "v2",
-          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
-          "date": "2026-07-21"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-3.7-flash",
-      "benchmarks": [
-        {
-          "name": "FrontierCode",
-          "score": 43.6,
-          "metric": "score",
-          "version": "1.1 Main",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
-          "date": "2026-08-13"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 65.3,
-          "metric": "resolve rate",
-          "version": "1.1",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
-          "date": "2026-08-13"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 85.8,
-          "metric": "accuracy",
-          "version": "2.1",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
-          "date": "2026-08-13"
-        },
-        {
-          "name": "AutomationBench",
-          "score": 30.4,
-          "metric": "accuracy",
-          "dataset": "private set",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
-          "date": "2026-08-13"
-        },
-        {
-          "name": "GDP.pdf",
-          "score": 34,
-          "metric": "accuracy",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
-          "date": "2026-08-13"
-        },
-        {
-          "name": "GDM-MRCR",
-          "score": 97,
-          "metric": "accuracy",
-          "variant": "128k average, 8-needle",
-          "version": "v2",
-          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
-          "date": "2026-08-13"
-        }
-      ]
-    },
-    {
-      "id": "google/gemini-omni-flash-preview",
-      "benchmarks": [
-        {
-          "name": "LMArena Text-to-Video Arena",
-          "score": 1527,
-          "metric": "Elo",
-          "source": "https://venturebeat.com/technology/googles-gemini-omni-flash-hits-the-api-turning-enterprise-video-production-into-a-conversation",
-          "date": "2026-06-30"
-        }
-      ]
-    },
-    {
-      "id": "meituan/longcat-2.0",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 59.5,
-          "metric": "resolve rate",
-          "source": "https://github.com/meituan-longcat/longcat-2.0",
-          "date": "2026-06-30"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 77.3,
-          "metric": "resolve rate",
-          "source": "https://github.com/meituan-longcat/longcat-2.0",
-          "date": "2026-06-30"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 70.8,
-          "metric": "success rate",
-          "version": "2.1",
-          "source": "https://github.com/meituan-longcat/longcat-2.0",
-          "date": "2026-06-30"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 88.9,
-          "metric": "accuracy",
-          "source": "https://github.com/meituan-longcat/longcat-2.0",
-          "date": "2026-06-30"
-        },
-        {
-          "name": "BrowseComp",
-          "score": 79.9,
-          "metric": "accuracy",
-          "source": "https://github.com/meituan-longcat/longcat-2.0",
-          "date": "2026-06-30"
-        },
-        {
-          "name": "IFEval",
-          "score": 90,
-          "metric": "accuracy",
-          "source": "https://github.com/meituan-longcat/longcat-2.0",
-          "date": "2026-06-30"
-        },
-        {
-          "name": "FORTE",
-          "score": 73.2,
-          "metric": "success rate",
-          "source": "https://github.com/meituan-longcat/longcat-2.0",
-          "date": "2026-06-30"
-        }
-      ]
-    },
-    {
-      "id": "meta/llama-4-maverick-17b-instruct",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 15.6,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-04-06"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 5.24,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        }
-      ]
-    },
-    {
-      "id": "meta/muse-glimmer-30b",
-      "benchmarks": [
-        {
-          "name": "MCP Atlas",
-          "score": 75.5,
-          "metric": "success rate",
-          "variant": "public",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "DeepSearch QA",
-          "score": 74.6,
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 51.2,
-          "metric": "resolve rate",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "SWE-Bench Verified",
-          "score": 76,
-          "metric": "resolve rate",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 51.7,
-          "metric": "success rate",
-          "variant": "with terminus2",
-          "version": "2.1",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 65.9,
-          "metric": "success rate",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "AIME 2026",
-          "score": 94.7,
-          "metric": "accuracy",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 83.5,
-          "metric": "accuracy",
-          "variant": "AA",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 78.8,
-          "metric": "accuracy",
-          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
-          "date": "2026-08-10"
-        }
-      ]
-    },
-    {
-      "id": "meta/muse-spark-1.1",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 61.5,
-          "metric": "resolve rate",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 80,
-          "metric": "success rate",
-          "version": "2.1",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 53.3,
-          "metric": "resolve rate",
-          "version": "1.1",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "MCP Atlas",
-          "score": 88.1,
-          "metric": "success rate",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "JobBench",
-          "score": 54.7,
-          "metric": "success rate",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "Toolathlon-Verified",
-          "score": 75.6,
-          "metric": "success rate",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 62.1,
-          "metric": "accuracy",
-          "variant": "with tools",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 80.8,
-          "metric": "success rate",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "Finance Agent",
-          "score": 57.2,
-          "metric": "accuracy",
-          "version": "v2",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 88.4,
-          "metric": "accuracy",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        },
-        {
-          "name": "BabyVision",
-          "score": 76.3,
-          "metric": "accuracy",
-          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
-          "date": "2026-07-09"
-        }
-      ]
-    },
-    {
-      "id": "microsoft/mai-code-1-flash",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 51.2,
-          "metric": "resolve rate",
-          "harness": "GitHub Copilot",
-          "source": "https://microsoft.ai/news/introducingmai-code-1-flash/",
-          "date": "2026-06-02"
-        },
-        {
-          "name": "SWE-Bench Verified",
-          "score": 71.6,
-          "metric": "resolved",
-          "source": "https://llm-stats.com/benchmarks/swe-bench-verified"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 54.8,
-          "metric": "success rate",
-          "version": "2.0",
-          "source": "https://llm-stats.com/benchmarks/terminal-bench-2"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 84.6,
-          "metric": "accuracy",
-          "source": "https://llm-stats.com/benchmarks/gpqa"
-        }
-      ]
-    },
-    {
-      "id": "microsoft/phi-4-mini",
-      "benchmarks": [
-        {
-          "name": "MMLU",
-          "score": 67.3,
-          "metric": "accuracy",
-          "source": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/README.md"
-        }
-      ]
-    },
-    {
-      "id": "minimax/MiniMax-M2",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 69.4,
-          "metric": "resolved",
-          "source": "https://huggingface.co/MiniMaxAI/MiniMax-M2"
-        }
-      ]
-    },
-    {
-      "id": "minimax/MiniMax-M2.1",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 74,
-          "metric": "resolved",
-          "source": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 36.81,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        }
-      ]
-    },
-    {
-      "id": "minimax/MiniMax-M2.5",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 75.8,
-          "metric": "resolved",
-          "source": "https://www.swebench.com/"
-        },
-        {
-          "name": "SWE-Atlas Codebase QnA",
-          "score": 10.3,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
-        },
-        {
-          "name": "SWE-Atlas Refactoring",
-          "score": 19.52,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
-        },
-        {
-          "name": "SWE-Atlas Test Writing",
-          "score": 18.6,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
-        }
-      ]
-    },
-    {
-      "id": "minimax/MiniMax-M2.7",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 79.9,
-          "metric": "resolved",
-          "harness": "Claude Code",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 56.2,
-          "metric": "resolve rate",
-          "harness": "Claude Code",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 51.1,
-          "metric": "success rate",
-          "version": "2.1",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        }
-      ]
-    },
-    {
-      "id": "minimax/MiniMax-M3",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 80.5,
-          "metric": "resolved",
-          "harness": "Claude Code",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 59,
-          "metric": "resolve rate",
-          "harness": "Claude Code",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 66,
-          "metric": "success rate",
-          "version": "2.1",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        },
-        {
-          "name": "BrowseComp",
-          "score": 83.52,
-          "metric": "accuracy",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        },
-        {
-          "name": "MCP Atlas",
-          "score": 74.2,
-          "metric": "success rate",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        },
-        {
-          "name": "OSWorld-Verified",
-          "score": 70.06,
-          "metric": "success rate",
-          "source": "https://www.minimax.io/blog/minimax-m3",
-          "date": "2026-06-01"
-        }
-      ]
-    },
-    {
-      "id": "mistral/codestral-latest",
-      "benchmarks": [
-        {
-          "name": "Aider Polyglot",
-          "score": 11.1,
-          "metric": "percent correct",
-          "source": "https://aider.chat/docs/leaderboards/",
-          "date": "2025-01-13"
-        }
-      ]
-    },
-    {
-      "id": "mistral/devstral-medium-2507",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 61.6,
-          "metric": "resolved",
-          "source": "https://mistral.ai/news/devstral-2507",
-          "date": "2025-07-10"
-        }
-      ]
-    },
-    {
-      "id": "mistral/devstral-small-2507",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 53.6,
-          "metric": "resolved",
-          "source": "https://mistral.ai/news/devstral-2507",
-          "date": "2025-07-10"
-        }
-      ]
-    },
-    {
-      "id": "mistral/mistral-medium-2604",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 77.6,
-          "metric": "resolved",
-          "source": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
-        },
-        {
-          "name": "τ³-Telecom",
-          "score": 91.4,
-          "metric": "accuracy",
-          "variant": "public preview",
-          "source": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5/",
-          "date": "2026-05-22"
-        }
-      ]
-    },
-    {
-      "id": "mistral/mistral-medium-latest",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 77.6,
-          "metric": "resolved",
-          "source": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
-        }
-      ]
-    },
-    {
-      "id": "moonshotai/kimi-k2-thinking",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 71.3,
-          "metric": "resolved",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2-Thinking"
-        }
-      ]
-    },
-    {
-      "id": "moonshotai/kimi-k2.5",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 70.8,
-          "metric": "resolved",
-          "source": "https://www.swebench.com/"
-        },
-        {
-          "name": "SWE-Atlas Codebase QnA",
-          "score": 13.1,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
-        },
-        {
-          "name": "SWE-Atlas Refactoring",
-          "score": 20.95,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
-        },
-        {
-          "name": "SWE-Atlas Test Writing",
-          "score": 25.77,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
-        }
-      ]
-    },
-    {
-      "id": "moonshotai/kimi-k2.6",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 80.2,
-          "metric": "resolved",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2.6"
-        }
-      ]
-    },
-    {
-      "id": "moonshotai/kimi-k2.7-code",
-      "benchmarks": [
-        {
-          "name": "Kimi Code Bench",
-          "score": 62,
-          "harness": "Kimi Code CLI",
-          "version": "v2",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
-          "date": "2026-06-12"
-        },
-        {
-          "name": "Program Bench",
-          "score": 53.6,
-          "harness": "Kimi Code CLI",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
-          "date": "2026-06-12"
-        },
-        {
-          "name": "MLS Bench Lite",
-          "score": 35.1,
-          "harness": "Kimi Code CLI",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
-          "date": "2026-06-12"
-        },
-        {
-          "name": "MCP Atlas",
-          "score": 76,
-          "metric": "success rate",
-          "harness": "Kimi Code CLI",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
-          "date": "2026-06-12"
-        },
-        {
-          "name": "MCP Mark Verified",
-          "score": 81.1,
-          "metric": "success rate",
-          "harness": "Kimi Code CLI",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
-          "date": "2026-06-12"
-        },
-        {
-          "name": "Kimi Claw 24/7 Bench",
-          "score": 46.9,
-          "harness": "Kimi Code CLI",
-          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
-          "date": "2026-06-12"
-        }
-      ]
-    },
-    {
-      "id": "moonshotai/kimi-k3",
-      "benchmarks": [
-        {
-          "name": "DeepSWE",
-          "score": 67.5,
-          "metric": "resolve rate",
-          "harness": "Kimi Code",
-          "variant": "max effort",
-          "version": "1.1",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 88.3,
-          "metric": "accuracy",
-          "harness": "Kimi Code",
-          "variant": "max effort",
-          "version": "2.1",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "FrontierSWE",
-          "score": 81.2,
-          "metric": "dominance score",
-          "harness": "Kimi Code",
-          "variant": "max effort",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "Program Bench",
-          "score": 77.8,
-          "metric": "score",
-          "harness": "Kimi Code",
-          "variant": "max effort",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "SWE Marathon",
-          "score": 42,
-          "metric": "resolve rate",
-          "harness": "Claude Code",
-          "variant": "max effort",
-          "version": "1.1",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "GDPval-AA",
-          "score": 1668,
-          "metric": "Elo",
-          "variant": "max effort",
-          "version": "v2",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "AA-Briefcase",
-          "score": 1548,
-          "metric": "Elo",
-          "variant": "max effort",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "AutomationBench",
-          "score": 30.8,
-          "metric": "success rate",
-          "variant": "max effort",
-          "dataset": "600-task public subset",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "JobBench",
-          "score": 52.9,
-          "metric": "score",
-          "variant": "max effort",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "SpreadsheetBench",
-          "score": 34.8,
-          "metric": "score",
-          "harness": "Claude Code",
-          "variant": "max effort",
-          "version": "2",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "BrowseComp",
-          "score": 91.2,
-          "metric": "accuracy",
-          "variant": "max effort, context compaction",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 91.3,
-          "metric": "accuracy",
-          "variant": "max effort, with tools",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        },
-        {
-          "name": "ZeroBench",
-          "score": 41,
-          "metric": "pass@5",
-          "variant": "max effort, with tools",
-          "source": "https://www.kimi.com/blog/kimi-k3",
-          "date": "2026-07-16"
-        }
-      ]
-    },
-    {
-      "id": "nvidia/nemotron-3-ultra-550b-a55b",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 70.7,
-          "metric": "resolved",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 67.7,
-          "metric": "resolve rate",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 56.4,
-          "metric": "success rate",
-          "version": "2.1",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "GPQA",
-          "score": 87,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 26.7,
-          "metric": "accuracy",
-          "variant": "no tools",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 37.4,
-          "metric": "accuracy",
-          "variant": "with tools",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "LiveCodeBench",
-          "score": 89,
-          "metric": "pass@1",
-          "version": "v6",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "MMLU-Pro",
-          "score": 86.8,
-          "metric": "accuracy",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "BrowseComp",
-          "score": 44.4,
-          "metric": "accuracy",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "IFBench",
-          "score": 81.7,
-          "metric": "accuracy",
-          "variant": "prompt loose",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        },
-        {
-          "name": "GDPval",
-          "score": 46.7,
-          "metric": "wins or ties",
-          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
-          "date": "2026-06-04"
-        }
-      ]
-    },
-    {
-      "id": "poolside/laguna-xs-2.1",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 70.9,
-          "metric": "resolved",
-          "harness": "Harbor",
-          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
-          "date": "2026-07-02"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 63.1,
-          "metric": "resolve rate",
-          "harness": "Harbor",
-          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
-          "date": "2026-07-02"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 47.6,
-          "metric": "resolve rate",
-          "harness": "Harbor",
-          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
-          "date": "2026-07-02"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 37.5,
-          "metric": "success rate",
-          "harness": "Harbor",
-          "version": "2.0",
-          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
-          "date": "2026-07-02"
-        }
-      ]
-    },
-    {
-      "id": "sakana/fugu",
-      "benchmarks": [
-        {
-          "name": "SWE Bench Pro",
-          "score": 59,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "Terminal Bench 2.1",
-          "score": 80.2,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "LiveCodeBench",
-          "score": 92.9,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "LiveCodeBench Pro",
-          "score": 87.8,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "Humanity’s Last Exam",
-          "score": 47.2,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 85.1,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 95.5,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "SciCode",
-          "score": 60.1,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "τ3 Banking",
-          "score": 21.7,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "Long Context Reasoning",
-          "score": 74.7,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "MRCRv2",
-          "score": 86.6,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "CTI-REALM",
-          "score": 67.5,
-          "source": "https://console.sakana.ai/models"
-        }
-      ]
-    },
-    {
-      "id": "sakana/fugu-ultra",
-      "benchmarks": [
-        {
-          "name": "SWE Bench Pro",
-          "score": 73.7,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "Terminal Bench 2.1",
-          "score": 82.1,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "LiveCodeBench",
-          "score": 93.2,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "LiveCodeBench Pro",
-          "score": 90.8,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "Humanity’s Last Exam",
-          "score": 50,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "CharXiv Reasoning",
-          "score": 86.6,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 95.5,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "SciCode",
-          "score": 58.7,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "τ3 Banking",
-          "score": 20.6,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "Long Context Reasoning",
-          "score": 73.3,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "MRCRv2",
-          "score": 93.6,
-          "source": "https://console.sakana.ai/models"
-        },
-        {
-          "name": "CTI-REALM",
-          "score": 69.4,
-          "source": "https://console.sakana.ai/models"
-        }
-      ]
-    },
-    {
-      "id": "sakana/sakana-namazu",
-      "benchmarks": [
-        {
-          "name": "AIME26",
-          "score": 96.67,
-          "source": "https://console.sakana.ai/models?model=sakana-namazu"
-        },
-        {
-          "name": "MMLU-Pro",
-          "score": 90.33,
-          "source": "https://console.sakana.ai/models?model=sakana-namazu"
-        },
-        {
-          "name": "LiveCodeBench v6",
-          "score": 90.33,
-          "source": "https://console.sakana.ai/models?model=sakana-namazu"
-        },
-        {
-          "name": "JFBench",
-          "score": 37.4,
-          "source": "https://console.sakana.ai/models?model=sakana-namazu"
-        },
-        {
-          "name": "Translation",
-          "score": 52.2,
-          "source": "https://console.sakana.ai/models?model=sakana-namazu"
-        },
-        {
-          "name": "FairPoliticsQA",
-          "score": 56.3,
-          "source": "https://console.sakana.ai/models?model=sakana-namazu"
-        }
-      ]
-    },
-    {
-      "id": "stepfun/step-3.5-flash",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 74.4,
-          "metric": "resolved",
-          "source": "https://arxiv.org/abs/2602.10604"
-        }
-      ]
-    },
-    {
-      "id": "stepfun/step-3.7-flash",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 56.3,
-          "metric": "resolve rate",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        },
-        {
-          "name": "SWE-Bench Verified",
-          "score": 76.5,
-          "metric": "resolved",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 59.6,
-          "metric": "success rate",
-          "version": "2.1",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 47.2,
-          "metric": "accuracy",
-          "variant": "with tools",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        },
-        {
-          "name": "BrowseComp",
-          "score": 75.8,
-          "metric": "accuracy",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        },
-        {
-          "name": "Toolathlon",
-          "score": 49.5,
-          "metric": "success rate",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        },
-        {
-          "name": "GDPval",
-          "score": 45.8,
-          "metric": "wins or ties",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        },
-        {
-          "name": "ClawEval",
-          "score": 67.1,
-          "metric": "pass^3",
-          "version": "1.1",
-          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
-          "date": "2026-05-29"
-        }
-      ]
-    },
-    {
-      "id": "tencent/hy3",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 78,
-          "metric": "resolved",
-          "source": "https://huggingface.co/tencent/Hy3"
-        }
-      ]
-    },
-    {
-      "id": "tencent/hy3-preview",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 74.4,
-          "metric": "resolved",
-          "source": "https://huggingface.co/tencent/Hy3-preview"
-        }
-      ]
-    },
-    {
-      "id": "xai/grok-4.5",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 64.7,
-          "metric": "resolve rate",
-          "source": "https://x.ai/news/grok-4-5",
-          "date": "2026-07-08"
-        },
-        {
-          "name": "SWE-Bench Multilingual",
-          "score": 78,
-          "metric": "resolve rate",
-          "source": "https://x.ai/news/grok-4-5",
-          "date": "2026-07-08"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 83.3,
-          "metric": "success rate",
-          "version": "2.1",
-          "source": "https://x.ai/news/grok-4-5",
-          "date": "2026-07-08"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 62,
-          "metric": "resolve rate",
-          "version": "1.0",
-          "source": "https://x.ai/news/grok-4-5",
-          "date": "2026-07-08"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 53,
-          "metric": "resolve rate",
-          "harness": "mini-swe-agent",
-          "version": "1.1",
-          "source": "https://x.ai/news/grok-4-5",
-          "date": "2026-07-08"
-        },
-        {
-          "name": "SWE Marathon",
-          "score": 29,
-          "metric": "pass@1",
-          "source": "https://x.ai/news/grok-4-5",
-          "date": "2026-07-08"
-        }
-      ]
-    },
-    {
-      "id": "xiaomi/mimo-v2.5-pro",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 78.9,
-          "metric": "resolved",
-          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro"
-        },
-        {
-          "name": "SWE-Bench Pro",
-          "score": 57.2,
-          "metric": "resolve rate",
-          "source": "https://mimo.xiaomi.com/mimo-v2-5-pro/",
-          "date": "2026-04-22"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 86.6,
-          "metric": "accuracy",
-          "source": "https://mimo.xiaomi.com/mimo-v2-5-pro/",
-          "date": "2026-04-22"
-        }
-      ]
-    },
-    {
-      "id": "zhipuai/glm-4.6",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 9.67,
-          "metric": "resolve rate",
-          "dataset": "public",
-          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
-        }
-      ]
-    },
-    {
-      "id": "zhipuai/glm-4.7",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 73.8,
-          "metric": "resolved",
-          "source": "https://huggingface.co/zai-org/GLM-4.7"
-        },
-        {
-          "name": "Terminal Bench 2.0",
-          "score": 33.4,
-          "metric": "score",
-          "source": "https://huggingface.co/zai-org/GLM-4.7"
-        }
-      ]
-    },
+      "id": "deepseek-v4-flash",
+      "aaBase": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash 0731",
+      "creator": "DeepSeek",
+      "releaseDate": "2026-07-31",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "fe4c0848-e284-4e52-a79d-cdc28392f1a9",
+          "aaSlug": "deepseek-v4-flash",
+          "label": "DeepSeek V4 Flash 0731 (Reasoning, Max Effort)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 34.5,
+            "artificial_analysis_coding_index": 69.1,
+            "gpqa": 0.908,
+            "hle": 0.386,
+            "scicode": 0.503,
+            "lcr": 0.796666666666667,
+            "terminalbench_v2_1": 0.786516853932584,
+            "tau_banking": 0.393814432989691
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.66,
+            "price_1m_input_tokens": 0.44,
+            "price_1m_output_tokens": 1.32
+          },
+          "throughput": {
+            "outputTokensPerSecond": 234.466,
+            "timeToFirstTokenSeconds": 0.825,
+            "timeToFirstAnswerTokenSeconds": 9.355
+          }
+        }
+      }
+    },
+    {
+      "id": "deepseek-v4-flash-free",
+      "aaBase": "deepseek-v4-flash",
+      "name": "DeepSeek V4 Flash 0731",
+      "creator": "DeepSeek",
+      "releaseDate": "2026-07-31",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "fe4c0848-e284-4e52-a79d-cdc28392f1a9",
+          "aaSlug": "deepseek-v4-flash",
+          "label": "DeepSeek V4 Flash 0731 (Reasoning, Max Effort)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 34.5,
+            "artificial_analysis_coding_index": 69.1,
+            "gpqa": 0.908,
+            "hle": 0.386,
+            "scicode": 0.503,
+            "lcr": 0.796666666666667,
+            "terminalbench_v2_1": 0.786516853932584,
+            "tau_banking": 0.393814432989691
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.66,
+            "price_1m_input_tokens": 0.44,
+            "price_1m_output_tokens": 1.32
+          },
+          "throughput": {
+            "outputTokensPerSecond": 234.466,
+            "timeToFirstTokenSeconds": 0.825,
+            "timeToFirstAnswerTokenSeconds": 9.355
+          }
+        }
+      }
+    },
+    {
+      "id": "deepseek-v4-pro",
+      "aaBase": "deepseek-v4-pro",
+      "name": "DeepSeek V4 Pro 0813",
+      "creator": "DeepSeek",
+      "releaseDate": "2026-08-13",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "83173329-c09a-41f1-a028-a282a5f908d7",
+          "aaSlug": "deepseek-v4-pro",
+          "label": "DeepSeek V4 Pro 0813 (Reasoning, Max Effort)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 36.3,
+            "artificial_analysis_coding_index": 68.8,
+            "gpqa": 0.928,
+            "hle": 0.41,
+            "scicode": 0.51,
+            "lcr": 0.803333333333333,
+            "terminalbench_v2_1": 0.786516853932584,
+            "tau_banking": 0.395876288659794
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.98,
+            "price_1m_input_tokens": 1.32,
+            "price_1m_output_tokens": 3.96
+          },
+          "throughput": {
+            "outputTokensPerSecond": 68.637,
+            "timeToFirstTokenSeconds": 1.091,
+            "timeToFirstAnswerTokenSeconds": 30.23
+          }
+        }
+      }
+    },
     {
-      "id": "zhipuai/glm-4.7-flash",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 59.2,
-          "metric": "resolved",
-          "source": "https://huggingface.co/zai-org/GLM-4.7-Flash"
-        }
-      ]
-    },
-    {
-      "id": "zhipuai/glm-5",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Verified",
-          "score": 72.8,
-          "metric": "resolved",
-          "source": "https://www.swebench.com/"
-        },
-        {
-          "name": "SWE-Atlas Codebase QnA",
-          "score": 20.5,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
-        },
-        {
-          "name": "SWE-Atlas Refactoring",
-          "score": 24.24,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
-        },
-        {
-          "name": "SWE-Atlas Test Writing",
-          "score": 28.74,
-          "metric": "score",
-          "harness": "Mini-SWE-Agent",
-          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
-        }
-      ]
-    },
-    {
-      "id": "zhipuai/glm-5.2",
-      "benchmarks": [
-        {
-          "name": "SWE-Bench Pro",
-          "score": 62.1,
-          "metric": "resolve rate",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 82.7,
-          "metric": "success rate",
-          "harness": "Claude Code",
-          "version": "2.1",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "FrontierSWE",
-          "score": 74.4,
-          "metric": "dominance",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 40.5,
-          "metric": "accuracy",
-          "dataset": "text-only subset",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "Humanity's Last Exam",
-          "score": 54.7,
-          "metric": "accuracy",
-          "variant": "with tools",
-          "dataset": "text-only subset",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "CritPt",
-          "score": 20.9,
-          "metric": "accuracy",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "AIME",
-          "score": 99.2,
-          "metric": "accuracy",
-          "version": "2026",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "HMMT",
-          "score": 94.4,
-          "metric": "accuracy",
-          "version": "November 2025",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "HMMT",
-          "score": 92.5,
-          "metric": "accuracy",
-          "version": "February 2026",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "IMOAnswerBench",
-          "score": 91,
-          "metric": "accuracy",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "GPQA Diamond",
-          "score": 91.2,
-          "metric": "accuracy",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "NL2Repo",
-          "score": 48.9,
-          "metric": "resolve rate",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "DeepSWE",
-          "score": 46.2,
-          "metric": "resolve rate",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "Program Bench",
-          "score": 63.7,
-          "metric": "score",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "Terminal-Bench",
-          "score": 81,
-          "metric": "success rate",
-          "harness": "Terminus 2",
-          "version": "2.1",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "PostTrainBench",
-          "score": 34.3,
-          "metric": "score",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "SWE Marathon",
-          "score": 13,
-          "metric": "resolve rate",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "MCP Atlas",
-          "score": 76.8,
-          "metric": "score",
-          "dataset": "public subset",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        },
-        {
-          "name": "Tool-Decathlon",
-          "score": 48.2,
-          "metric": "score",
-          "source": "https://z.ai/blog/glm-5.2",
-          "date": "2026-06-16"
-        }
-      ]
+      "id": "deepseek-v4.1-flash",
+      "aaBase": "deepseek-v4-1-flash",
+      "name": "DeepSeek V4.1 Flash",
+      "creator": "DeepSeek",
+      "releaseDate": "2026-09-10",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "dbe7c625-3100-4463-b479-a228c41f75dd",
+          "aaSlug": "deepseek-v4-1-flash",
+          "label": "DeepSeek V4.1 Flash (Reasoning, Max Effort)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 39.5,
+            "hle": 0.392,
+            "scicode": 0.519,
+            "lcr": 0.84
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.525,
+            "price_1m_input_tokens": 0.3,
+            "price_1m_output_tokens": 1.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 223.034,
+            "timeToFirstTokenSeconds": 0.805,
+            "timeToFirstAnswerTokenSeconds": 9.772
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3-flash",
+      "aaBase": "gemini-3-flash",
+      "name": "Gemini 3 Flash Preview",
+      "creator": "Google",
+      "releaseDate": "2025-12-17",
+      "reasoningLevels": {
+        "reasoning": {
+          "aaModelId": "7c73c3be-7f51-4d14-bec8-d5789488df25",
+          "aaSlug": "gemini-3-flash-reasoning",
+          "label": "Gemini 3 Flash Preview (Reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 26.3,
+            "artificial_analysis_math_index": 97,
+            "mmlu_pro": 0.89,
+            "gpqa": 0.898,
+            "hle": 0.366,
+            "livecodebench": 0.908,
+            "aime_25": 0.97,
+            "ifbench": 0.779591836734694,
+            "lcr": 0.78,
+            "terminalbench_hard": 0.386363636363636,
+            "tau2": 0.804093567251462,
+            "tau_banking": 0.208247422680412
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.125,
+            "price_1m_input_tokens": 0.5,
+            "price_1m_output_tokens": 3
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        },
+        "default": {
+          "aaModelId": "783a0ea2-1eef-422a-8c3d-f6d40d943f54",
+          "aaSlug": "gemini-3-flash",
+          "label": "Gemini 3 Flash Preview (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 17.9,
+            "artificial_analysis_math_index": 55.7,
+            "mmlu_pro": 0.882,
+            "gpqa": 0.812,
+            "hle": 0.15,
+            "livecodebench": 0.797,
+            "aime_25": 0.556666666666667,
+            "ifbench": 0.551020408163265,
+            "lcr": 0.553333333333333,
+            "terminalbench_hard": 0.318181818181818,
+            "tau2": 0.432748538011696
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.125,
+            "price_1m_input_tokens": 0.5,
+            "price_1m_output_tokens": 3
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.5-flash",
+      "aaBase": "gemini-3-5-flash",
+      "name": "Gemini 3.5 Flash",
+      "creator": "Google",
+      "releaseDate": "2026-05-19",
+      "reasoningLevels": {
+        "medium": {
+          "aaModelId": "5016ea75-7b0e-4737-a7e6-1062c6d90fd4",
+          "aaSlug": "gemini-3-5-flash-medium",
+          "label": "Gemini 3.5 Flash (medium)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 33.6,
+            "gpqa": 0.921,
+            "hle": 0.413,
+            "ifbench": 0.745578231292517,
+            "lcr": 0.743333333333333,
+            "terminalbench_hard": 0.393939393939394,
+            "tau2": 0.956140350877193
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3.375,
+            "price_1m_input_tokens": 1.5,
+            "price_1m_output_tokens": 9
+          },
+          "throughput": {
+            "outputTokensPerSecond": 264.857,
+            "timeToFirstTokenSeconds": 13.452,
+            "timeToFirstAnswerTokenSeconds": 13.452
+          }
+        },
+        "default": {
+          "aaModelId": "0097ebf5-124f-42f6-9463-33b00e711f03",
+          "aaSlug": "gemini-3-5-flash",
+          "label": "Gemini 3.5 Flash (high)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 33,
+            "artificial_analysis_coding_index": 70.1,
+            "gpqa": 0.922,
+            "hle": 0.427,
+            "scicode": 0.539,
+            "ifbench": 0.763265306122449,
+            "lcr": 0.733333333333333,
+            "terminalbench_hard": 0.409090909090909,
+            "terminalbench_v2_1": 0.786516853932584,
+            "tau2": 0.953216374269006,
+            "tau_banking": 0.321649484536082
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3.375,
+            "price_1m_input_tokens": 1.5,
+            "price_1m_output_tokens": 9
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        },
+        "minimal": {
+          "aaModelId": "033ade17-d9ec-44e0-b792-b5f1fcd5ab4c",
+          "aaSlug": "gemini-3-5-flash-minimal",
+          "label": "Gemini 3.5 Flash (minimal)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 23.8,
+            "gpqa": 0.828,
+            "hle": 0.241,
+            "ifbench": 0.472789115646259,
+            "lcr": 0.613333333333333,
+            "terminalbench_hard": 0.462121212121212,
+            "tau2": 0.587719298245614
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3.375,
+            "price_1m_input_tokens": 1.5,
+            "price_1m_output_tokens": 9
+          },
+          "throughput": {
+            "outputTokensPerSecond": 231.562,
+            "timeToFirstTokenSeconds": 0.759,
+            "timeToFirstAnswerTokenSeconds": 0.759
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.5-flash-lite",
+      "aaBase": "gemini-3-5-flash-lite",
+      "name": "Gemini 3.5 Flash-Lite",
+      "creator": "Google",
+      "releaseDate": "2026-07-21",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "093b9df2-ebee-4309-943f-5a7e88360adf",
+          "aaSlug": "gemini-3-5-flash-lite",
+          "label": "Gemini 3.5 Flash-Lite",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 22.7,
+            "artificial_analysis_coding_index": 49.3,
+            "gpqa": 0.838,
+            "hle": 0.188,
+            "scicode": 0.413,
+            "lcr": 0.76,
+            "terminalbench_v2_1": 0.535580524344569,
+            "tau_banking": 0.175257731958763
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.85,
+            "price_1m_input_tokens": 0.3,
+            "price_1m_output_tokens": 2.5
+          },
+          "throughput": {
+            "outputTokensPerSecond": 362.617,
+            "timeToFirstTokenSeconds": 6.706,
+            "timeToFirstAnswerTokenSeconds": 6.706
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.6-flash",
+      "aaBase": "gemini-3-6-flash",
+      "name": "Gemini 3.6 Flash",
+      "creator": "Google",
+      "releaseDate": "2026-07-21",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "78332c88-fe60-42c8-af9d-3617e44cf1f5",
+          "aaSlug": "gemini-3-6-flash",
+          "label": "Gemini 3.6 Flash (high)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 34.3,
+            "artificial_analysis_coding_index": 69.2,
+            "gpqa": 0.928,
+            "hle": 0.408,
+            "scicode": 0.534,
+            "lcr": 0.8,
+            "terminalbench_v2_1": 0.775280898876405,
+            "tau_banking": 0.298969072164948
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.5,
+            "price_1m_input_tokens": 0.75,
+            "price_1m_output_tokens": 3.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 189.677,
+            "timeToFirstTokenSeconds": 13.351,
+            "timeToFirstAnswerTokenSeconds": 13.351
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.7-flash",
+      "aaBase": "gemini-3-7-flash",
+      "name": "Gemini 3.7 Flash",
+      "creator": "Google",
+      "releaseDate": "2026-08-13",
+      "reasoningLevels": {
+        "medium": {
+          "aaModelId": "eb0d4272-7204-42b9-b875-8866fed58548",
+          "aaSlug": "gemini-3-7-flash-medium",
+          "label": "Gemini 3.7 Flash (medium)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 39.6,
+            "artificial_analysis_coding_index": 71.5,
+            "gpqa": 0.921,
+            "hle": 0.39,
+            "scicode": 0.598,
+            "lcr": 0.83,
+            "terminalbench_v2_1": 0.782771535580524,
+            "tau_banking": 0.354639175257732
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.5,
+            "price_1m_input_tokens": 0.75,
+            "price_1m_output_tokens": 3.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 313.272,
+            "timeToFirstTokenSeconds": 5.419,
+            "timeToFirstAnswerTokenSeconds": 5.419
+          }
+        },
+        "default": {
+          "aaModelId": "b2331108-72ed-415a-82d1-188633875bbc",
+          "aaSlug": "gemini-3-7-flash",
+          "label": "Gemini 3.7 Flash (high)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 39.4,
+            "artificial_analysis_coding_index": 76.1,
+            "gpqa": 0.945,
+            "hle": 0.479,
+            "scicode": 0.572,
+            "lcr": 0.816666666666667,
+            "terminalbench_v2_1": 0.857677902621723,
+            "tau_banking": 0.327835051546392
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.5,
+            "price_1m_input_tokens": 0.75,
+            "price_1m_output_tokens": 3.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 329.785,
+            "timeToFirstTokenSeconds": 9.376,
+            "timeToFirstAnswerTokenSeconds": 9.376
+          }
+        },
+        "low": {
+          "aaModelId": "ddfdaf64-3f8e-40a6-a492-608ee83a1351",
+          "aaSlug": "gemini-3-7-flash-low",
+          "label": "Gemini 3.7 Flash (low)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 36.9,
+            "artificial_analysis_coding_index": 71,
+            "gpqa": 0.901,
+            "hle": 0.351,
+            "scicode": 0.557,
+            "lcr": 0.786666666666667,
+            "terminalbench_v2_1": 0.797752808988764,
+            "tau_banking": 0.294845360824742
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.5,
+            "price_1m_input_tokens": 0.75,
+            "price_1m_output_tokens": 3.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 306.192,
+            "timeToFirstTokenSeconds": 0.771,
+            "timeToFirstAnswerTokenSeconds": 0.771
+          }
+        }
+      }
+    },
+    {
+      "id": "gemini-3.8-flash",
+      "aaBase": "gemini-3-8-flash",
+      "name": "Gemini 3.8 Flash",
+      "creator": "Google",
+      "releaseDate": "2026-09-02",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "8a999846-4c1d-4ce7-a8b7-1310a7166fd7",
+          "aaSlug": "gemini-3-8-flash",
+          "label": "Gemini 3.8 Flash (high)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 41.2,
+            "artificial_analysis_coding_index": 76.3,
+            "gpqa": 0.953,
+            "hle": 0.478,
+            "scicode": 0.566,
+            "lcr": 0.813333333333333,
+            "terminalbench_v2_1": 0.876404494382023,
+            "tau_banking": 0.449484536082474
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.5,
+            "price_1m_input_tokens": 0.75,
+            "price_1m_output_tokens": 3.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 301.34,
+            "timeToFirstTokenSeconds": 10.733,
+            "timeToFirstAnswerTokenSeconds": 10.733
+          }
+        },
+        "medium": {
+          "aaModelId": "744fa3c1-42a7-4995-b138-fb6be11f463c",
+          "aaSlug": "gemini-3-8-flash-medium",
+          "label": "Gemini 3.8 Flash (medium)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 40,
+            "artificial_analysis_coding_index": 74.1,
+            "gpqa": 0.935,
+            "hle": 0.421,
+            "scicode": 0.551,
+            "lcr": 0.84,
+            "terminalbench_v2_1": 0.838951310861423,
+            "tau_banking": 0.457731958762887
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.5,
+            "price_1m_input_tokens": 0.75,
+            "price_1m_output_tokens": 3.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        },
+        "low": {
+          "aaModelId": "f6db039b-0f3b-485c-9d7f-982988e44f26",
+          "aaSlug": "gemini-3-8-flash-low",
+          "label": "Gemini 3.8 Flash (low)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 33.8,
+            "artificial_analysis_coding_index": 73.5,
+            "gpqa": 0.92,
+            "hle": 0.371,
+            "scicode": 0.55,
+            "lcr": 0.806666666666667,
+            "terminalbench_v2_1": 0.831460674157303,
+            "tau_banking": 0.331958762886598
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.5,
+            "price_1m_input_tokens": 0.75,
+            "price_1m_output_tokens": 3.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-5",
+      "aaBase": "glm-5",
+      "name": "GLM-5",
+      "creator": "Z AI",
+      "releaseDate": "2026-02-11",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "40663ad2-b218-471e-bdd4-a1e0c2360e2b",
+          "aaSlug": "glm-5",
+          "label": "GLM-5 (Reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 27.9,
+            "gpqa": 0.82,
+            "hle": 0.293,
+            "ifbench": 0.72312925170068,
+            "lcr": 0.756666666666667,
+            "terminalbench_hard": 0.431818181818182,
+            "tau2": 0.982456140350877
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.55,
+            "price_1m_input_tokens": 1,
+            "price_1m_output_tokens": 3.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        },
+        "non-reasoning": {
+          "aaModelId": "f164b41f-44c5-4675-bca3-fea1db4bd9ae",
+          "aaSlug": "glm-5-non-reasoning",
+          "label": "GLM-5 (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 21.8,
+            "gpqa": 0.666,
+            "hle": 0.076,
+            "ifbench": 0.551700680272109,
+            "lcr": 0.436666666666667,
+            "terminalbench_hard": 0.393939393939394,
+            "tau2": 0.973684210526316
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.55,
+            "price_1m_input_tokens": 1,
+            "price_1m_output_tokens": 3.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-5.1",
+      "aaBase": "glm-5-1",
+      "name": "GLM-5.1",
+      "creator": "Z AI",
+      "releaseDate": "2026-04-07",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "5aa1c578-af76-4b91-8699-cdd43582b3af",
+          "aaSlug": "glm-5-1",
+          "label": "GLM-5.1 (Reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 26.4,
+            "artificial_analysis_coding_index": 55.8,
+            "gpqa": 0.868,
+            "hle": 0.301,
+            "scicode": 0.448,
+            "ifbench": 0.762585034013605,
+            "lcr": 0.736666666666667,
+            "terminalbench_hard": 0.431818181818182,
+            "terminalbench_v2_1": 0.617977528089888,
+            "tau2": 0.976608187134503,
+            "tau_banking": 0.136082474226804
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.2,
+            "price_1m_output_tokens": 4.4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        },
+        "non-reasoning": {
+          "aaModelId": "92f245a7-43b4-4ffd-8bfb-866746bf824d",
+          "aaSlug": "glm-5-1-non-reasoning",
+          "label": "GLM-5.1 (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 24.2,
+            "gpqa": 0.839,
+            "hle": 0.279,
+            "ifbench": 0.519727891156463,
+            "lcr": 0.533333333333333,
+            "terminalbench_hard": 0.356060606060606,
+            "tau2": 0.970760233918129
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2.135,
+            "price_1m_input_tokens": 1.38,
+            "price_1m_output_tokens": 4.4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-5.2",
+      "aaBase": "glm-5-2",
+      "name": "GLM-5.2",
+      "creator": "Z AI",
+      "releaseDate": "2026-06-16",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "f7a4ea75-e548-4069-80d4-9be8bc7c009b",
+          "aaSlug": "glm-5-2",
+          "label": "GLM-5.2 (max)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 34,
+            "artificial_analysis_coding_index": 68.8,
+            "gpqa": 0.895,
+            "hle": 0.411,
+            "scicode": 0.512,
+            "ifbench": 0.733333333333333,
+            "lcr": 0.783333333333333,
+            "terminalbench_hard": 0.507575757575758,
+            "terminalbench_v2_1": 0.779026217228464,
+            "tau2": 0.991228070175439,
+            "tau_banking": 0.34639175257732
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2.15,
+            "price_1m_input_tokens": 1.4,
+            "price_1m_output_tokens": 4.4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 72.204,
+            "timeToFirstTokenSeconds": 8.64,
+            "timeToFirstAnswerTokenSeconds": 36.34
+          }
+        },
+        "non-reasoning": {
+          "aaModelId": "e8aa417f-18fe-46b0-ba62-ef99785a9585",
+          "aaSlug": "glm-5-2-non-reasoning",
+          "label": "GLM-5.2 (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 22.4,
+            "artificial_analysis_coding_index": 46.5,
+            "gpqa": 0.686,
+            "hle": 0.098,
+            "lcr": 0.423333333333333,
+            "terminalbench_v2_1": 0.51685393258427,
+            "tau_banking": 0.167010309278351
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2.15,
+            "price_1m_input_tokens": 1.4,
+            "price_1m_output_tokens": 4.4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 120.085,
+            "timeToFirstTokenSeconds": 0.986,
+            "timeToFirstAnswerTokenSeconds": 0.986
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-5.3",
+      "aaBase": "glm-5-3",
+      "name": "GLM-5.3",
+      "creator": "Z AI",
+      "releaseDate": "2026-08-18",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "cd684ea4-b475-4269-b001-d469d06d8a7a",
+          "aaSlug": "glm-5-3",
+          "label": "GLM-5.3 (max)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 44.9,
+            "artificial_analysis_coding_index": 74.8,
+            "gpqa": 0.917,
+            "hle": 0.423,
+            "scicode": 0.59,
+            "lcr": 0.796666666666667,
+            "terminalbench_v2_1": 0.838951310861423,
+            "tau_banking": 0.503092783505155
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2.15,
+            "price_1m_input_tokens": 1.4,
+            "price_1m_output_tokens": 4.4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 53.172,
+            "timeToFirstTokenSeconds": 2.911,
+            "timeToFirstAnswerTokenSeconds": 40.525
+          }
+        }
+      }
+    },
+    {
+      "id": "glm-5.3-flash",
+      "aaBase": "glm-5-3-flash",
+      "name": "GLM 5.3 Flash",
+      "creator": "Z AI",
+      "releaseDate": "2026-08-26",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "19496b81-9f41-4214-a77a-1df803b3c5ae",
+          "aaSlug": "glm-5-3-flash",
+          "label": "GLM 5.3 Flash",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 41.9,
+            "artificial_analysis_coding_index": 71.5,
+            "gpqa": 0.912,
+            "hle": 0.399,
+            "scicode": 0.516,
+            "lcr": 0.8,
+            "terminalbench_v2_1": 0.842696629213483,
+            "tau_banking": 0.472164948453608
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.237,
+            "price_1m_input_tokens": 0.15,
+            "price_1m_output_tokens": 0.5
+          },
+          "throughput": {
+            "outputTokensPerSecond": 103.661,
+            "timeToFirstTokenSeconds": 2.196,
+            "timeToFirstAnswerTokenSeconds": 21.49
+          }
+        }
+      }
+    },
+    {
+      "id": "grok-4.5",
+      "aaBase": "grok-4-5",
+      "name": "Grok 4.5",
+      "creator": "SpaceXAI",
+      "releaseDate": "2026-07-08",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "794f69b5-cede-482b-b1cc-d769478497cd",
+          "aaSlug": "grok-4-5",
+          "label": "Grok 4.5 (high)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 39.1,
+            "artificial_analysis_coding_index": 72.4,
+            "gpqa": 0.931,
+            "hle": 0.427,
+            "scicode": 0.55,
+            "lcr": 0.793333333333333,
+            "terminalbench_v2_1": 0.816479400749064,
+            "tau_banking": 0.420618556701031
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3,
+            "price_1m_input_tokens": 2,
+            "price_1m_output_tokens": 6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 60.634,
+            "timeToFirstTokenSeconds": 13.149,
+            "timeToFirstAnswerTokenSeconds": 13.149
+          }
+        }
+      }
+    },
+    {
+      "id": "grok-4.6",
+      "aaBase": "grok-4-6",
+      "name": "Grok 4.6",
+      "creator": "SpaceXAI",
+      "releaseDate": "2026-08-12",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "c8adc5cf-fd5a-407b-af51-dc3bede3e49c",
+          "aaSlug": "grok-4-6",
+          "label": "Grok 4.6 (high)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 44.4,
+            "artificial_analysis_coding_index": 76.8,
+            "gpqa": 0.949,
+            "hle": 0.429,
+            "scicode": 0.565,
+            "lcr": 0.803333333333333,
+            "terminalbench_v2_1": 0.883895131086142,
+            "tau_banking": 0.507216494845361
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3,
+            "price_1m_input_tokens": 2,
+            "price_1m_output_tokens": 6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 55.407,
+            "timeToFirstTokenSeconds": 32.254,
+            "timeToFirstAnswerTokenSeconds": 32.254
+          }
+        },
+        "xhigh": {
+          "aaModelId": "d6f43d0a-e8c4-447c-9ff7-5cf0a9d59aa3",
+          "aaSlug": "grok-4-6-xhigh",
+          "label": "Grok 4.6 (xhigh)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 44.3,
+            "artificial_analysis_coding_index": 75.9,
+            "gpqa": 0.935,
+            "hle": 0.441,
+            "scicode": 0.53,
+            "lcr": 0.81,
+            "terminalbench_v2_1": 0.880149812734082,
+            "tau_banking": 0.43298969072165
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3,
+            "price_1m_input_tokens": 2,
+            "price_1m_output_tokens": 6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 59.194,
+            "timeToFirstTokenSeconds": 32.294,
+            "timeToFirstAnswerTokenSeconds": 32.294
+          }
+        },
+        "medium": {
+          "aaModelId": "26614164-6840-4e17-a65a-2deb2fe7e87b",
+          "aaSlug": "grok-4-6-medium",
+          "label": "Grok 4.6 (medium)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 43,
+            "artificial_analysis_coding_index": 74.4,
+            "gpqa": 0.935,
+            "hle": 0.421,
+            "scicode": 0.559,
+            "lcr": 0.81,
+            "terminalbench_v2_1": 0.842696629213483,
+            "tau_banking": 0.443298969072165
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3,
+            "price_1m_input_tokens": 2,
+            "price_1m_output_tokens": 6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 56.147,
+            "timeToFirstTokenSeconds": 23.211,
+            "timeToFirstAnswerTokenSeconds": 23.211
+          }
+        },
+        "low": {
+          "aaModelId": "c07e65e6-32fc-451e-938d-7477a1c3ffcc",
+          "aaSlug": "grok-4-6-low",
+          "label": "Grok 4.6 (low)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 35.4,
+            "artificial_analysis_coding_index": 66.3,
+            "gpqa": 0.879,
+            "hle": 0.276,
+            "scicode": 0.494,
+            "lcr": 0.806666666666667,
+            "terminalbench_v2_1": 0.752808988764045,
+            "tau_banking": 0.381443298969072
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3,
+            "price_1m_input_tokens": 2,
+            "price_1m_output_tokens": 6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 49.011,
+            "timeToFirstTokenSeconds": 3.362,
+            "timeToFirstAnswerTokenSeconds": 3.362
+          }
+        }
+      }
+    },
+    {
+      "id": "hy3",
+      "aaBase": "hy3",
+      "name": "Hy3",
+      "creator": "Tencent",
+      "releaseDate": "2026-07-06",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "b23e6c69-96e5-44c9-8f58-4b42e0c399d5",
+          "aaSlug": "hy3",
+          "label": "Hy3",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 25.8,
+            "artificial_analysis_coding_index": 58.8,
+            "gpqa": 0.897,
+            "hle": 0.335,
+            "scicode": 0.486,
+            "lcr": 0.79,
+            "terminalbench_v2_1": 0.644194756554307,
+            "tau_banking": 0.228865979381443
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.25,
+            "price_1m_input_tokens": 0.14,
+            "price_1m_output_tokens": 0.58
+          },
+          "throughput": {
+            "outputTokensPerSecond": 81.067,
+            "timeToFirstTokenSeconds": 1.686,
+            "timeToFirstAnswerTokenSeconds": 26.357
+          }
+        },
+        "non-reasoning": {
+          "aaModelId": "b58b8272-cd3f-44b9-9b68-612f40779ce2",
+          "aaSlug": "hy3-non-reasoning",
+          "label": "Hy3-preview (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 17,
+            "gpqa": 0.732,
+            "hle": 0.07,
+            "ifbench": 0.479591836734694,
+            "lcr": 0.42,
+            "terminalbench_hard": 0.318181818181818,
+            "tau2": 0.675438596491228
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.1,
+            "price_1m_input_tokens": 0.063,
+            "price_1m_output_tokens": 0.21
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "hy3-preview",
+      "aaBase": "hy3-preview",
+      "name": "Hy3-preview",
+      "creator": "Tencent",
+      "releaseDate": "2026-04-23",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "8ca48626-ff5e-48b3-8401-38081376d706",
+          "aaSlug": "hy3-preview",
+          "label": "Hy3-preview (Reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 22.7,
+            "gpqa": 0.867,
+            "hle": 0.278,
+            "ifbench": 0.631292517006803,
+            "lcr": 0.646666666666667,
+            "terminalbench_hard": 0.340909090909091,
+            "tau2": 0.926900584795322
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.1,
+            "price_1m_input_tokens": 0.063,
+            "price_1m_output_tokens": 0.21
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "kimi-k2.5",
+      "aaBase": "kimi-k2-5",
+      "name": "Kimi K2.5",
+      "creator": "Kimi",
+      "releaseDate": "2026-01-27",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "a550ffca-f89e-4381-ade6-a85dc6a1fb4c",
+          "aaSlug": "kimi-k2-5",
+          "label": "Kimi K2.5 (Reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 23.5,
+            "artificial_analysis_coding_index": 46.8,
+            "gpqa": 0.879,
+            "hle": 0.307,
+            "ifbench": 0.702040816326531,
+            "lcr": 0.78,
+            "terminalbench_hard": 0.348484848484849,
+            "terminalbench_v2_1": 0.456928838951311,
+            "tau2": 0.95906432748538,
+            "tau_banking": 0.142268041237113
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.137,
+            "price_1m_input_tokens": 0.6,
+            "price_1m_output_tokens": 2.75
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        },
+        "non-reasoning": {
+          "aaModelId": "ba04694d-326a-4a6a-8f1b-46316f872a7f",
+          "aaSlug": "kimi-k2-5-non-reasoning",
+          "label": "Kimi K2.5 (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 19.4,
+            "gpqa": 0.789,
+            "hle": 0.132,
+            "ifbench": 0.436734693877551,
+            "lcr": 0.673333333333333,
+            "terminalbench_hard": 0.189393939393939,
+            "tau2": 0.812865497076023
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.2,
+            "price_1m_input_tokens": 0.6,
+            "price_1m_output_tokens": 3
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "kimi-k2.6",
+      "aaBase": "kimi-k2-6",
+      "name": "Kimi K2.6",
+      "creator": "Kimi",
+      "releaseDate": "2026-04-20",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "0de67206-4d36-4d10-b8f6-cf37fa747a03",
+          "aaSlug": "kimi-k2-6",
+          "label": "Kimi K2.6",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 27.5,
+            "artificial_analysis_coding_index": 61.8,
+            "gpqa": 0.911,
+            "hle": 0.375,
+            "scicode": 0.515,
+            "ifbench": 0.759863945578231,
+            "lcr": 0.81,
+            "terminalbench_hard": 0.439393939393939,
+            "terminalbench_v2_1": 0.659176029962547,
+            "tau2": 0.95906432748538,
+            "tau_banking": 0.232989690721649
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.712,
+            "price_1m_input_tokens": 0.95,
+            "price_1m_output_tokens": 4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        },
+        "non-reasoning": {
+          "aaModelId": "0fc6308e-fbd2-42d3-a216-06da3c43e34e",
+          "aaSlug": "kimi-k2-6-non-reasoning",
+          "label": "Kimi K2.6 (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 23.6,
+            "gpqa": 0.788,
+            "hle": 0.196,
+            "ifbench": 0.442857142857143,
+            "lcr": 0.696666666666667,
+            "terminalbench_hard": 0.378787878787879,
+            "tau2": 0.93859649122807
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.712,
+            "price_1m_input_tokens": 0.95,
+            "price_1m_output_tokens": 4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "kimi-k2.7-code",
+      "aaBase": "kimi-k2-7-code",
+      "name": "Kimi K2.7 Code",
+      "creator": "Kimi",
+      "releaseDate": "2026-06-12",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "8d0cb231-7303-452c-9923-a9620b948475",
+          "aaSlug": "kimi-k2-7-code",
+          "label": "Kimi K2.7 Code",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 26.3,
+            "artificial_analysis_coding_index": 60.8,
+            "gpqa": 0.896,
+            "hle": 0.35,
+            "scicode": 0.478,
+            "ifbench": 0.631292517006803,
+            "lcr": 0.793333333333333,
+            "terminalbench_hard": 0.446969696969697,
+            "terminalbench_v2_1": 0.674157303370786,
+            "tau2": 0.900584795321637,
+            "tau_banking": 0.202061855670103
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.712,
+            "price_1m_input_tokens": 0.95,
+            "price_1m_output_tokens": 4
+          },
+          "throughput": {
+            "outputTokensPerSecond": 59.7,
+            "timeToFirstTokenSeconds": 1.225,
+            "timeToFirstAnswerTokenSeconds": 38.562
+          }
+        }
+      }
+    },
+    {
+      "id": "kimi-k3",
+      "aaBase": "kimi-k3",
+      "name": "Kimi K3",
+      "creator": "Kimi",
+      "releaseDate": "2026-07-16",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "f7d2fc3e-1f7b-405f-818c-07952a4af78f",
+          "aaSlug": "kimi-k3",
+          "label": "Kimi K3 (max)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 43.8,
+            "artificial_analysis_coding_index": 76.2,
+            "gpqa": 0.935,
+            "hle": 0.469,
+            "scicode": 0.595,
+            "lcr": 0.886666666666667,
+            "terminalbench_v2_1": 0.850187265917603,
+            "tau_banking": 0.45979381443299
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 6,
+            "price_1m_input_tokens": 3,
+            "price_1m_output_tokens": 15
+          },
+          "throughput": {
+            "outputTokensPerSecond": 36.356,
+            "timeToFirstTokenSeconds": 3.836,
+            "timeToFirstAnswerTokenSeconds": 58.847
+          }
+        },
+        "low": {
+          "aaModelId": "512d17ef-13d2-4f65-bf9b-154b0dec7e8d",
+          "aaSlug": "kimi-k3-low",
+          "label": "Kimi K3 (low)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 30.5,
+            "artificial_analysis_coding_index": 72,
+            "gpqa": 0.842,
+            "hle": 0.25,
+            "scicode": 0.527,
+            "lcr": 0.793333333333333,
+            "terminalbench_v2_1": 0.823970037453184,
+            "tau_banking": 0.416494845360825
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 6,
+            "price_1m_input_tokens": 3,
+            "price_1m_output_tokens": 15
+          },
+          "throughput": {
+            "outputTokensPerSecond": 35.671,
+            "timeToFirstTokenSeconds": 3.104,
+            "timeToFirstAnswerTokenSeconds": 59.171
+          }
+        }
+      }
+    },
+    {
+      "id": "ling-3.0-flash-fin-free",
+      "aaBase": "ling-3-0-flash-fin",
+      "name": "Ling-3.0-flash-Fin",
+      "creator": "InclusionAI",
+      "releaseDate": "2026-09-11",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "6d6fa1c9-b833-40b2-8a58-fa810e24a84e",
+          "aaSlug": "ling-3-0-flash-fin",
+          "label": "Ling-3.0-flash-Fin",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 23,
+            "artificial_analysis_coding_index": 55.6,
+            "hle": 0.226,
+            "scicode": 0.424,
+            "lcr": 0.736666666666667,
+            "terminalbench_v2_1": 0.625468164794007,
+            "tau_banking": 0.385567010309278
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0,
+            "price_1m_input_tokens": 0,
+            "price_1m_output_tokens": 0
+          },
+          "throughput": {
+            "outputTokensPerSecond": 163.18,
+            "timeToFirstTokenSeconds": 1.575,
+            "timeToFirstAnswerTokenSeconds": 13.832
+          }
+        }
+      }
+    },
+    {
+      "id": "longcat-2.0",
+      "aaBase": "longcat-2-0",
+      "name": "LongCat 2.0",
+      "creator": "LongCat",
+      "releaseDate": "2026-06-29",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "5c3bdc0d-abab-4526-8079-34de4089bb4a",
+          "aaSlug": "longcat-2-0",
+          "label": "LongCat 2.0",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 19.7,
+            "artificial_analysis_coding_index": 45.3,
+            "gpqa": 0.78,
+            "hle": 0.337,
+            "scicode": 0.363,
+            "lcr": 0.65,
+            "terminalbench_v2_1": 0.50187265917603,
+            "tau_banking": 0.131958762886598
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.525,
+            "price_1m_input_tokens": 0.3,
+            "price_1m_output_tokens": 1.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "mimo-v2-omni",
+      "aaBase": "mimo-v2-omni",
+      "name": "MiMo-V2-Omni",
+      "creator": "Xiaomi",
+      "releaseDate": "2026-03-19",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "94d09368-9035-47cf-963a-b4310b433a16",
+          "aaSlug": "mimo-v2-omni",
+          "label": "MiMo-V2-Omni",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 23.9,
+            "gpqa": 0.828,
+            "hle": 0.221,
+            "ifbench": 0.535374149659864,
+            "lcr": 0.75,
+            "terminalbench_hard": 0.348484848484849,
+            "tau2": 0.912280701754386
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0,
+            "price_1m_input_tokens": 0,
+            "price_1m_output_tokens": 0
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "mimo-v2-pro",
+      "aaBase": "mimo-v2-pro",
+      "name": "MiMo-V2-Pro",
+      "creator": "Xiaomi",
+      "releaseDate": "2026-03-18",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "5d8183dc-24f4-46c5-a1d0-d937de149364",
+          "aaSlug": "mimo-v2-pro",
+          "label": "MiMo-V2-Pro",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 28.6,
+            "gpqa": 0.87,
+            "hle": 0.304,
+            "ifbench": 0.68843537414966,
+            "lcr": 0.683333333333333,
+            "terminalbench_hard": 0.409090909090909,
+            "tau2": 0.950292397660819
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0,
+            "price_1m_input_tokens": 0,
+            "price_1m_output_tokens": 0
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "mimo-v2.5-pro",
+      "aaBase": "mimo-v2-5-pro",
+      "name": "MiMo-V2.5-Pro",
+      "creator": "Xiaomi",
+      "releaseDate": "2026-04-22",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "00f1248e-78e3-4230-8dc8-5e13ba8645e2",
+          "aaSlug": "mimo-v2-5-pro",
+          "label": "MiMo-V2.5-Pro",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 26.4,
+            "artificial_analysis_coding_index": 60.2,
+            "gpqa": 0.866,
+            "hle": 0.357,
+            "scicode": 0.506,
+            "ifbench": 0.798639455782313,
+            "lcr": 0.796666666666667,
+            "terminalbench_hard": 0.431818181818182,
+            "terminalbench_v2_1": 0.651685393258427,
+            "tau2": 0.941520467836257,
+            "tau_banking": 0.0989690721649484
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.544,
+            "price_1m_input_tokens": 0.435,
+            "price_1m_output_tokens": 0.87
+          },
+          "throughput": {
+            "outputTokensPerSecond": 51.166,
+            "timeToFirstTokenSeconds": 5.017,
+            "timeToFirstAnswerTokenSeconds": 44.106
+          }
+        },
+        "non-reasoning": {
+          "aaModelId": "4764d31d-f4af-4297-8bd1-e993f26bcb64",
+          "aaSlug": "mimo-v2-5-pro-non-reasoning",
+          "label": "MiMo-V2.5-Pro (Non-reasoning)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 18.3,
+            "gpqa": 0.762,
+            "hle": 0.148,
+            "ifbench": 0.427210884353741,
+            "lcr": 0.416666666666667,
+            "terminalbench_hard": 0.356060606060606,
+            "tau2": 0.725146198830409
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.544,
+            "price_1m_input_tokens": 0.435,
+            "price_1m_output_tokens": 0.87
+          },
+          "throughput": {
+            "outputTokensPerSecond": 47.998,
+            "timeToFirstTokenSeconds": 4.788,
+            "timeToFirstAnswerTokenSeconds": 4.788
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-m2.5",
+      "aaBase": "minimax-m2-5",
+      "name": "MiniMax-M2.5",
+      "creator": "MiniMax",
+      "releaseDate": "2026-02-12",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "12adec16-19fe-4d92-aeff-5ef3eb7e780a",
+          "aaSlug": "minimax-m2-5",
+          "label": "MiniMax-M2.5",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 22.8,
+            "gpqa": 0.848,
+            "hle": 0.205,
+            "ifbench": 0.716326530612245,
+            "lcr": 0.733333333333333,
+            "terminalbench_hard": 0.348484848484849,
+            "tau2": 0.953216374269006
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.525,
+            "price_1m_input_tokens": 0.3,
+            "price_1m_output_tokens": 1.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-m2.7",
+      "aaBase": "minimax-m2-7",
+      "name": "MiniMax-M2.7",
+      "creator": "MiniMax",
+      "releaseDate": "2026-03-18",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "4bbceacb-cf47-464b-b60f-e1d1fe016d67",
+          "aaSlug": "minimax-m2-7",
+          "label": "MiniMax-M2.7",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 23.2,
+            "artificial_analysis_coding_index": 52.6,
+            "gpqa": 0.874,
+            "hle": 0.296,
+            "scicode": 0.501,
+            "ifbench": 0.757142857142857,
+            "lcr": 0.783333333333333,
+            "terminalbench_hard": 0.393939393939394,
+            "terminalbench_v2_1": 0.554307116104869,
+            "tau2": 0.847953216374269,
+            "tau_banking": 0.0989690721649484
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.525,
+            "price_1m_input_tokens": 0.3,
+            "price_1m_output_tokens": 1.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "minimax-m3",
+      "aaBase": "minimax-m3",
+      "name": "MiniMax-M3",
+      "creator": "MiniMax",
+      "releaseDate": "2026-06-01",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "277f939a-985b-4b37-859d-b3eabc7c0b26",
+          "aaSlug": "minimax-m3",
+          "label": "MiniMax-M3",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 29.6,
+            "artificial_analysis_coding_index": 58.6,
+            "gpqa": 0.929,
+            "hle": 0.39,
+            "scicode": 0.471,
+            "ifbench": 0.828571428571429,
+            "lcr": 0.83,
+            "terminalbench_hard": 0.424242424242424,
+            "terminalbench_v2_1": 0.651685393258427,
+            "tau2": 0.888888888888889,
+            "tau_banking": 0.152577319587629
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.525,
+            "price_1m_input_tokens": 0.3,
+            "price_1m_output_tokens": 1.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 120.33,
+            "timeToFirstTokenSeconds": 1.037,
+            "timeToFirstAnswerTokenSeconds": 17.658
+          }
+        }
+      }
+    },
+    {
+      "id": "muse-spark-1.2",
+      "aaBase": "muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "creator": "Meta",
+      "releaseDate": "2026-08-05",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "04ee6719-0327-463b-a1a1-70a6a78254f9",
+          "aaSlug": "muse-spark-1-2",
+          "label": "Muse Spark 1.2 (xhigh)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 39.8,
+            "artificial_analysis_coding_index": 72.2,
+            "gpqa": 0.904,
+            "hle": 0.455,
+            "scicode": 0.574,
+            "lcr": 0.79,
+            "terminalbench_v2_1": 0.801498127340824,
+            "tau_banking": 0.348453608247423
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 289.747,
+            "timeToFirstTokenSeconds": 11.699,
+            "timeToFirstAnswerTokenSeconds": 18.601
+          }
+        }
+      }
+    },
+    {
+      "id": "muse-spark-1.2-contributor",
+      "aaBase": "muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "creator": "Meta",
+      "releaseDate": "2026-08-05",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "04ee6719-0327-463b-a1a1-70a6a78254f9",
+          "aaSlug": "muse-spark-1-2",
+          "label": "Muse Spark 1.2 (xhigh)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 39.8,
+            "artificial_analysis_coding_index": 72.2,
+            "gpqa": 0.904,
+            "hle": 0.455,
+            "scicode": 0.574,
+            "lcr": 0.79,
+            "terminalbench_v2_1": 0.801498127340824,
+            "tau_banking": 0.348453608247423
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 289.747,
+            "timeToFirstTokenSeconds": 11.699,
+            "timeToFirstAnswerTokenSeconds": 18.601
+          }
+        }
+      }
+    },
+    {
+      "id": "muse-spark-1.2-contributor-free",
+      "aaBase": "muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "creator": "Meta",
+      "releaseDate": "2026-08-05",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "04ee6719-0327-463b-a1a1-70a6a78254f9",
+          "aaSlug": "muse-spark-1-2",
+          "label": "Muse Spark 1.2 (xhigh)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 39.8,
+            "artificial_analysis_coding_index": 72.2,
+            "gpqa": 0.904,
+            "hle": 0.455,
+            "scicode": 0.574,
+            "lcr": 0.79,
+            "terminalbench_v2_1": 0.801498127340824,
+            "tau_banking": 0.348453608247423
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 289.747,
+            "timeToFirstTokenSeconds": 11.699,
+            "timeToFirstAnswerTokenSeconds": 18.601
+          }
+        }
+      }
+    },
+    {
+      "id": "muse-spark-1.3",
+      "aaBase": "muse-spark-1-3",
+      "name": "Muse Spark 1.3",
+      "creator": "Meta",
+      "releaseDate": "2026-09-02",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "9999672c-b687-4026-9c15-5cef02ff53bb",
+          "aaSlug": "muse-spark-1-3",
+          "label": "Muse Spark 1.3 (max)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 48.2,
+            "artificial_analysis_coding_index": 75.8,
+            "gpqa": 0.935,
+            "hle": 0.487,
+            "scicode": 0.588,
+            "lcr": 0.83,
+            "terminalbench_v2_1": 0.842696629213483,
+            "tau_banking": 0.505154639175258
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 242.073,
+            "timeToFirstTokenSeconds": 24.241,
+            "timeToFirstAnswerTokenSeconds": 32.503
+          }
+        },
+        "xhigh": {
+          "aaModelId": "d5170215-69be-4129-849b-26d8d8825bfc",
+          "aaSlug": "muse-spark-1-3-xhigh",
+          "label": "Muse Spark 1.3 (xhigh)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 45.2,
+            "artificial_analysis_coding_index": 76.5,
+            "gpqa": 0.941,
+            "hle": 0.475,
+            "scicode": 0.597,
+            "lcr": 0.83,
+            "terminalbench_v2_1": 0.853932584269663,
+            "tau_banking": 0.472164948453608
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 232.761,
+            "timeToFirstTokenSeconds": 22.163,
+            "timeToFirstAnswerTokenSeconds": 30.755
+          }
+        }
+      }
+    },
+    {
+      "id": "muse-spark-1.3-contributor",
+      "aaBase": "muse-spark-1-3",
+      "name": "Muse Spark 1.3",
+      "creator": "Meta",
+      "releaseDate": "2026-09-02",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "9999672c-b687-4026-9c15-5cef02ff53bb",
+          "aaSlug": "muse-spark-1-3",
+          "label": "Muse Spark 1.3 (max)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 48.2,
+            "artificial_analysis_coding_index": 75.8,
+            "gpqa": 0.935,
+            "hle": 0.487,
+            "scicode": 0.588,
+            "lcr": 0.83,
+            "terminalbench_v2_1": 0.842696629213483,
+            "tau_banking": 0.505154639175258
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 242.073,
+            "timeToFirstTokenSeconds": 24.241,
+            "timeToFirstAnswerTokenSeconds": 32.503
+          }
+        },
+        "xhigh": {
+          "aaModelId": "d5170215-69be-4129-849b-26d8d8825bfc",
+          "aaSlug": "muse-spark-1-3-xhigh",
+          "label": "Muse Spark 1.3 (xhigh)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 45.2,
+            "artificial_analysis_coding_index": 76.5,
+            "gpqa": 0.941,
+            "hle": 0.475,
+            "scicode": 0.597,
+            "lcr": 0.83,
+            "terminalbench_v2_1": 0.853932584269663,
+            "tau_banking": 0.472164948453608
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 232.761,
+            "timeToFirstTokenSeconds": 22.163,
+            "timeToFirstAnswerTokenSeconds": 30.755
+          }
+        }
+      }
+    },
+    {
+      "id": "muse-spark-1.3-contributor-free",
+      "aaBase": "muse-spark-1-3",
+      "name": "Muse Spark 1.3",
+      "creator": "Meta",
+      "releaseDate": "2026-09-02",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "9999672c-b687-4026-9c15-5cef02ff53bb",
+          "aaSlug": "muse-spark-1-3",
+          "label": "Muse Spark 1.3 (max)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 48.2,
+            "artificial_analysis_coding_index": 75.8,
+            "gpqa": 0.935,
+            "hle": 0.487,
+            "scicode": 0.588,
+            "lcr": 0.83,
+            "terminalbench_v2_1": 0.842696629213483,
+            "tau_banking": 0.505154639175258
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 242.073,
+            "timeToFirstTokenSeconds": 24.241,
+            "timeToFirstAnswerTokenSeconds": 32.503
+          }
+        },
+        "xhigh": {
+          "aaModelId": "d5170215-69be-4129-849b-26d8d8825bfc",
+          "aaSlug": "muse-spark-1-3-xhigh",
+          "label": "Muse Spark 1.3 (xhigh)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 45.2,
+            "artificial_analysis_coding_index": 76.5,
+            "gpqa": 0.941,
+            "hle": 0.475,
+            "scicode": 0.597,
+            "lcr": 0.83,
+            "terminalbench_v2_1": 0.853932584269663,
+            "tau_banking": 0.472164948453608
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 2,
+            "price_1m_input_tokens": 1.25,
+            "price_1m_output_tokens": 4.25
+          },
+          "throughput": {
+            "outputTokensPerSecond": 232.761,
+            "timeToFirstTokenSeconds": 22.163,
+            "timeToFirstAnswerTokenSeconds": 30.755
+          }
+        }
+      }
+    },
+    {
+      "id": "nemotron-3.5-lightning-free",
+      "aaBase": "nemotron-3-5-lightning",
+      "name": "Nemotron 3.5 Lightning",
+      "creator": "NVIDIA",
+      "releaseDate": "2026-08-11",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "29976311-665a-4b2f-ac72-557c33e0758e",
+          "aaSlug": "nemotron-3-5-lightning",
+          "label": "Nemotron 3.5 Lightning",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 13.6,
+            "artificial_analysis_coding_index": 26.8,
+            "gpqa": 0.743,
+            "hle": 0.106,
+            "scicode": 0.321,
+            "lcr": 0.603333333333333,
+            "terminalbench_v2_1": 0.243445692883895,
+            "tau_banking": 0.088659793814433
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.095,
+            "price_1m_input_tokens": 0.06,
+            "price_1m_output_tokens": 0.2
+          },
+          "throughput": {
+            "outputTokensPerSecond": 273.847,
+            "timeToFirstTokenSeconds": 0.485,
+            "timeToFirstAnswerTokenSeconds": 7.788
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3.6-plus",
+      "aaBase": "qwen3-6-plus",
+      "name": "Qwen3.6 Plus",
+      "creator": "Alibaba",
+      "releaseDate": "2026-04-02",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "f371ad68-6947-4767-a78f-1f6c81f96b93",
+          "aaSlug": "qwen3-6-plus",
+          "label": "Qwen3.6 Plus",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 27,
+            "artificial_analysis_coding_index": 54.5,
+            "gpqa": 0.882,
+            "hle": 0.278,
+            "ifbench": 0.751700680272109,
+            "lcr": 0.783333333333333,
+            "terminalbench_hard": 0.439393939393939,
+            "terminalbench_v2_1": 0.614232209737828,
+            "tau2": 0.976608187134503,
+            "tau_banking": 0.208247422680412
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.125,
+            "price_1m_input_tokens": 0.5,
+            "price_1m_output_tokens": 3
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3.7-max",
+      "aaBase": "qwen3-7-max",
+      "name": "Qwen3.7 Max",
+      "creator": "Alibaba",
+      "releaseDate": "2026-05-19",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "69534bed-2ffd-4235-832b-e20a810333ab",
+          "aaSlug": "qwen3-7-max",
+          "label": "Qwen3.7 Max",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 29.9,
+            "artificial_analysis_coding_index": 66,
+            "gpqa": 0.923,
+            "hle": 0.405,
+            "scicode": 0.495,
+            "ifbench": 0.805442176870748,
+            "lcr": 0.79,
+            "terminalbench_hard": 0.507575757575758,
+            "terminalbench_v2_1": 0.745318352059925,
+            "tau2": 0.947368421052632,
+            "tau_banking": 0.117525773195876
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3.75,
+            "price_1m_input_tokens": 2.5,
+            "price_1m_output_tokens": 7.5
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3.7-plus",
+      "aaBase": "qwen3-7-plus",
+      "name": "Qwen3.7 Plus",
+      "creator": "Alibaba",
+      "releaseDate": "2026-06-01",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "a87fce42-eea3-4e45-a96d-fe057814f371",
+          "aaSlug": "qwen3-7-plus",
+          "label": "Qwen3.7 Plus",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 25.8,
+            "artificial_analysis_coding_index": 55.9,
+            "gpqa": 0.9,
+            "hle": 0.356,
+            "scicode": 0.461,
+            "ifbench": 0.779591836734694,
+            "lcr": 0.73,
+            "terminalbench_hard": 0.46969696969697,
+            "terminalbench_v2_1": 0.610486891385768,
+            "tau2": 0.929824561403509,
+            "tau_banking": 0.175257731958763
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 0.7,
+            "price_1m_input_tokens": 0.4,
+            "price_1m_output_tokens": 1.6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 65.02,
+            "timeToFirstTokenSeconds": 1.676,
+            "timeToFirstAnswerTokenSeconds": 32.436
+          }
+        }
+      }
+    },
+    {
+      "id": "qwen3.8-max",
+      "aaBase": "qwen3-8-max",
+      "name": "Qwen3.8 Max",
+      "creator": "Alibaba",
+      "releaseDate": "2026-09-02",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "b112af07-3bd5-4647-b09f-b23204361bb2",
+          "aaSlug": "qwen3-8-max",
+          "label": "Qwen3.8 Max (0902)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 45.4,
+            "artificial_analysis_coding_index": 76.2,
+            "gpqa": 0.928,
+            "hle": 0.431,
+            "scicode": 0.521,
+            "lcr": 0.803333333333333,
+            "terminalbench_v2_1": 0.887640449438202,
+            "tau_banking": 0.478350515463918
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3,
+            "price_1m_input_tokens": 2,
+            "price_1m_output_tokens": 6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 40.763,
+            "timeToFirstTokenSeconds": 1.655,
+            "timeToFirstAnswerTokenSeconds": 50.719
+          }
+        }
+      }
     }
   ]
 }

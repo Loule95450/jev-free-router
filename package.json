@@ -22,5 +22,5 @@
     "@ai-sdk/google": "^3.0.73",
     "@ai-sdk/openai-compatible": "^2.0.41"
   },
-  "devDependencies": { "yaml": "^2.8.1", "ai": "^6.0.0" }
+  "devDependencies": { "ai": "^6.0.0" }
 }
