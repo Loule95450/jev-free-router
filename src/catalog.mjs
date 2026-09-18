@@ -44,7 +44,7 @@ export class Catalog {
         // An explicit nonzero Zen price overrides the naming convention.
         if (pool === 'free' && exact?.cost && !freePrice) continue;
         const protocol = exact?.provider?.npm ?? provider?.npm ?? '@ai-sdk/openai-compatible';
-        if (!['@ai-sdk/openai-compatible', '@ai-sdk/anthropic', '@ai-sdk/google'].includes(protocol)) continue;
+        if (!['@ai-sdk/openai-compatible', '@ai-sdk/anthropic', '@ai-sdk/google', '@ai-sdk/openai'].includes(protocol)) continue;
         const cost = pool === 'free' ? { input: 0, output: 0, cacheRead: 0 } : {
           input: number(exact?.cost?.input), output: number(exact?.cost?.output), cacheRead: number(exact?.cost?.cache_read),
         };

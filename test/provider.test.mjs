@@ -51,3 +51,38 @@ test('Go models using Messages protocol still go exclusively to OpenCode', async
   assert.equal(wire.headers.get('x-api-key'), 'go-secret');
   assert.equal(wire.body.model, 'go-model');
 });
+
+test('an unavailable model falls through to Jev\'s next candidate instead of failing the turn', async () => {
+  const seen = [];
+  const notified = [];
+  const ranked = [model('retired-free'), model('backup-free'), model('last-free')];
+  const runtime = {
+    select: async () => ({ model: ranked[0], ranked, credentials: {}, sessionID: 'session', reason: 'jev', probabilities: {} }),
+    notify: async (d) => notified.push(`${d.model.id}:${d.reason}`),
+  };
+  const language = createJev({ runtime, fetch: async (url, init) => {
+    const id = JSON.parse(init.body).model;
+    seen.push(id);
+    if (id === 'retired-free') return new Response('{"error":"Model is unavailable"}', { status: 404 });
+    return Response.json({ id: 'c1', created: 1, model: id, choices: [{ index: 0, message: { role: 'assistant', content: 'OK' }, finish_reason: 'stop' }], usage: { prompt_tokens: 1, completion_tokens: 1 } });
+  } })('jev');
+  const result = await language.doGenerate({ prompt: [{ role: 'user', content: [{ type: 'text', text: 'hi' }] }] });
+  assert.deepEqual(seen, ['retired-free', 'backup-free']);
+  assert.equal(result.content[0].text, 'OK');
+  assert.deepEqual(notified, ['backup-free:retry/retired-free-unavailable']);
+});
+test('a cancelled turn never spends a second model', async () => {
+  const seen = [];
+  const controller = new AbortController();
+  const ranked = [model('a-free'), model('b-free')];
+  const runtime = { select: async () => ({ model: ranked[0], ranked, credentials: {}, sessionID: 's' }), notify: async () => {} };
+  const language = createJev({ runtime, fetch: async (url, init) => {
+    seen.push(JSON.parse(init.body).model);
+    controller.abort();
+    throw Object.assign(new Error('aborted'), { name: 'AbortError' });
+  } })('jev');
+  await assert.rejects(language.doGenerate({
+    prompt: [{ role: 'user', content: [{ type: 'text', text: 'hi' }] }], abortSignal: controller.signal,
+  }));
+  assert.deepEqual(seen, ['a-free']);
+});

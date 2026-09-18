@@ -93,7 +93,9 @@ export function choose(models, probabilities, { contextTokens = 0, outputTokens 
     const penalty = cost == null ? costWeight : maxCost ? costWeight * cost / maxCost : 0;
     return { id: model.id, probability: probabilities[model.id], cost, utility: probabilities[model.id] - penalty };
   }).sort((a, b) => b.utility - a.utility || (a.cost ?? Infinity) - (b.cost ?? Infinity) || a.id.localeCompare(b.id));
-  return { model: models.find((m) => m.id === candidates[0].id), candidates };
+  // `ranked` keeps Jev's whole ordering so the caller can retry the next best model on failure.
+  const ranked = candidates.map((c) => models.find((m) => m.id === c.id));
+  return { model: ranked[0], candidates, ranked };
 }
 
 export class Router {
@@ -127,8 +129,13 @@ export class Router {
         (estimatedCost(a, input.contextTokens, input.outputTokens) ?? Infinity) -
         (estimatedCost(b, input.contextTokens, input.outputTokens) ?? Infinity) || a.id.localeCompare(b.id))[0];
       if (!model) throw new Error('No eligible OpenCode model');
+      // Without a distribution there is no ranking, but cheapest-first still gives a retry order.
+      const ranked = [...input.models].sort((a, b) =>
+        (estimatedCost(a, input.contextTokens, input.outputTokens) ?? Infinity) -
+        (estimatedCost(b, input.contextTokens, input.outputTokens) ?? Infinity) || a.id.localeCompare(b.id));
       return {
-        model, probabilities: null, candidates: [], confidence: null, metrics: null,
+        model, ranked: [model, ...ranked.filter((m) => m.id !== model.id)],
+        probabilities: null, candidates: [], confidence: null, metrics: null,
         reason: error.message === 'missing-key' ? 'fallback/missing-typesafe-key' : 'fallback/jev-unavailable',
         elapsedMs: Date.now() - start,
       };

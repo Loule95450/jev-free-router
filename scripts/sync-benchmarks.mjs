@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { AA_URL, AA_SOURCE, ENDPOINTS, aaBase, aaEffort, excluded, finite } from '../src/config.mjs';
+import { AA_URL, AA_SOURCE, ENDPOINTS, MODELS_URL, aaBase, aaEffort, excluded, finite } from '../src/config.mjs';
 import { validSnapshot } from '../src/benchmarks.mjs';
 
 /** Scale of every Artificial Analysis evaluation, so no consumer rescales a score by guessing. */
@@ -91,9 +91,18 @@ export async function sync({ output = 'data/benchmarks.json', input, apiKey = pr
   // One request covers every model Artificial Analysis publishes: never poll it per model.
   const aa = input ? JSON.parse(await readFile(input, 'utf8')) : await json(AA_URL, { headers: { 'x-api-key': apiKey } });
   if (!Array.isArray(aa.data) || !aa.data.length) throw new Error('Invalid Artificial Analysis response');
-  const catalogues = await Promise.allSettled(Object.values(ENDPOINTS).map((base) => json(`${base}/models`)));
+  const [metadata, ...catalogues] = await Promise.allSettled([
+    json(MODELS_URL), ...Object.values(ENDPOINTS).map((base) => json(`${base}/models`)),
+  ]);
+  // A model models.dev marks as retired is no longer served: carrying its scores only makes the
+  // router consider a candidate the plugin already refuses.
+  const retired = new Set(metadata.status === 'fulfilled'
+    ? ['opencode', 'opencode-go'].flatMap((id) => Object.entries(metadata.value[id]?.models ?? {})
+      .filter(([, model]) => model?.status === 'deprecated').map(([modelId]) => modelId))
+    : []);
   const zenIds = catalogues.flatMap((result) => result.status === 'fulfilled' && Array.isArray(result.value?.data)
-    ? result.value.data.map((entry) => entry.id).filter((id) => typeof id === 'string' && !excluded(id)) : []);
+    ? result.value.data.map((entry) => entry.id)
+      .filter((id) => typeof id === 'string' && !excluded(id) && !retired.has(id)) : []);
   if (!zenIds.length) throw new Error('Empty Zen catalogue: preserving existing snapshot');
   const { models, skipped } = buildModels(zenIds, indexArtificialAnalysis(aa.data));
   if (!models.length) throw new Error('No Zen model matched Artificial Analysis: preserving existing snapshot');
@@ -110,12 +119,12 @@ export async function sync({ output = 'data/benchmarks.json', input, apiKey = pr
     await mkdir(dirname(output), { recursive: true });
     await writeFile(output, `${JSON.stringify(snapshot, null, 2)}\n`);
   }
-  return { changed, matched: models.length, skipped };
+  return { changed, matched: models.length, skipped, retired: retired.size };
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const [output = 'data/benchmarks.json', input] = process.argv.slice(2);
-  const { changed, matched, skipped } = await sync({ output, input });
-  console.log(`${matched} models matched, ${skipped.length} skipped (no Artificial Analysis entry): ${skipped.join(', ') || 'none'}`);
+  const { changed, matched, skipped, retired } = await sync({ output, input });
+  console.log(`${matched} models matched, ${retired} retired dropped, ${skipped.length} skipped (no Artificial Analysis entry): ${skipped.join(', ') || 'none'}`);
   console.log(changed ? `Updated ${output}` : `${output} already current`);
 }

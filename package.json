@@ -4,8 +4,14 @@
   "description": "Dynamic probabilistic routing for OpenCode Zen free and Go models using TypeSafe Jev",
   "type": "module",
   "main": "./src/plugin.mjs",
-  "exports": { ".": "./src/plugin.mjs", "./provider": "./src/provider.mjs" },
-  "repository": { "type": "git", "url": "git+https://github.com/Loule95450/jev-free-router.git" },
+  "exports": {
+    ".": "./src/plugin.mjs",
+    "./provider": "./src/provider.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Loule95450/jev-free-router.git"
+  },
   "homepage": "https://github.com/Loule95450/jev-free-router#readme",
   "scripts": {
     "test": "node --test test/*.test.mjs",
@@ -13,14 +19,26 @@
     "benchmarks:sync": "node scripts/sync-benchmarks.mjs",
     "prepublishOnly": "npm test"
   },
-  "files": ["src", "data", "README.md", "NOTICE", "LICENSE", "licenses"],
-  "engines": { "node": ">=22" },
+  "files": [
+    "src",
+    "data",
+    "README.md",
+    "NOTICE",
+    "LICENSE",
+    "licenses"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
   "license": "MIT",
   "dependencies": {
-    "@typesafe-ai/sdk": "^0.6.0",
     "@ai-sdk/anthropic": "^3.0.111",
     "@ai-sdk/google": "^3.0.73",
-    "@ai-sdk/openai-compatible": "^2.0.41"
+    "@ai-sdk/openai": "^4.0.70",
+    "@ai-sdk/openai-compatible": "^2.0.41",
+    "@typesafe-ai/sdk": "^0.6.0"
   },
-  "devDependencies": { "ai": "^6.0.0" }
+  "devDependencies": {
+    "ai": "^6.0.0"
+  }
 }
