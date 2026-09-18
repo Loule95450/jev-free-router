@@ -1,0 +1,37 @@
+name: Refresh benchmark data
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: benchmark-data
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - name: Fetch benchmark source once for all users
+        env:
+          BENCHMARK_SOURCE: ${{ vars.JEV_BENCHMARK_SOURCE || 'models-dev' }}
+          ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
+          AA_ALLOW_REDISTRIBUTION: ${{ vars.AA_ALLOW_REDISTRIBUTION }}
+        run: node scripts/sync-benchmarks.mjs "$BENCHMARK_SOURCE"
+      - name: Publish updated data without a plugin release
+        run: |
+          if git diff --quiet -- data/benchmarks.json; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/benchmarks.json
+          git commit -m 'data: refresh public benchmark snapshot'
+          git push origin HEAD:master

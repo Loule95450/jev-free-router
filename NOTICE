@@ -1,0 +1,18 @@
+Jev for OpenCode is adapted from jev-router by gargpratyush (MIT).
+https://github.com/gargpratyush/jev-router
+
+The default benchmark snapshot is derived from models.dev (MIT).
+Source: https://models.dev/models.json
+Repository: https://github.com/anomalyco/models.dev
+Reported measurements retain their original source links and test conditions.
+See licenses/Models-dev-MIT.txt. These are not general intelligence scores.
+
+The optional Aider benchmark source is derived from the Aider polyglot leaderboard.
+Source: https://aider.chat/docs/leaderboards/
+Data: https://github.com/Aider-AI/aider/blob/main/aider/website/_data/polyglot_leaderboard.yml
+Copyright Aider contributors. Apache-2.0; see licenses/Aider-Apache-2.0.txt.
+The snapshot preserves reported results and run settings; these are not general intelligence scores.
+
+Optional Artificial Analysis data: Source: Artificial Analysis (https://artificialanalysis.ai/).
+No Artificial Analysis scores are included in the default distribution.
+Artificial Analysis does not endorse this project.

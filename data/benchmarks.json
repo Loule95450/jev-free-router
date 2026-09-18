@@ -1,0 +1,2532 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-18T17:33:29.224Z",
+  "source": "models-dev",
+  "models": [
+    {
+      "id": "alibaba/qwen-max",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 21.8,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-01-28"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3-235b-a22b",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 59.6,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-05-09"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 21.41,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3-32b",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 40,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-05-08"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3-coder-480b-a35b-instruct",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 38.7,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.5-122b-a10b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 72,
+          "metric": "resolved",
+          "source": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.5-27b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 72.4,
+          "metric": "resolved",
+          "source": "https://huggingface.co/Qwen/Qwen3.5-27B"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.5-397b-a17b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 76.4,
+          "metric": "resolved",
+          "source": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.6-27b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 77.2,
+          "metric": "resolved",
+          "source": "https://huggingface.co/Qwen/Qwen3.6-27B"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.6-35b-a3b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 73.4,
+          "metric": "resolved",
+          "source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.7-max",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 80.4,
+          "metric": "resolved",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 60.6,
+          "metric": "resolve rate",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 78.3,
+          "metric": "resolve rate",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 69.7,
+          "metric": "success rate",
+          "harness": "Terminus-2",
+          "version": "2.0",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 92.4,
+          "metric": "accuracy",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 41.4,
+          "metric": "accuracy",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "SciCode",
+          "score": 53.5,
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 76.4,
+          "metric": "success rate",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 47.2,
+          "harness": "Claude Code",
+          "source": "https://qwen.ai/blog?id=qwen3.7",
+          "date": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.8-27b",
+      "benchmarks": [
+        {
+          "name": "SWE-bench Pro",
+          "score": 61.7,
+          "metric": "resolved",
+          "source": "https://huggingface.co/Qwen/Qwen3.8-27B"
+        }
+      ]
+    },
+    {
+      "id": "alibaba/qwen3.8-max-preview",
+      "benchmarks": [
+        {
+          "name": "Terminal-Bench",
+          "score": 86.6,
+          "metric": "accuracy",
+          "variant": "xhigh",
+          "version": "2.1",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 67.7,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 56.6,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "variant": "xhigh",
+          "version": "1.1",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 55.9,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "FrontierSWE",
+          "score": 73.5,
+          "metric": "dominance score",
+          "harness": "Claude Code",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "MLS-Bench-Lite",
+          "score": 41,
+          "metric": "score",
+          "harness": "Claude Code",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 27.3,
+          "metric": "pass@1",
+          "variant": "xhigh",
+          "dataset": "600-task public subset",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "Toolathlon Verified",
+          "score": 72.5,
+          "metric": "pass@1",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "WideSearch",
+          "score": 81.9,
+          "metric": "F1",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 56.2,
+          "metric": "accuracy",
+          "variant": "xhigh, with tools",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 92.6,
+          "metric": "accuracy",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 43.6,
+          "metric": "accuracy",
+          "variant": "xhigh, no tools",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "IFBench",
+          "score": 82.8,
+          "metric": "score",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 86.1,
+          "metric": "success rate",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        },
+        {
+          "name": "MMMU Pro",
+          "score": 82.3,
+          "metric": "accuracy",
+          "variant": "xhigh",
+          "source": "https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421",
+          "date": "2026-08-03"
+        }
+      ]
+    },
+    {
+      "id": "cohere/command-a-03-2025",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 12,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-03-14"
+        }
+      ]
+    },
+    {
+      "id": "cohere/north-mini-code-1-0",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 67.6,
+          "metric": "resolved",
+          "harness": "SWE-agent",
+          "source": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0",
+          "date": "2026-06-09"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 40.2,
+          "metric": "resolve rate",
+          "harness": "SWE-agent",
+          "source": "https://huggingface.co/CohereLabs/North-Mini-Code-1.0",
+          "date": "2026-06-09"
+        }
+      ]
+    },
+    {
+      "id": "deepreinforce/ornith-1.0-35b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 75.6,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 50.4,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 69.3,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
+        },
+        {
+          "name": "Terminal-Bench 2.1",
+          "score": 64.2,
+          "metric": "percent",
+          "variant": "Terminus-2",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
+        },
+        {
+          "name": "Terminal-Bench 2.1",
+          "score": 62.8,
+          "metric": "percent",
+          "variant": "Claude Code",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 34.6,
+          "metric": "percent",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
+        },
+        {
+          "name": "Claw-eval",
+          "score": 69.8,
+          "metric": "percent",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-35B"
+        }
+      ]
+    },
+    {
+      "id": "deepreinforce/ornith-1.0-397b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 82.4,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 62.2,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 78.9,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
+        },
+        {
+          "name": "Terminal-Bench 2.1",
+          "score": 77.5,
+          "metric": "percent",
+          "variant": "Terminus-2",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
+        },
+        {
+          "name": "Terminal-Bench 2.1",
+          "score": 78.2,
+          "metric": "percent",
+          "variant": "Claude Code",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 48.2,
+          "metric": "percent",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
+        },
+        {
+          "name": "Claw-eval",
+          "score": 77.1,
+          "metric": "percent",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-397B"
+        }
+      ]
+    },
+    {
+      "id": "deepreinforce/ornith-1.0-9b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 69.4,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 42.9,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 52,
+          "metric": "percent resolved",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+        },
+        {
+          "name": "Terminal-Bench 2.1",
+          "score": 43.1,
+          "metric": "percent",
+          "variant": "Terminus-2",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+        },
+        {
+          "name": "Terminal-Bench 2.1",
+          "score": 40.6,
+          "metric": "percent",
+          "variant": "Claude Code",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 27.2,
+          "metric": "percent",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+        },
+        {
+          "name": "Claw-eval",
+          "score": 63.1,
+          "metric": "percent",
+          "source": "https://huggingface.co/deepreinforce-ai/Ornith-1.0-9B"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-chat",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 70.2,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-10-03"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-r1",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 56.9,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-01-20"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-reasoner",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 74.2,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-10-03"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 79,
+          "metric": "resolved",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-v4-flash-0731",
+      "benchmarks": [
+        {
+          "name": "Terminal-Bench",
+          "score": 82.7,
+          "metric": "pass@1",
+          "variant": "max",
+          "version": "2.1",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 54.2,
+          "metric": "resolve rate",
+          "harness": "DeepSeek Harness minimal mode",
+          "variant": "max effort",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        },
+        {
+          "name": "CyberGym",
+          "score": 76.7,
+          "metric": "score",
+          "harness": "DeepSeek Harness minimal mode",
+          "variant": "max effort",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 54.4,
+          "metric": "resolve rate",
+          "harness": "DeepSeek Harness minimal mode",
+          "variant": "max effort",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        },
+        {
+          "name": "Toolathlon-Verified",
+          "score": 70.3,
+          "metric": "score",
+          "harness": "DeepSeek Harness minimal mode",
+          "variant": "max effort",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        },
+        {
+          "name": "Agents' Last Exam",
+          "score": 25.2,
+          "metric": "score",
+          "harness": "DeepSeek Harness minimal mode",
+          "variant": "max effort",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 25.1,
+          "metric": "success rate",
+          "variant": "max effort",
+          "dataset": "public",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        },
+        {
+          "name": "DSBench-FullStack",
+          "score": 68.7,
+          "metric": "score",
+          "variant": "max effort",
+          "dataset": "internal",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        },
+        {
+          "name": "DSBench-Hard",
+          "score": 59.6,
+          "metric": "score",
+          "variant": "max effort",
+          "dataset": "internal",
+          "source": "https://api-docs.deepseek.com/updates/",
+          "date": "2026-07-31"
+        }
+      ]
+    },
+    {
+      "id": "deepseek/deepseek-v4-pro",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 80.6,
+          "metric": "resolved",
+          "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-2.5-flash",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 55.1,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-05-25"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-2.5-pro",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 83.1,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-06-06"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3-flash-preview",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 34.63,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 8.2,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
+        },
+        {
+          "name": "SWE-Atlas Refactoring",
+          "score": 10,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
+        },
+        {
+          "name": "SWE-Atlas Test Writing",
+          "score": 30.3,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3-pro-preview",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 43.3,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3.1-pro-preview",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 54.2,
+          "metric": "resolve rate",
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "date": "2026-05-28"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 70.3,
+          "metric": "success rate",
+          "harness": "Terminus-2",
+          "version": "2.1",
+          "source": "https://www.anthropic.com/news/claude-opus-4-8",
+          "date": "2026-05-28"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 46.1,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 13.5,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
+        },
+        {
+          "name": "SWE-Atlas Refactoring",
+          "score": 33.81,
+          "metric": "score",
+          "harness": "Gemini CLI",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
+        },
+        {
+          "name": "SWE-Atlas Test Writing",
+          "score": 29.84,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 94.3,
+          "metric": "accuracy",
+          "source": "https://openai.com/index/introducing-gpt-5-5/",
+          "date": "2026-04-23"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 44.4,
+          "metric": "accuracy",
+          "dataset": "full set, text + MM",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "ARC-AGI-2",
+          "score": 77.1,
+          "metric": "accuracy",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "MMMU Pro",
+          "score": 80.5,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 78.2,
+          "metric": "success rate",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 76.2,
+          "metric": "success rate",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 83.3,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1314,
+          "metric": "Elo",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3.5-flash",
+      "benchmarks": [
+        {
+          "name": "Terminal-Bench",
+          "score": 76.2,
+          "metric": "success rate",
+          "harness": "Terminus-2",
+          "version": "2.1",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 55.1,
+          "metric": "resolve rate",
+          "variant": "single attempt",
+          "dataset": "public",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 83.6,
+          "metric": "success rate",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "Toolathlon",
+          "score": 56.5,
+          "metric": "success rate",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 78.4,
+          "metric": "success rate",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "MMMU Pro",
+          "score": 83.6,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 84.2,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 40.2,
+          "metric": "accuracy",
+          "dataset": "full set, text + MM",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "ARC-AGI-2",
+          "score": 72.1,
+          "metric": "accuracy",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1656,
+          "metric": "Elo",
+          "source": "https://deepmind.google/models/gemini/flash/",
+          "date": "2026-05-19"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3.5-flash-lite",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 54.2,
+          "metric": "resolve rate",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 54,
+          "metric": "accuracy",
+          "harness": "Terminus 2",
+          "version": "2.1",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "MLE-Bench",
+          "score": 39.2,
+          "metric": "average position score",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1140,
+          "metric": "Elo",
+          "version": "v2",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 74,
+          "metric": "success rate",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 74.5,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 76.5,
+          "metric": "accuracy",
+          "variant": "with tools",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "GDM-MRCR",
+          "score": 72.2,
+          "metric": "accuracy",
+          "variant": "128k average, 8-needle",
+          "version": "v2",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "GDM-MRCR",
+          "score": 21.3,
+          "metric": "accuracy",
+          "variant": "1M pointwise, 8-needle",
+          "version": "v2",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+          "date": "2026-07-21"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3.6-flash",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 58.7,
+          "metric": "resolve rate",
+          "harness": "Antigravity",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 49,
+          "metric": "resolve rate",
+          "variant": "high reasoning",
+          "version": "1.1",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 78,
+          "metric": "accuracy",
+          "harness": "Terminus 2",
+          "version": "2.1",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "MLE-Bench",
+          "score": 63.9,
+          "metric": "average position score",
+          "dataset": "Partial 30",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1421,
+          "metric": "Elo",
+          "version": "v2",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 83,
+          "metric": "success rate",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 85.2,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 89.4,
+          "metric": "accuracy",
+          "variant": "with tools",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "GDM-MRCR",
+          "score": 91.8,
+          "metric": "accuracy",
+          "variant": "128k average, 8-needle",
+          "version": "v2",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        },
+        {
+          "name": "GDM-MRCR",
+          "score": 54,
+          "metric": "accuracy",
+          "variant": "1M pointwise, 8-needle",
+          "version": "v2",
+          "source": "https://deepmind.google/models/evals-methodology/gemini-3-6-flash/",
+          "date": "2026-07-21"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-3.7-flash",
+      "benchmarks": [
+        {
+          "name": "FrontierCode",
+          "score": 43.6,
+          "metric": "score",
+          "version": "1.1 Main",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+          "date": "2026-08-13"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 65.3,
+          "metric": "resolve rate",
+          "version": "1.1",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+          "date": "2026-08-13"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 85.8,
+          "metric": "accuracy",
+          "version": "2.1",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+          "date": "2026-08-13"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 30.4,
+          "metric": "accuracy",
+          "dataset": "private set",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+          "date": "2026-08-13"
+        },
+        {
+          "name": "GDP.pdf",
+          "score": 34,
+          "metric": "accuracy",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+          "date": "2026-08-13"
+        },
+        {
+          "name": "GDM-MRCR",
+          "score": 97,
+          "metric": "accuracy",
+          "variant": "128k average, 8-needle",
+          "version": "v2",
+          "source": "https://deepmind.google/models/model-cards/gemini-3-7-flash/",
+          "date": "2026-08-13"
+        }
+      ]
+    },
+    {
+      "id": "google/gemini-omni-flash-preview",
+      "benchmarks": [
+        {
+          "name": "LMArena Text-to-Video Arena",
+          "score": 1527,
+          "metric": "Elo",
+          "source": "https://venturebeat.com/technology/googles-gemini-omni-flash-hits-the-api-turning-enterprise-video-production-into-a-conversation",
+          "date": "2026-06-30"
+        }
+      ]
+    },
+    {
+      "id": "meituan/longcat-2.0",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 59.5,
+          "metric": "resolve rate",
+          "source": "https://github.com/meituan-longcat/longcat-2.0",
+          "date": "2026-06-30"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 77.3,
+          "metric": "resolve rate",
+          "source": "https://github.com/meituan-longcat/longcat-2.0",
+          "date": "2026-06-30"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 70.8,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://github.com/meituan-longcat/longcat-2.0",
+          "date": "2026-06-30"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 88.9,
+          "metric": "accuracy",
+          "source": "https://github.com/meituan-longcat/longcat-2.0",
+          "date": "2026-06-30"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 79.9,
+          "metric": "accuracy",
+          "source": "https://github.com/meituan-longcat/longcat-2.0",
+          "date": "2026-06-30"
+        },
+        {
+          "name": "IFEval",
+          "score": 90,
+          "metric": "accuracy",
+          "source": "https://github.com/meituan-longcat/longcat-2.0",
+          "date": "2026-06-30"
+        },
+        {
+          "name": "FORTE",
+          "score": 73.2,
+          "metric": "success rate",
+          "source": "https://github.com/meituan-longcat/longcat-2.0",
+          "date": "2026-06-30"
+        }
+      ]
+    },
+    {
+      "id": "meta/llama-4-maverick-17b-instruct",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 15.6,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-04-06"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 5.24,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        }
+      ]
+    },
+    {
+      "id": "meta/muse-glimmer-30b",
+      "benchmarks": [
+        {
+          "name": "MCP Atlas",
+          "score": 75.5,
+          "metric": "success rate",
+          "variant": "public",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "DeepSearch QA",
+          "score": 74.6,
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 51.2,
+          "metric": "resolve rate",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "SWE-Bench Verified",
+          "score": 76,
+          "metric": "resolve rate",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 51.7,
+          "metric": "success rate",
+          "variant": "with terminus2",
+          "version": "2.1",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 65.9,
+          "metric": "success rate",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "AIME 2026",
+          "score": 94.7,
+          "metric": "accuracy",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 83.5,
+          "metric": "accuracy",
+          "variant": "AA",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 78.8,
+          "metric": "accuracy",
+          "source": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+          "date": "2026-08-10"
+        }
+      ]
+    },
+    {
+      "id": "meta/muse-spark-1.1",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 61.5,
+          "metric": "resolve rate",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 80,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 53.3,
+          "metric": "resolve rate",
+          "version": "1.1",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 88.1,
+          "metric": "success rate",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "JobBench",
+          "score": 54.7,
+          "metric": "success rate",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "Toolathlon-Verified",
+          "score": 75.6,
+          "metric": "success rate",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 62.1,
+          "metric": "accuracy",
+          "variant": "with tools",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 80.8,
+          "metric": "success rate",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "Finance Agent",
+          "score": 57.2,
+          "metric": "accuracy",
+          "version": "v2",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 88.4,
+          "metric": "accuracy",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        },
+        {
+          "name": "BabyVision",
+          "score": 76.3,
+          "metric": "accuracy",
+          "source": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/",
+          "date": "2026-07-09"
+        }
+      ]
+    },
+    {
+      "id": "microsoft/mai-code-1-flash",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 51.2,
+          "metric": "resolve rate",
+          "harness": "GitHub Copilot",
+          "source": "https://microsoft.ai/news/introducingmai-code-1-flash/",
+          "date": "2026-06-02"
+        },
+        {
+          "name": "SWE-Bench Verified",
+          "score": 71.6,
+          "metric": "resolved",
+          "source": "https://llm-stats.com/benchmarks/swe-bench-verified"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 54.8,
+          "metric": "success rate",
+          "version": "2.0",
+          "source": "https://llm-stats.com/benchmarks/terminal-bench-2"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 84.6,
+          "metric": "accuracy",
+          "source": "https://llm-stats.com/benchmarks/gpqa"
+        }
+      ]
+    },
+    {
+      "id": "microsoft/phi-4-mini",
+      "benchmarks": [
+        {
+          "name": "MMLU",
+          "score": 67.3,
+          "metric": "accuracy",
+          "source": "https://huggingface.co/microsoft/Phi-4-mini-instruct/resolve/main/README.md"
+        }
+      ]
+    },
+    {
+      "id": "minimax/MiniMax-M2",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 69.4,
+          "metric": "resolved",
+          "source": "https://huggingface.co/MiniMaxAI/MiniMax-M2"
+        }
+      ]
+    },
+    {
+      "id": "minimax/MiniMax-M2.1",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 74,
+          "metric": "resolved",
+          "source": "https://huggingface.co/MiniMaxAI/MiniMax-M2.1"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 36.81,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        }
+      ]
+    },
+    {
+      "id": "minimax/MiniMax-M2.5",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 75.8,
+          "metric": "resolved",
+          "source": "https://www.swebench.com/"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 10.3,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
+        },
+        {
+          "name": "SWE-Atlas Refactoring",
+          "score": 19.52,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
+        },
+        {
+          "name": "SWE-Atlas Test Writing",
+          "score": 18.6,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
+        }
+      ]
+    },
+    {
+      "id": "minimax/MiniMax-M2.7",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 79.9,
+          "metric": "resolved",
+          "harness": "Claude Code",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 56.2,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 51.1,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "id": "minimax/MiniMax-M3",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 80.5,
+          "metric": "resolved",
+          "harness": "Claude Code",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 59,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 66,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 83.52,
+          "metric": "accuracy",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 74.2,
+          "metric": "success rate",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        },
+        {
+          "name": "OSWorld-Verified",
+          "score": 70.06,
+          "metric": "success rate",
+          "source": "https://www.minimax.io/blog/minimax-m3",
+          "date": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "id": "mistral/codestral-latest",
+      "benchmarks": [
+        {
+          "name": "Aider Polyglot",
+          "score": 11.1,
+          "metric": "percent correct",
+          "source": "https://aider.chat/docs/leaderboards/",
+          "date": "2025-01-13"
+        }
+      ]
+    },
+    {
+      "id": "mistral/devstral-medium-2507",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 61.6,
+          "metric": "resolved",
+          "source": "https://mistral.ai/news/devstral-2507",
+          "date": "2025-07-10"
+        }
+      ]
+    },
+    {
+      "id": "mistral/devstral-small-2507",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 53.6,
+          "metric": "resolved",
+          "source": "https://mistral.ai/news/devstral-2507",
+          "date": "2025-07-10"
+        }
+      ]
+    },
+    {
+      "id": "mistral/mistral-medium-2604",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 77.6,
+          "metric": "resolved",
+          "source": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
+        },
+        {
+          "name": "τ³-Telecom",
+          "score": 91.4,
+          "metric": "accuracy",
+          "variant": "public preview",
+          "source": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5/",
+          "date": "2026-05-22"
+        }
+      ]
+    },
+    {
+      "id": "mistral/mistral-medium-latest",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 77.6,
+          "metric": "resolved",
+          "source": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B"
+        }
+      ]
+    },
+    {
+      "id": "moonshotai/kimi-k2-thinking",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 71.3,
+          "metric": "resolved",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2-Thinking"
+        }
+      ]
+    },
+    {
+      "id": "moonshotai/kimi-k2.5",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 70.8,
+          "metric": "resolved",
+          "source": "https://www.swebench.com/"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 13.1,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
+        },
+        {
+          "name": "SWE-Atlas Refactoring",
+          "score": 20.95,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
+        },
+        {
+          "name": "SWE-Atlas Test Writing",
+          "score": 25.77,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
+        }
+      ]
+    },
+    {
+      "id": "moonshotai/kimi-k2.6",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 80.2,
+          "metric": "resolved",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.6"
+        }
+      ]
+    },
+    {
+      "id": "moonshotai/kimi-k2.7-code",
+      "benchmarks": [
+        {
+          "name": "Kimi Code Bench",
+          "score": 62,
+          "harness": "Kimi Code CLI",
+          "version": "v2",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+          "date": "2026-06-12"
+        },
+        {
+          "name": "Program Bench",
+          "score": 53.6,
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+          "date": "2026-06-12"
+        },
+        {
+          "name": "MLS Bench Lite",
+          "score": 35.1,
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+          "date": "2026-06-12"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 76,
+          "metric": "success rate",
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+          "date": "2026-06-12"
+        },
+        {
+          "name": "MCP Mark Verified",
+          "score": 81.1,
+          "metric": "success rate",
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+          "date": "2026-06-12"
+        },
+        {
+          "name": "Kimi Claw 24/7 Bench",
+          "score": 46.9,
+          "harness": "Kimi Code CLI",
+          "source": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+          "date": "2026-06-12"
+        }
+      ]
+    },
+    {
+      "id": "moonshotai/kimi-k3",
+      "benchmarks": [
+        {
+          "name": "DeepSWE",
+          "score": 67.5,
+          "metric": "resolve rate",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "version": "1.1",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 88.3,
+          "metric": "accuracy",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "version": "2.1",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "FrontierSWE",
+          "score": 81.2,
+          "metric": "dominance score",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "Program Bench",
+          "score": 77.8,
+          "metric": "score",
+          "harness": "Kimi Code",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "SWE Marathon",
+          "score": 42,
+          "metric": "resolve rate",
+          "harness": "Claude Code",
+          "variant": "max effort",
+          "version": "1.1",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "GDPval-AA",
+          "score": 1668,
+          "metric": "Elo",
+          "variant": "max effort",
+          "version": "v2",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "AA-Briefcase",
+          "score": 1548,
+          "metric": "Elo",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "AutomationBench",
+          "score": 30.8,
+          "metric": "success rate",
+          "variant": "max effort",
+          "dataset": "600-task public subset",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "JobBench",
+          "score": 52.9,
+          "metric": "score",
+          "variant": "max effort",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "SpreadsheetBench",
+          "score": 34.8,
+          "metric": "score",
+          "harness": "Claude Code",
+          "variant": "max effort",
+          "version": "2",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 91.2,
+          "metric": "accuracy",
+          "variant": "max effort, context compaction",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 91.3,
+          "metric": "accuracy",
+          "variant": "max effort, with tools",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        },
+        {
+          "name": "ZeroBench",
+          "score": 41,
+          "metric": "pass@5",
+          "variant": "max effort, with tools",
+          "source": "https://www.kimi.com/blog/kimi-k3",
+          "date": "2026-07-16"
+        }
+      ]
+    },
+    {
+      "id": "nvidia/nemotron-3-ultra-550b-a55b",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 70.7,
+          "metric": "resolved",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 67.7,
+          "metric": "resolve rate",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 56.4,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "GPQA",
+          "score": 87,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 26.7,
+          "metric": "accuracy",
+          "variant": "no tools",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 37.4,
+          "metric": "accuracy",
+          "variant": "with tools",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "LiveCodeBench",
+          "score": 89,
+          "metric": "pass@1",
+          "version": "v6",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "MMLU-Pro",
+          "score": 86.8,
+          "metric": "accuracy",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 44.4,
+          "metric": "accuracy",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "IFBench",
+          "score": 81.7,
+          "metric": "accuracy",
+          "variant": "prompt loose",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        },
+        {
+          "name": "GDPval",
+          "score": 46.7,
+          "metric": "wins or ties",
+          "source": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+          "date": "2026-06-04"
+        }
+      ]
+    },
+    {
+      "id": "poolside/laguna-xs-2.1",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 70.9,
+          "metric": "resolved",
+          "harness": "Harbor",
+          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
+          "date": "2026-07-02"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 63.1,
+          "metric": "resolve rate",
+          "harness": "Harbor",
+          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
+          "date": "2026-07-02"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 47.6,
+          "metric": "resolve rate",
+          "harness": "Harbor",
+          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
+          "date": "2026-07-02"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 37.5,
+          "metric": "success rate",
+          "harness": "Harbor",
+          "version": "2.0",
+          "source": "https://poolside.ai/blog/introducing-laguna-xs-2-1",
+          "date": "2026-07-02"
+        }
+      ]
+    },
+    {
+      "id": "sakana/fugu",
+      "benchmarks": [
+        {
+          "name": "SWE Bench Pro",
+          "score": 59,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "Terminal Bench 2.1",
+          "score": 80.2,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "LiveCodeBench",
+          "score": 92.9,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "LiveCodeBench Pro",
+          "score": 87.8,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "Humanity’s Last Exam",
+          "score": 47.2,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 85.1,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 95.5,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "SciCode",
+          "score": 60.1,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "τ3 Banking",
+          "score": 21.7,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "Long Context Reasoning",
+          "score": 74.7,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "MRCRv2",
+          "score": 86.6,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "CTI-REALM",
+          "score": 67.5,
+          "source": "https://console.sakana.ai/models"
+        }
+      ]
+    },
+    {
+      "id": "sakana/fugu-ultra",
+      "benchmarks": [
+        {
+          "name": "SWE Bench Pro",
+          "score": 73.7,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "Terminal Bench 2.1",
+          "score": 82.1,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "LiveCodeBench",
+          "score": 93.2,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "LiveCodeBench Pro",
+          "score": 90.8,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "Humanity’s Last Exam",
+          "score": 50,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "CharXiv Reasoning",
+          "score": 86.6,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 95.5,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "SciCode",
+          "score": 58.7,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "τ3 Banking",
+          "score": 20.6,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "Long Context Reasoning",
+          "score": 73.3,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "MRCRv2",
+          "score": 93.6,
+          "source": "https://console.sakana.ai/models"
+        },
+        {
+          "name": "CTI-REALM",
+          "score": 69.4,
+          "source": "https://console.sakana.ai/models"
+        }
+      ]
+    },
+    {
+      "id": "sakana/sakana-namazu",
+      "benchmarks": [
+        {
+          "name": "AIME26",
+          "score": 96.67,
+          "source": "https://console.sakana.ai/models?model=sakana-namazu"
+        },
+        {
+          "name": "MMLU-Pro",
+          "score": 90.33,
+          "source": "https://console.sakana.ai/models?model=sakana-namazu"
+        },
+        {
+          "name": "LiveCodeBench v6",
+          "score": 90.33,
+          "source": "https://console.sakana.ai/models?model=sakana-namazu"
+        },
+        {
+          "name": "JFBench",
+          "score": 37.4,
+          "source": "https://console.sakana.ai/models?model=sakana-namazu"
+        },
+        {
+          "name": "Translation",
+          "score": 52.2,
+          "source": "https://console.sakana.ai/models?model=sakana-namazu"
+        },
+        {
+          "name": "FairPoliticsQA",
+          "score": 56.3,
+          "source": "https://console.sakana.ai/models?model=sakana-namazu"
+        }
+      ]
+    },
+    {
+      "id": "stepfun/step-3.5-flash",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 74.4,
+          "metric": "resolved",
+          "source": "https://arxiv.org/abs/2602.10604"
+        }
+      ]
+    },
+    {
+      "id": "stepfun/step-3.7-flash",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 56.3,
+          "metric": "resolve rate",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        },
+        {
+          "name": "SWE-Bench Verified",
+          "score": 76.5,
+          "metric": "resolved",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 59.6,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 47.2,
+          "metric": "accuracy",
+          "variant": "with tools",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        },
+        {
+          "name": "BrowseComp",
+          "score": 75.8,
+          "metric": "accuracy",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        },
+        {
+          "name": "Toolathlon",
+          "score": 49.5,
+          "metric": "success rate",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        },
+        {
+          "name": "GDPval",
+          "score": 45.8,
+          "metric": "wins or ties",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        },
+        {
+          "name": "ClawEval",
+          "score": 67.1,
+          "metric": "pass^3",
+          "version": "1.1",
+          "source": "https://static.stepfun.com/blog/step-3.7-flash/",
+          "date": "2026-05-29"
+        }
+      ]
+    },
+    {
+      "id": "tencent/hy3",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 78,
+          "metric": "resolved",
+          "source": "https://huggingface.co/tencent/Hy3"
+        }
+      ]
+    },
+    {
+      "id": "tencent/hy3-preview",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 74.4,
+          "metric": "resolved",
+          "source": "https://huggingface.co/tencent/Hy3-preview"
+        }
+      ]
+    },
+    {
+      "id": "xai/grok-4.5",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 64.7,
+          "metric": "resolve rate",
+          "source": "https://x.ai/news/grok-4-5",
+          "date": "2026-07-08"
+        },
+        {
+          "name": "SWE-Bench Multilingual",
+          "score": 78,
+          "metric": "resolve rate",
+          "source": "https://x.ai/news/grok-4-5",
+          "date": "2026-07-08"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 83.3,
+          "metric": "success rate",
+          "version": "2.1",
+          "source": "https://x.ai/news/grok-4-5",
+          "date": "2026-07-08"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 62,
+          "metric": "resolve rate",
+          "version": "1.0",
+          "source": "https://x.ai/news/grok-4-5",
+          "date": "2026-07-08"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 53,
+          "metric": "resolve rate",
+          "harness": "mini-swe-agent",
+          "version": "1.1",
+          "source": "https://x.ai/news/grok-4-5",
+          "date": "2026-07-08"
+        },
+        {
+          "name": "SWE Marathon",
+          "score": 29,
+          "metric": "pass@1",
+          "source": "https://x.ai/news/grok-4-5",
+          "date": "2026-07-08"
+        }
+      ]
+    },
+    {
+      "id": "xiaomi/mimo-v2.5-pro",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 78.9,
+          "metric": "resolved",
+          "source": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-Pro"
+        },
+        {
+          "name": "SWE-Bench Pro",
+          "score": 57.2,
+          "metric": "resolve rate",
+          "source": "https://mimo.xiaomi.com/mimo-v2-5-pro/",
+          "date": "2026-04-22"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 86.6,
+          "metric": "accuracy",
+          "source": "https://mimo.xiaomi.com/mimo-v2-5-pro/",
+          "date": "2026-04-22"
+        }
+      ]
+    },
+    {
+      "id": "zhipuai/glm-4.6",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 9.67,
+          "metric": "resolve rate",
+          "dataset": "public",
+          "source": "https://labs.scale.com/leaderboard/swe_bench_pro_public"
+        }
+      ]
+    },
+    {
+      "id": "zhipuai/glm-4.7",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 73.8,
+          "metric": "resolved",
+          "source": "https://huggingface.co/zai-org/GLM-4.7"
+        },
+        {
+          "name": "Terminal Bench 2.0",
+          "score": 33.4,
+          "metric": "score",
+          "source": "https://huggingface.co/zai-org/GLM-4.7"
+        }
+      ]
+    },
+    {
+      "id": "zhipuai/glm-4.7-flash",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 59.2,
+          "metric": "resolved",
+          "source": "https://huggingface.co/zai-org/GLM-4.7-Flash"
+        }
+      ]
+    },
+    {
+      "id": "zhipuai/glm-5",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Verified",
+          "score": 72.8,
+          "metric": "resolved",
+          "source": "https://www.swebench.com/"
+        },
+        {
+          "name": "SWE-Atlas Codebase QnA",
+          "score": 20.5,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-qna"
+        },
+        {
+          "name": "SWE-Atlas Refactoring",
+          "score": 24.24,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-refactoring"
+        },
+        {
+          "name": "SWE-Atlas Test Writing",
+          "score": 28.74,
+          "metric": "score",
+          "harness": "Mini-SWE-Agent",
+          "source": "https://labs.scale.com/leaderboard/sweatlas-tw"
+        }
+      ]
+    },
+    {
+      "id": "zhipuai/glm-5.2",
+      "benchmarks": [
+        {
+          "name": "SWE-Bench Pro",
+          "score": 62.1,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 82.7,
+          "metric": "success rate",
+          "harness": "Claude Code",
+          "version": "2.1",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "FrontierSWE",
+          "score": 74.4,
+          "metric": "dominance",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 40.5,
+          "metric": "accuracy",
+          "dataset": "text-only subset",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "Humanity's Last Exam",
+          "score": 54.7,
+          "metric": "accuracy",
+          "variant": "with tools",
+          "dataset": "text-only subset",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "CritPt",
+          "score": 20.9,
+          "metric": "accuracy",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "AIME",
+          "score": 99.2,
+          "metric": "accuracy",
+          "version": "2026",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "HMMT",
+          "score": 94.4,
+          "metric": "accuracy",
+          "version": "November 2025",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "HMMT",
+          "score": 92.5,
+          "metric": "accuracy",
+          "version": "February 2026",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "IMOAnswerBench",
+          "score": 91,
+          "metric": "accuracy",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "GPQA Diamond",
+          "score": 91.2,
+          "metric": "accuracy",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "NL2Repo",
+          "score": 48.9,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "DeepSWE",
+          "score": 46.2,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "Program Bench",
+          "score": 63.7,
+          "metric": "score",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "Terminal-Bench",
+          "score": 81,
+          "metric": "success rate",
+          "harness": "Terminus 2",
+          "version": "2.1",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "PostTrainBench",
+          "score": 34.3,
+          "metric": "score",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "SWE Marathon",
+          "score": 13,
+          "metric": "resolve rate",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "MCP Atlas",
+          "score": 76.8,
+          "metric": "score",
+          "dataset": "public subset",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        },
+        {
+          "name": "Tool-Decathlon",
+          "score": 48.2,
+          "metric": "score",
+          "source": "https://z.ai/blog/glm-5.2",
+          "date": "2026-06-16"
+        }
+      ]
+    }
+  ]
+}
