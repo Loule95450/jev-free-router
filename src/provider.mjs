@@ -21,7 +21,8 @@ export function createJev({ runtimeId, runtime = runtimes.get(runtimeId), fetch:
       const headers = new Headers(options.headers);
       for (const name of [...headers.keys()]) if (name.startsWith('x-jev-') || ['authorization', 'x-api-key'].includes(name)) headers.delete(name);
       headers.set('x-opencode-session', decision.sessionID);
-      headers.set('user-agent', 'jev-opencode/0.3.0');
+      // Never overwrite the caller's User-Agent: this plugin runs inside OpenCode and must keep
+      // its host's identity. Overwriting it makes Zen reject the request as an external client.
       const target = createAdapter(model, decision.credentials[model.pool], fetchFn);
       const prompt = options.prompt.map((message) => {
         if (message.role !== 'assistant' || !Array.isArray(message.content)) return message;
