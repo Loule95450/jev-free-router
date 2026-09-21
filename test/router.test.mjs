@@ -13,6 +13,7 @@ test('Choice contains exact IDs, live evidence and unknown quality without a zer
 test('full TypeSafe probability distribution drives the decision, not its top-1 label', async () => {
   const client = { systemOne: async () => ({ answers: {
     model: { choice: 'known-free', probabilities: { 'known-free': 0.1, 'brand-new-model': 0.9 }, confidence: 0.91 },
+    standalone: { noul: 0.05 },
     task_complexity: { score: 4 },
   } }) };
   const result = await new Router({ costWeight: 0.02 }, { client }).route({ prompt: 'debug', contextTokens: 1, models });
@@ -20,6 +21,36 @@ test('full TypeSafe probability distribution drives the decision, not its top-1 
   assert.equal(result.probabilities['known-free'], 0.1);
   assert.equal(result.candidates.length, 2);
   assert.equal(result.metrics.task_complexity, 0.8);
+  assert.equal(result.standalone, 0.05);
+  assert.equal(result.trivial, false);
+});
+test('a high standalone probability routes a greeting to the cheapest model without spending quality', async () => {
+  const free = [model('flash-free'), model('pro', { cost: { input: 1.25, output: 10 } })];
+  const client = { systemOne: async () => ({ answers: {
+    model: { choice: 'pro', probabilities: { 'flash-free': 0.3, pro: 0.7 }, confidence: 0.6 },
+    standalone: { noul: 0.95 },
+  } }) };
+  const result = await new Router({ costWeight: 0.02 }, { client }).route({ prompt: 'Thanks!', contextTokens: 1, models: free });
+  assert.equal(result.model.id, 'flash-free');
+  assert.equal(result.trivial, true);
+  assert.equal(result.reason, 'jev');
+  assert.equal(result.probabilities.pro, 0.7);
+});
+test('an uncertain standalone value stays on the normal Jev distribution path', async () => {
+  const free = [model('flash-free'), model('pro', { cost: { input: 1.25, output: 10 } })];
+  const client = { systemOne: async () => ({ answers: {
+    model: { choice: 'pro', probabilities: { 'flash-free': 0.3, pro: 0.7 }, confidence: 0.6 },
+    standalone: { noul: 0.6 },
+  } }) };
+  const result = await new Router({ costWeight: 0.02 }, { client }).route({ prompt: 'OK', contextTokens: 1, models: free });
+  assert.equal(result.model.id, 'pro');
+  assert.equal(result.trivial, false);
+});
+test('request carries a standalone presence judgment separate from the model Choice', () => {
+  const request = routingRequest({ prompt: 'Thanks!', contextTokens: 0, models });
+  assert.equal(request.questions.standalone.type, 'noul');
+  assert.equal(request.state.request, 'Thanks!');
+  assert.ok(!('routing_history' in request.state));
 });
 test('cost is bounded and separate from quality probabilities', () => {
   const candidates = [model('free'), model('go', { cost: { input: 10, output: 20 } })];
@@ -38,6 +69,7 @@ test('missing key uses explicit fallback with no fabricated probabilities', asyn
   assert.equal(result.reason, 'fallback/missing-typesafe-key');
   assert.equal(result.model.id, 'brand-new-model');
   assert.equal(result.probabilities, null);
+  assert.equal(result.standalone, null);
 });
 test('user cancellation never turns into a paid fallback request', async () => {
   await assert.rejects(new Router({}).route({ models }, AbortSignal.abort()), { name: 'AbortError' });

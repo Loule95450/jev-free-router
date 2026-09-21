@@ -10,7 +10,9 @@ export default async function JevPlugin({ client }) {
     notify: async (decision) => {
       const p = decision.probabilities?.[decision.model.id];
       const message = decision.reason === 'jev'
-        ? `${decision.model.id} · P(meilleur) ${Math.round(p * 100)}%`
+        ? decision.trivial
+          ? `${decision.model.id} · trivial`
+          : `${decision.model.id} · P(meilleur) ${Math.round(p * 100)}%`
         : decision.reason.startsWith('retry/')
           ? `${decision.model.id} · repli, ${decision.reason.slice('retry/'.length)}`
           : `${decision.model.id} · secours (${decision.reason.endsWith('missing-typesafe-key') ? 'JEV_API_KEY manquante' : 'Jev indisponible'})`;
