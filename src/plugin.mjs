@@ -2,6 +2,8 @@ import { randomUUID } from 'node:crypto';
 import { MODES, settings } from './config.mjs';
 import { Runtime, runtimes } from './runtime.mjs';
 
+const NAMES = { jev: 'Jev', 'jev-free': 'Jev Free', 'jev-go': 'Jev Go' };
+
 export default async function JevPlugin({ client }) {
   const runtimeId = randomUUID();
   const runtime = new Runtime(settings(), {
@@ -27,8 +29,8 @@ export default async function JevPlugin({ client }) {
       config.provider.jev = {
         name: 'Jev', npm: new URL('./provider.mjs', import.meta.url).href,
         options: { runtimeId, apiKey: 'jev-local' },
-        models: Object.fromEntries(MODES.map((id) => [id, {
-          id, name: id, tool_call: true, reasoning: true, attachment: true,
+          models: Object.fromEntries(MODES.map((id) => [id, {
+            id, name: NAMES[id] ?? id, tool_call: true, reasoning: true, attachment: true,
           modalities: { input: ['text', 'image', 'pdf', 'audio', 'video'], output: ['text'] },
           // A conservative UI budget, not a claim about any underlying model.
           limit: { context: 128000, output: 8192 },
