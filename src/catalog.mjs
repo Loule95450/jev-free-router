@@ -58,6 +58,7 @@ export class Catalog {
           modalities: capabilities?.modalities?.input ?? null,
           tools: typeof capabilities?.tool_call === 'boolean' ? capabilities.tool_call : null,
           reasoning: capabilities?.reasoning ?? null,
+          reasoningOptions: Array.isArray(capabilities?.reasoning_options) ? capabilities.reasoning_options : null,
           interleaved: capabilities?.interleaved ?? null,
           temperature: capabilities?.temperature ?? null,
           parameters: null,

@@ -74,3 +74,26 @@ test('missing key uses explicit fallback with no fabricated probabilities', asyn
 test('user cancellation never turns into a paid fallback request', async () => {
   await assert.rejects(new Router({}).route({ models }, AbortSignal.abort()), { name: 'AbortError' });
 });
+test('Jev judges one model-independent effort alongside the model Choice', async () => {
+  const request = routingRequest({ prompt: 'debug', contextTokens: 1, models });
+  assert.deepEqual(Object.keys(request.questions.effort.criteria), ['none', 'minimal', 'low', 'medium', 'high', 'xhigh', 'max']);
+  const answer = (effort) => ({ systemOne: async () => ({ answers: {
+    model: { choice: 'known-free', probabilities: { 'known-free': 0.6, 'brand-new-model': 0.4 } },
+    effort: { choice: effort },
+  } }) });
+  assert.equal((await new Router({ costWeight: 0.02 }, { client: answer('high') }).route({ prompt: 'debug', models })).effort, 'high');
+  assert.equal((await new Router({ costWeight: 0.02 }, { client: answer('ultra') }).route({ prompt: 'debug', models })).effort, null);
+});
+test('a mid-turn reassessment asks only effort and lease, never the model', async () => {
+  const { effortRequest } = await import('../src/router.mjs');
+  const request = effortRequest({ request: 'fix', toolCalls: [{ tool: 'bash', result: 'ok' }], model: models[0], currentEffort: 'low', step: 3 });
+  assert.deepEqual(Object.keys(request.questions), ['effort', 'lease']);
+  assert.deepEqual(Object.keys(request.questions.lease.criteria), ['1', '2', '5', '10']);
+  assert.equal(request.state.session.generation, 3);
+  const client = (answers) => ({ systemOne: async () => ({ answers }) });
+  const router = (answers) => new Router({ costWeight: 0.02 }, { client: client(answers) });
+  assert.deepEqual({ ...(await router({ effort: { choice: 'xhigh' }, lease: { choice: '5' } }).reassess({ request: 'fix' })), elapsedMs: 0 },
+    { effort: 'xhigh', lease: 5, elapsedMs: 0 });
+  assert.equal((await router({ effort: { choice: 'low' }, lease: { choice: '7' } }).reassess({ request: 'fix' })).lease, 1);
+  await assert.rejects(router({ effort: { choice: 'ultra' } }).reassess({ request: 'fix' }));
+});

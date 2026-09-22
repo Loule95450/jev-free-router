@@ -16,3 +16,7 @@ The snapshot preserves reported results and run settings; these are not general 
 Optional Artificial Analysis data: Source: Artificial Analysis (https://artificialanalysis.ai/).
 No Artificial Analysis scores are included in the default distribution.
 Artificial Analysis does not endorse this project.
+
+Adaptive thinking (per-generation effort with leases) is adapted from Astra-Ares (MIT).
+https://github.com/miuuyy/Astra-Ares
+Its effort and lease criteria are paraphrased in src/effort.mjs. See licenses/Astra-Ares-MIT.txt.
