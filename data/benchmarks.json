@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-01T11:40:46.161Z",
+  "generatedAt": "2026-10-02T11:10:25.725Z",
   "source": "artificial-analysis",
   "sourceUrl": "https://artificialanalysis.ai/",
   "metrics": {
@@ -154,9 +154,9 @@
             "price_1m_output_tokens": 3.96
           },
           "throughput": {
-            "outputTokensPerSecond": 87.145,
-            "timeToFirstTokenSeconds": 1.148,
-            "timeToFirstAnswerTokenSeconds": 24.098
+            "outputTokensPerSecond": 104.703,
+            "timeToFirstTokenSeconds": 1.164,
+            "timeToFirstAnswerTokenSeconds": 20.266
           }
         },
         "non-reasoning": {
@@ -176,9 +176,9 @@
             "price_1m_output_tokens": 3.96
           },
           "throughput": {
-            "outputTokensPerSecond": 169.681,
-            "timeToFirstTokenSeconds": 0.97,
-            "timeToFirstAnswerTokenSeconds": 0.97
+            "outputTokensPerSecond": 151.902,
+            "timeToFirstTokenSeconds": 1.045,
+            "timeToFirstAnswerTokenSeconds": 1.045
           }
         }
       }
@@ -207,9 +207,9 @@
             "price_1m_output_tokens": 1.2
           },
           "throughput": {
-            "outputTokensPerSecond": 226.71,
-            "timeToFirstTokenSeconds": 0.836,
-            "timeToFirstAnswerTokenSeconds": 9.658
+            "outputTokensPerSecond": 226.5,
+            "timeToFirstTokenSeconds": 0.78,
+            "timeToFirstAnswerTokenSeconds": 9.61
           }
         },
         "non-reasoning": {
@@ -229,9 +229,9 @@
             "price_1m_output_tokens": 1.2
           },
           "throughput": {
-            "outputTokensPerSecond": 250.027,
-            "timeToFirstTokenSeconds": 0.831,
-            "timeToFirstAnswerTokenSeconds": 0.831
+            "outputTokensPerSecond": 247.779,
+            "timeToFirstTokenSeconds": 0.756,
+            "timeToFirstAnswerTokenSeconds": 0.756
           }
         }
       }
@@ -416,9 +416,9 @@
             "price_1m_output_tokens": 2.5
           },
           "throughput": {
-            "outputTokensPerSecond": 334.567,
-            "timeToFirstTokenSeconds": 6.972,
-            "timeToFirstAnswerTokenSeconds": 6.972
+            "outputTokensPerSecond": 343.46,
+            "timeToFirstTokenSeconds": 7.174,
+            "timeToFirstAnswerTokenSeconds": 7.174
           }
         }
       }
@@ -571,9 +571,9 @@
             "price_1m_output_tokens": 3.75
           },
           "throughput": {
-            "outputTokensPerSecond": 237.734,
-            "timeToFirstTokenSeconds": 13.377,
-            "timeToFirstAnswerTokenSeconds": 13.377
+            "outputTokensPerSecond": 261.454,
+            "timeToFirstTokenSeconds": 13.552,
+            "timeToFirstAnswerTokenSeconds": 13.552
           }
         },
         "medium": {
@@ -839,9 +839,9 @@
             "price_1m_output_tokens": 4.4
           },
           "throughput": {
-            "outputTokensPerSecond": 69.619,
-            "timeToFirstTokenSeconds": 3.012,
-            "timeToFirstAnswerTokenSeconds": 31.74
+            "outputTokensPerSecond": 72.824,
+            "timeToFirstTokenSeconds": 2.655,
+            "timeToFirstAnswerTokenSeconds": 30.118
           }
         },
         "low": {
@@ -861,9 +861,9 @@
             "price_1m_output_tokens": 4.4
           },
           "throughput": {
-            "outputTokensPerSecond": 67.63,
-            "timeToFirstTokenSeconds": 3.303,
-            "timeToFirstAnswerTokenSeconds": 32.875
+            "outputTokensPerSecond": 74.73,
+            "timeToFirstTokenSeconds": 3.316,
+            "timeToFirstAnswerTokenSeconds": 30.079
           }
         }
       }
@@ -896,9 +896,9 @@
             "price_1m_output_tokens": 0.5
           },
           "throughput": {
-            "outputTokensPerSecond": 48.708,
-            "timeToFirstTokenSeconds": 3.256,
-            "timeToFirstAnswerTokenSeconds": 44.318
+            "outputTokensPerSecond": 50.997,
+            "timeToFirstTokenSeconds": 3.126,
+            "timeToFirstAnswerTokenSeconds": 42.344
           }
         }
       }
@@ -931,9 +931,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 62.616,
-            "timeToFirstTokenSeconds": 34.674,
-            "timeToFirstAnswerTokenSeconds": 34.674
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
           }
         },
         "xhigh": {
@@ -957,9 +957,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 69.211,
-            "timeToFirstTokenSeconds": 49.143,
-            "timeToFirstAnswerTokenSeconds": 49.143
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
           }
         },
         "medium": {
@@ -983,9 +983,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 63.226,
-            "timeToFirstTokenSeconds": 21.148,
-            "timeToFirstAnswerTokenSeconds": 21.148
+            "outputTokensPerSecond": 107.061,
+            "timeToFirstTokenSeconds": 19.629,
+            "timeToFirstAnswerTokenSeconds": 19.629
           }
         },
         "low": {
@@ -1009,9 +1009,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 60.889,
-            "timeToFirstTokenSeconds": 2.081,
-            "timeToFirstAnswerTokenSeconds": 2.081
+            "outputTokensPerSecond": 86.043,
+            "timeToFirstTokenSeconds": 2.677,
+            "timeToFirstAnswerTokenSeconds": 2.677
           }
         }
       }
@@ -1040,9 +1040,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 83.076,
-            "timeToFirstTokenSeconds": 19.787,
-            "timeToFirstAnswerTokenSeconds": 19.787
+            "outputTokensPerSecond": 82.71,
+            "timeToFirstTokenSeconds": 19.289,
+            "timeToFirstAnswerTokenSeconds": 19.289
           }
         },
         "high": {
@@ -1063,8 +1063,30 @@
           },
           "throughput": {
             "outputTokensPerSecond": 83.388,
-            "timeToFirstTokenSeconds": 13.682,
-            "timeToFirstAnswerTokenSeconds": 13.682
+            "timeToFirstTokenSeconds": 19.362,
+            "timeToFirstAnswerTokenSeconds": 19.362
+          }
+        },
+        "low": {
+          "aaModelId": "208c16f0-8c5b-4524-ac8a-ac74c02e80a9",
+          "aaSlug": "grok-4-7-low",
+          "label": "Grok 4.7 (Low)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 42.2,
+            "hle": 0.392,
+            "scicode": 0.549,
+            "lcr": 0.8,
+            "terminalbench_v4_0": 0.161616161616162
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 3,
+            "price_1m_input_tokens": 2,
+            "price_1m_output_tokens": 6
+          },
+          "throughput": {
+            "outputTokensPerSecond": 67.45,
+            "timeToFirstTokenSeconds": 3.377,
+            "timeToFirstAnswerTokenSeconds": 3.377
           }
         }
       }
@@ -1097,9 +1119,9 @@
             "price_1m_output_tokens": 0.555
           },
           "throughput": {
-            "outputTokensPerSecond": 87.322,
-            "timeToFirstTokenSeconds": 2.068,
-            "timeToFirstAnswerTokenSeconds": 24.972
+            "outputTokensPerSecond": 86.832,
+            "timeToFirstTokenSeconds": 2.125,
+            "timeToFirstAnswerTokenSeconds": 25.158
           }
         },
         "non-reasoning": {
@@ -1252,9 +1274,9 @@
             "price_1m_output_tokens": 4
           },
           "throughput": {
-            "outputTokensPerSecond": 63.579,
-            "timeToFirstTokenSeconds": 1.175,
-            "timeToFirstAnswerTokenSeconds": 36.234
+            "outputTokensPerSecond": 78.892,
+            "timeToFirstTokenSeconds": 1.159,
+            "timeToFirstAnswerTokenSeconds": 29.413
           }
         }
       }
@@ -1287,9 +1309,9 @@
             "price_1m_output_tokens": 15
           },
           "throughput": {
-            "outputTokensPerSecond": 40.421,
-            "timeToFirstTokenSeconds": 2.906,
-            "timeToFirstAnswerTokenSeconds": 52.385
+            "outputTokensPerSecond": 36.258,
+            "timeToFirstTokenSeconds": 3.013,
+            "timeToFirstAnswerTokenSeconds": 58.173
           }
         },
         "low": {
@@ -1313,9 +1335,9 @@
             "price_1m_output_tokens": 15
           },
           "throughput": {
-            "outputTokensPerSecond": 38.718,
-            "timeToFirstTokenSeconds": 3.532,
-            "timeToFirstAnswerTokenSeconds": 55.188
+            "outputTokensPerSecond": 35.3,
+            "timeToFirstTokenSeconds": 3.578,
+            "timeToFirstAnswerTokenSeconds": 60.235
           }
         }
       }
@@ -1347,9 +1369,9 @@
             "price_1m_output_tokens": 0.22
           },
           "throughput": {
-            "outputTokensPerSecond": 316.216,
-            "timeToFirstTokenSeconds": 1.257,
-            "timeToFirstAnswerTokenSeconds": 7.582
+            "outputTokensPerSecond": 331.676,
+            "timeToFirstTokenSeconds": 1.217,
+            "timeToFirstAnswerTokenSeconds": 7.247
           }
         }
       }
@@ -1486,9 +1508,9 @@
             "price_1m_output_tokens": 0.87
           },
           "throughput": {
-            "outputTokensPerSecond": 26.313,
-            "timeToFirstTokenSeconds": 1.36,
-            "timeToFirstAnswerTokenSeconds": 77.368
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
           }
         },
         "non-reasoning": {
@@ -1510,9 +1532,9 @@
             "price_1m_output_tokens": 0.87
           },
           "throughput": {
-            "outputTokensPerSecond": 24.317,
-            "timeToFirstTokenSeconds": 1.254,
-            "timeToFirstAnswerTokenSeconds": 1.254
+            "outputTokensPerSecond": 24.967,
+            "timeToFirstTokenSeconds": 1.189,
+            "timeToFirstAnswerTokenSeconds": 1.189
           }
         }
       }
@@ -1541,9 +1563,9 @@
             "price_1m_output_tokens": 0.28
           },
           "throughput": {
-            "outputTokensPerSecond": 53.198,
+            "outputTokensPerSecond": 58.456,
             "timeToFirstTokenSeconds": 3.654,
-            "timeToFirstAnswerTokenSeconds": 41.25
+            "timeToFirstAnswerTokenSeconds": 37.868
           }
         }
       }
@@ -1572,9 +1594,9 @@
             "price_1m_output_tokens": 0.28
           },
           "throughput": {
-            "outputTokensPerSecond": 53.198,
+            "outputTokensPerSecond": 58.456,
             "timeToFirstTokenSeconds": 3.654,
-            "timeToFirstAnswerTokenSeconds": 41.25
+            "timeToFirstAnswerTokenSeconds": 37.868
           }
         }
       }
@@ -1603,9 +1625,9 @@
             "price_1m_output_tokens": 0.87
           },
           "throughput": {
-            "outputTokensPerSecond": 47.877,
-            "timeToFirstTokenSeconds": 3.417,
-            "timeToFirstAnswerTokenSeconds": 45.191
+            "outputTokensPerSecond": 46.231,
+            "timeToFirstTokenSeconds": 3.118,
+            "timeToFirstAnswerTokenSeconds": 46.379
           }
         }
       }
@@ -1712,9 +1734,9 @@
             "price_1m_output_tokens": 1.2
           },
           "throughput": {
-            "outputTokensPerSecond": 94.698,
-            "timeToFirstTokenSeconds": 0.755,
-            "timeToFirstAnswerTokenSeconds": 21.875
+            "outputTokensPerSecond": 91.177,
+            "timeToFirstTokenSeconds": 0.781,
+            "timeToFirstAnswerTokenSeconds": 22.717
           }
         }
       }
@@ -1817,9 +1839,9 @@
             "price_1m_output_tokens": 4.25
           },
           "throughput": {
-            "outputTokensPerSecond": 176.661,
-            "timeToFirstTokenSeconds": 35.106,
-            "timeToFirstAnswerTokenSeconds": 46.427
+            "outputTokensPerSecond": 171.012,
+            "timeToFirstTokenSeconds": 43.349,
+            "timeToFirstAnswerTokenSeconds": 55.045
           }
         },
         "xhigh": {
@@ -1843,9 +1865,9 @@
             "price_1m_output_tokens": 4.25
           },
           "throughput": {
-            "outputTokensPerSecond": 249.709,
-            "timeToFirstTokenSeconds": 30.774,
-            "timeToFirstAnswerTokenSeconds": 38.784
+            "outputTokensPerSecond": 194.525,
+            "timeToFirstTokenSeconds": 33.725,
+            "timeToFirstAnswerTokenSeconds": 44.006
           }
         }
       }
@@ -1878,9 +1900,9 @@
             "price_1m_output_tokens": 4.25
           },
           "throughput": {
-            "outputTokensPerSecond": 176.661,
-            "timeToFirstTokenSeconds": 35.106,
-            "timeToFirstAnswerTokenSeconds": 46.427
+            "outputTokensPerSecond": 171.012,
+            "timeToFirstTokenSeconds": 43.349,
+            "timeToFirstAnswerTokenSeconds": 55.045
           }
         },
         "xhigh": {
@@ -1904,9 +1926,9 @@
             "price_1m_output_tokens": 4.25
           },
           "throughput": {
-            "outputTokensPerSecond": 249.709,
-            "timeToFirstTokenSeconds": 30.774,
-            "timeToFirstAnswerTokenSeconds": 38.784
+            "outputTokensPerSecond": 194.525,
+            "timeToFirstTokenSeconds": 33.725,
+            "timeToFirstAnswerTokenSeconds": 44.006
           }
         }
       }
@@ -1939,9 +1961,9 @@
             "price_1m_output_tokens": 4.25
           },
           "throughput": {
-            "outputTokensPerSecond": 176.661,
-            "timeToFirstTokenSeconds": 35.106,
-            "timeToFirstAnswerTokenSeconds": 46.427
+            "outputTokensPerSecond": 171.012,
+            "timeToFirstTokenSeconds": 43.349,
+            "timeToFirstAnswerTokenSeconds": 55.045
           }
         },
         "xhigh": {
@@ -1965,9 +1987,9 @@
             "price_1m_output_tokens": 4.25
           },
           "throughput": {
-            "outputTokensPerSecond": 249.709,
-            "timeToFirstTokenSeconds": 30.774,
-            "timeToFirstAnswerTokenSeconds": 38.784
+            "outputTokensPerSecond": 194.525,
+            "timeToFirstTokenSeconds": 33.725,
+            "timeToFirstAnswerTokenSeconds": 44.006
           }
         }
       }
@@ -2000,9 +2022,9 @@
             "price_1m_output_tokens": 0.2
           },
           "throughput": {
-            "outputTokensPerSecond": 291.331,
-            "timeToFirstTokenSeconds": 0.414,
-            "timeToFirstAnswerTokenSeconds": 7.279
+            "outputTokensPerSecond": 291.356,
+            "timeToFirstTokenSeconds": 0.406,
+            "timeToFirstAnswerTokenSeconds": 7.27
           }
         }
       }
@@ -2038,9 +2060,9 @@
             "price_1m_output_tokens": 1.6
           },
           "throughput": {
-            "outputTokensPerSecond": 56.321,
-            "timeToFirstTokenSeconds": 1.692,
-            "timeToFirstAnswerTokenSeconds": 37.203
+            "outputTokensPerSecond": 55.572,
+            "timeToFirstTokenSeconds": 1.67,
+            "timeToFirstAnswerTokenSeconds": 37.66
           }
         }
       }
@@ -2073,9 +2095,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 39.824,
-            "timeToFirstTokenSeconds": 1.821,
-            "timeToFirstAnswerTokenSeconds": 52.042
+            "outputTokensPerSecond": 39.338,
+            "timeToFirstTokenSeconds": 1.692,
+            "timeToFirstAnswerTokenSeconds": 52.533
           }
         }
       }
