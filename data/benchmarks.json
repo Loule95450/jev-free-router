@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-28T11:25:21.740Z",
+  "generatedAt": "2026-10-29T11:35:45.044Z",
   "source": "artificial-analysis",
   "sourceUrl": "https://artificialanalysis.ai/",
   "metrics": {
@@ -104,7 +104,6 @@
           "label": "DeepSeek V4 Pro 0813 (Max)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 23.1,
-            "artificial_analysis_coding_index": 68.8,
             "gpqa": 0.928,
             "hle": 0.41,
             "scicode": 0.51,
@@ -119,9 +118,9 @@
             "price_1m_output_tokens": 3.96
           },
           "throughput": {
-            "outputTokensPerSecond": 80.669,
-            "timeToFirstTokenSeconds": 1.069,
-            "timeToFirstAnswerTokenSeconds": 25.862
+            "outputTokensPerSecond": 76.139,
+            "timeToFirstTokenSeconds": 1.072,
+            "timeToFirstAnswerTokenSeconds": 27.34
           }
         },
         "non-reasoning": {
@@ -140,9 +139,9 @@
             "price_1m_output_tokens": 3.96
           },
           "throughput": {
-            "outputTokensPerSecond": 86.599,
-            "timeToFirstTokenSeconds": 1.107,
-            "timeToFirstAnswerTokenSeconds": 1.107
+            "outputTokensPerSecond": 76.146,
+            "timeToFirstTokenSeconds": 1.162,
+            "timeToFirstAnswerTokenSeconds": 1.162
           }
         }
       }
@@ -261,7 +260,6 @@
           "aaSlug": "gemini-3-flash",
           "label": "Gemini 3 Flash Preview (Non-reasoning)",
           "evaluations": {
-            "artificial_analysis_math_index": 55.7,
             "mmlu_pro": 0.882,
             "gpqa": 0.812,
             "hle": 0.15,
@@ -288,7 +286,6 @@
           "aaSlug": "gemini-3-flash-reasoning",
           "label": "Gemini 3 Flash Preview (Reasoning)",
           "evaluations": {
-            "artificial_analysis_math_index": 97,
             "mmlu_pro": 0.89,
             "gpqa": 0.898,
             "hle": 0.366,
@@ -325,7 +322,6 @@
           "aaSlug": "gemini-3-5-flash",
           "label": "Gemini 3.5 Flash (High)",
           "evaluations": {
-            "artificial_analysis_coding_index": 70.1,
             "gpqa": 0.922,
             "hle": 0.427,
             "scicode": 0.539,
@@ -409,7 +405,6 @@
           "label": "Gemini 3.5 Flash-Lite",
           "evaluations": {
             "artificial_analysis_intelligence_index": 11.7,
-            "artificial_analysis_coding_index": 49.3,
             "gpqa": 0.838,
             "hle": 0.188,
             "scicode": 0.413,
@@ -424,9 +419,9 @@
             "price_1m_output_tokens": 2.5
           },
           "throughput": {
-            "outputTokensPerSecond": 421.421,
-            "timeToFirstTokenSeconds": 5.688,
-            "timeToFirstAnswerTokenSeconds": 5.688
+            "outputTokensPerSecond": 409.864,
+            "timeToFirstTokenSeconds": 4.766,
+            "timeToFirstAnswerTokenSeconds": 4.766
           }
         }
       }
@@ -443,7 +438,6 @@
           "aaSlug": "gemini-3-6-flash",
           "label": "Gemini 3.6 Flash (High)",
           "evaluations": {
-            "artificial_analysis_coding_index": 69.2,
             "gpqa": 0.928,
             "hle": 0.408,
             "scicode": 0.534,
@@ -477,7 +471,6 @@
           "aaSlug": "gemini-3-7-flash",
           "label": "Gemini 3.7 Flash (High)",
           "evaluations": {
-            "artificial_analysis_coding_index": 76.1,
             "gpqa": 0.945,
             "hle": 0.479,
             "scicode": 0.572,
@@ -502,7 +495,6 @@
           "aaSlug": "gemini-3-7-flash-low",
           "label": "Gemini 3.7 Flash (Low)",
           "evaluations": {
-            "artificial_analysis_coding_index": 71,
             "gpqa": 0.901,
             "hle": 0.351,
             "scicode": 0.557,
@@ -526,7 +518,6 @@
           "aaSlug": "gemini-3-7-flash-medium",
           "label": "Gemini 3.7 Flash (Medium)",
           "evaluations": {
-            "artificial_analysis_coding_index": 71.5,
             "gpqa": 0.921,
             "hle": 0.39,
             "scicode": 0.598,
@@ -560,7 +551,6 @@
           "label": "Gemini 3.8 Flash (High)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 30.5,
-            "artificial_analysis_coding_index": 76.3,
             "gpqa": 0.953,
             "hle": 0.478,
             "scicode": 0.566,
@@ -575,9 +565,9 @@
             "price_1m_output_tokens": 3.75
           },
           "throughput": {
-            "outputTokensPerSecond": 137.105,
-            "timeToFirstTokenSeconds": 16.078,
-            "timeToFirstAnswerTokenSeconds": 16.078
+            "outputTokensPerSecond": 133.857,
+            "timeToFirstTokenSeconds": 18.86,
+            "timeToFirstAnswerTokenSeconds": 18.86
           }
         },
         "medium": {
@@ -586,7 +576,6 @@
           "label": "Gemini 3.8 Flash (Medium)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 30,
-            "artificial_analysis_coding_index": 74.1,
             "gpqa": 0.935,
             "hle": 0.421,
             "scicode": 0.551,
@@ -612,7 +601,6 @@
           "label": "Gemini 3.8 Flash (Low)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 22.3,
-            "artificial_analysis_coding_index": 73.5,
             "gpqa": 0.92,
             "hle": 0.371,
             "scicode": 0.55,
@@ -653,14 +641,14 @@
             "terminalbench_v4_0": 0.570707070707071
           },
           "pricing": {
-            "price_1m_blended_3_to_1": 4,
-            "price_1m_input_tokens": 2,
-            "price_1m_output_tokens": 10
+            "price_1m_blended_3_to_1": 8,
+            "price_1m_input_tokens": 4,
+            "price_1m_output_tokens": 20
           },
           "throughput": {
-            "outputTokensPerSecond": 83.672,
-            "timeToFirstTokenSeconds": 29.118,
-            "timeToFirstAnswerTokenSeconds": 29.118
+            "outputTokensPerSecond": 80.556,
+            "timeToFirstTokenSeconds": 27.202,
+            "timeToFirstAnswerTokenSeconds": 27.202
           }
         }
       }
@@ -755,7 +743,6 @@
           "aaSlug": "glm-5-1",
           "label": "GLM-5.1 (Reasoning)",
           "evaluations": {
-            "artificial_analysis_coding_index": 55.8,
             "gpqa": 0.868,
             "hle": 0.301,
             "scicode": 0.448,
@@ -792,7 +779,6 @@
           "aaSlug": "glm-5-2",
           "label": "GLM-5.2 (Max)",
           "evaluations": {
-            "artificial_analysis_coding_index": 68.8,
             "gpqa": 0.895,
             "hle": 0.411,
             "scicode": 0.512,
@@ -820,7 +806,6 @@
           "aaSlug": "glm-5-2-non-reasoning",
           "label": "GLM-5.2 (Non-reasoning)",
           "evaluations": {
-            "artificial_analysis_coding_index": 46.5,
             "gpqa": 0.686,
             "hle": 0.098,
             "lcr": 0.423333333333333,
@@ -853,7 +838,6 @@
           "label": "GLM-5.3 (Max)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 31.7,
-            "artificial_analysis_coding_index": 74.8,
             "gpqa": 0.917,
             "hle": 0.423,
             "scicode": 0.59,
@@ -868,9 +852,9 @@
             "price_1m_output_tokens": 4.4
           },
           "throughput": {
-            "outputTokensPerSecond": 81.55,
-            "timeToFirstTokenSeconds": 2.365,
-            "timeToFirstAnswerTokenSeconds": 26.89
+            "outputTokensPerSecond": 77.174,
+            "timeToFirstTokenSeconds": 2.209,
+            "timeToFirstAnswerTokenSeconds": 28.124
           }
         },
         "low": {
@@ -890,9 +874,9 @@
             "price_1m_output_tokens": 4.4
           },
           "throughput": {
-            "outputTokensPerSecond": 82.033,
-            "timeToFirstTokenSeconds": 2.628,
-            "timeToFirstAnswerTokenSeconds": 27.009
+            "outputTokensPerSecond": 78.742,
+            "timeToFirstTokenSeconds": 1.642,
+            "timeToFirstAnswerTokenSeconds": 27.042
           }
         }
       }
@@ -909,7 +893,6 @@
           "aaSlug": "glm-5-3-flash",
           "label": "GLM-5.3-Flash",
           "evaluations": {
-            "artificial_analysis_coding_index": 71.5,
             "gpqa": 0.912,
             "hle": 0.399,
             "scicode": 0.516,
@@ -924,9 +907,9 @@
             "price_1m_output_tokens": 0.5
           },
           "throughput": {
-            "outputTokensPerSecond": 80.995,
-            "timeToFirstTokenSeconds": 2.331,
-            "timeToFirstAnswerTokenSeconds": 27.024
+            "outputTokensPerSecond": 66.589,
+            "timeToFirstTokenSeconds": 2.053,
+            "timeToFirstAnswerTokenSeconds": 32.088
           }
         }
       }
@@ -943,7 +926,6 @@
           "aaSlug": "glm-5-3-flash",
           "label": "GLM-5.3-Flash",
           "evaluations": {
-            "artificial_analysis_coding_index": 71.5,
             "gpqa": 0.912,
             "hle": 0.399,
             "scicode": 0.516,
@@ -958,9 +940,9 @@
             "price_1m_output_tokens": 0.5
           },
           "throughput": {
-            "outputTokensPerSecond": 80.995,
-            "timeToFirstTokenSeconds": 2.331,
-            "timeToFirstAnswerTokenSeconds": 27.024
+            "outputTokensPerSecond": 66.589,
+            "timeToFirstTokenSeconds": 2.053,
+            "timeToFirstAnswerTokenSeconds": 32.088
           }
         }
       }
@@ -977,7 +959,6 @@
           "aaSlug": "grok-4-5",
           "label": "Grok 4.5 (High)",
           "evaluations": {
-            "artificial_analysis_coding_index": 72.4,
             "gpqa": 0.931,
             "hle": 0.427,
             "scicode": 0.55,
@@ -1011,7 +992,6 @@
           "aaSlug": "grok-4-6",
           "label": "Grok 4.6 (High)",
           "evaluations": {
-            "artificial_analysis_coding_index": 76.8,
             "gpqa": 0.949,
             "hle": 0.429,
             "scicode": 0.565,
@@ -1036,7 +1016,6 @@
           "aaSlug": "grok-4-6-low",
           "label": "Grok 4.6 (Low)",
           "evaluations": {
-            "artificial_analysis_coding_index": 66.3,
             "gpqa": 0.879,
             "hle": 0.276,
             "scicode": 0.494,
@@ -1061,7 +1040,6 @@
           "aaSlug": "grok-4-6-medium",
           "label": "Grok 4.6 (Medium)",
           "evaluations": {
-            "artificial_analysis_coding_index": 74.4,
             "gpqa": 0.935,
             "hle": 0.421,
             "scicode": 0.559,
@@ -1086,7 +1064,6 @@
           "aaSlug": "grok-4-6-xhigh",
           "label": "Grok 4.6 (Xhigh)",
           "evaluations": {
-            "artificial_analysis_coding_index": 75.9,
             "gpqa": 0.935,
             "hle": 0.441,
             "scicode": 0.53,
@@ -1132,9 +1109,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 87.113,
-            "timeToFirstTokenSeconds": 10.661,
-            "timeToFirstAnswerTokenSeconds": 10.661
+            "outputTokensPerSecond": 83.208,
+            "timeToFirstTokenSeconds": 10.254,
+            "timeToFirstAnswerTokenSeconds": 10.254
           }
         },
         "default": {
@@ -1154,9 +1131,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 89.523,
-            "timeToFirstTokenSeconds": 15.081,
-            "timeToFirstAnswerTokenSeconds": 15.081
+            "outputTokensPerSecond": 86.313,
+            "timeToFirstTokenSeconds": 19.881,
+            "timeToFirstAnswerTokenSeconds": 19.881
           }
         },
         "low": {
@@ -1176,9 +1153,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 80.698,
-            "timeToFirstTokenSeconds": 4.398,
-            "timeToFirstAnswerTokenSeconds": 4.398
+            "outputTokensPerSecond": 79.218,
+            "timeToFirstTokenSeconds": 4.091,
+            "timeToFirstAnswerTokenSeconds": 4.091
           }
         }
       }
@@ -1195,7 +1172,6 @@
           "aaSlug": "hy3",
           "label": "Hy3",
           "evaluations": {
-            "artificial_analysis_coding_index": 58.8,
             "gpqa": 0.897,
             "hle": 0.335,
             "scicode": 0.486,
@@ -1210,9 +1186,9 @@
             "price_1m_output_tokens": 0.555
           },
           "throughput": {
-            "outputTokensPerSecond": 82.247,
-            "timeToFirstTokenSeconds": 1.867,
-            "timeToFirstAnswerTokenSeconds": 26.184
+            "outputTokensPerSecond": 81.834,
+            "timeToFirstTokenSeconds": 1.887,
+            "timeToFirstAnswerTokenSeconds": 26.326
           }
         },
         "non-reasoning": {
@@ -1275,7 +1251,6 @@
           "aaSlug": "kimi-k2-5",
           "label": "Kimi K2.5 (Reasoning)",
           "evaluations": {
-            "artificial_analysis_coding_index": 46.8,
             "gpqa": 0.879,
             "hle": 0.307,
             "ifbench": 0.702040816326531,
@@ -1333,7 +1308,6 @@
           "aaSlug": "kimi-k2-6",
           "label": "Kimi K2.6 (Reasoning)",
           "evaluations": {
-            "artificial_analysis_coding_index": 61.8,
             "gpqa": 0.911,
             "hle": 0.375,
             "scicode": 0.515,
@@ -1370,7 +1344,6 @@
           "aaSlug": "kimi-k2-7-code",
           "label": "Kimi K2.7 Code",
           "evaluations": {
-            "artificial_analysis_coding_index": 60.8,
             "gpqa": 0.896,
             "hle": 0.35,
             "scicode": 0.478,
@@ -1388,9 +1361,9 @@
             "price_1m_output_tokens": 4
           },
           "throughput": {
-            "outputTokensPerSecond": 61.567,
-            "timeToFirstTokenSeconds": 1.021,
-            "timeToFirstAnswerTokenSeconds": 37.225
+            "outputTokensPerSecond": 49.119,
+            "timeToFirstTokenSeconds": 1.051,
+            "timeToFirstAnswerTokenSeconds": 46.431
           }
         }
       }
@@ -1407,7 +1380,6 @@
           "aaSlug": "kimi-k3-low",
           "label": "Kimi K3 (Low)",
           "evaluations": {
-            "artificial_analysis_coding_index": 72,
             "gpqa": 0.842,
             "hle": 0.25,
             "scicode": 0.527,
@@ -1432,7 +1404,6 @@
           "aaSlug": "kimi-k3",
           "label": "Kimi K3 (Max)",
           "evaluations": {
-            "artificial_analysis_coding_index": 76.2,
             "gpqa": 0.935,
             "hle": 0.469,
             "scicode": 0.595,
@@ -1478,9 +1449,9 @@
             "price_1m_output_tokens": 10
           },
           "throughput": {
-            "outputTokensPerSecond": 38.014,
-            "timeToFirstTokenSeconds": 2.149,
-            "timeToFirstAnswerTokenSeconds": 54.76
+            "outputTokensPerSecond": 33.303,
+            "timeToFirstTokenSeconds": 2.54,
+            "timeToFirstAnswerTokenSeconds": 62.595
           }
         }
       }
@@ -1497,7 +1468,6 @@
           "aaSlug": "longcat-2-0",
           "label": "LongCat 2.0",
           "evaluations": {
-            "artificial_analysis_coding_index": 45.3,
             "gpqa": 0.78,
             "hle": 0.337,
             "scicode": 0.363,
@@ -1512,69 +1482,9 @@
             "price_1m_output_tokens": 2.95
           },
           "throughput": {
-            "outputTokensPerSecond": 78.613,
-            "timeToFirstTokenSeconds": 1.819,
-            "timeToFirstAnswerTokenSeconds": 27.26
-          }
-        }
-      }
-    },
-    {
-      "id": "mimo-v2.5-pro",
-      "aaBase": "mimo-v2-5-pro",
-      "name": "MiMo-V2.5-Pro",
-      "creator": "Xiaomi",
-      "releaseDate": "2026-04-22",
-      "reasoningLevels": {
-        "non-reasoning": {
-          "aaModelId": "4764d31d-f4af-4297-8bd1-e993f26bcb64",
-          "aaSlug": "mimo-v2-5-pro-non-reasoning",
-          "label": "MiMo-V2.5-Pro (Non-reasoning)",
-          "evaluations": {
-            "gpqa": 0.762,
-            "hle": 0.148,
-            "ifbench": 0.427210884353741,
-            "lcr": 0.416666666666667,
-            "terminalbench_hard": 0.356060606060606,
-            "tau2": 0.725146198830409
-          },
-          "pricing": {
-            "price_1m_blended_3_to_1": 0.585,
-            "price_1m_input_tokens": 0.39,
-            "price_1m_output_tokens": 1.17
-          },
-          "throughput": {
-            "outputTokensPerSecond": 0,
-            "timeToFirstTokenSeconds": 0,
-            "timeToFirstAnswerTokenSeconds": 0
-          }
-        },
-        "default": {
-          "aaModelId": "00f1248e-78e3-4230-8dc8-5e13ba8645e2",
-          "aaSlug": "mimo-v2-5-pro",
-          "label": "MiMo-V2.5-Pro (Reasoning)",
-          "evaluations": {
-            "artificial_analysis_coding_index": 60.2,
-            "gpqa": 0.866,
-            "hle": 0.357,
-            "scicode": 0.506,
-            "ifbench": 0.798639455782313,
-            "lcr": 0.796666666666667,
-            "terminalbench_hard": 0.431818181818182,
-            "terminalbench_v2_1": 0.651685393258427,
-            "terminalbench_v4_0": 0,
-            "tau2": 0.941520467836257,
-            "tau_banking": 0.0989690721649484
-          },
-          "pricing": {
-            "price_1m_blended_3_to_1": 0.564,
-            "price_1m_input_tokens": 0.412,
-            "price_1m_output_tokens": 1.02
-          },
-          "throughput": {
-            "outputTokensPerSecond": 0,
-            "timeToFirstTokenSeconds": 0,
-            "timeToFirstAnswerTokenSeconds": 0
+            "outputTokensPerSecond": 74.779,
+            "timeToFirstTokenSeconds": 1.837,
+            "timeToFirstAnswerTokenSeconds": 28.583
           }
         }
       }
@@ -1603,9 +1513,9 @@
             "price_1m_output_tokens": 0.28
           },
           "throughput": {
-            "outputTokensPerSecond": 60.277,
-            "timeToFirstTokenSeconds": 2.296,
-            "timeToFirstAnswerTokenSeconds": 35.476
+            "outputTokensPerSecond": 56.185,
+            "timeToFirstTokenSeconds": 2.214,
+            "timeToFirstAnswerTokenSeconds": 37.81
           }
         }
       }
@@ -1634,9 +1544,9 @@
             "price_1m_output_tokens": 0.28
           },
           "throughput": {
-            "outputTokensPerSecond": 60.277,
-            "timeToFirstTokenSeconds": 2.296,
-            "timeToFirstAnswerTokenSeconds": 35.476
+            "outputTokensPerSecond": 56.185,
+            "timeToFirstTokenSeconds": 2.214,
+            "timeToFirstAnswerTokenSeconds": 37.81
           }
         }
       }
@@ -1665,9 +1575,9 @@
             "price_1m_output_tokens": 0.87
           },
           "throughput": {
-            "outputTokensPerSecond": 57.24,
-            "timeToFirstTokenSeconds": 2.563,
-            "timeToFirstAnswerTokenSeconds": 37.503
+            "outputTokensPerSecond": 47.647,
+            "timeToFirstTokenSeconds": 2.873,
+            "timeToFirstAnswerTokenSeconds": 44.849
           }
         }
       }
@@ -1717,7 +1627,6 @@
           "label": "MiniMax-M3",
           "evaluations": {
             "artificial_analysis_intelligence_index": 18.7,
-            "artificial_analysis_coding_index": 58.6,
             "gpqa": 0.929,
             "hle": 0.39,
             "scicode": 0.471,
@@ -1735,9 +1644,9 @@
             "price_1m_output_tokens": 1.2
           },
           "throughput": {
-            "outputTokensPerSecond": 100.432,
-            "timeToFirstTokenSeconds": 0.878,
-            "timeToFirstAnswerTokenSeconds": 20.792
+            "outputTokensPerSecond": 104.428,
+            "timeToFirstTokenSeconds": 0.686,
+            "timeToFirstAnswerTokenSeconds": 19.838
           }
         }
       }
@@ -1766,40 +1675,9 @@
             "price_1m_output_tokens": 0.6
           },
           "throughput": {
-            "outputTokensPerSecond": 99.467,
-            "timeToFirstTokenSeconds": 0.888,
-            "timeToFirstAnswerTokenSeconds": 20.995
-          }
-        }
-      }
-    },
-    {
-      "id": "mistral-large-4",
-      "aaBase": "mistral-large-4",
-      "name": "Mistral Large 4 Preview",
-      "creator": "Mistral",
-      "releaseDate": "2026-10-06",
-      "reasoningLevels": {
-        "default": {
-          "aaModelId": "34fc646a-0174-470e-9e62-d8df452210b3",
-          "aaSlug": "mistral-large-4",
-          "label": "Mistral Large 4 Preview",
-          "evaluations": {
-            "artificial_analysis_intelligence_index": 25.3,
-            "hle": 0.35,
-            "scicode": 0.542,
-            "lcr": 0.813333333333333,
-            "terminalbench_v4_0": 0.267676767676768
-          },
-          "pricing": {
-            "price_1m_blended_3_to_1": 2.065,
-            "price_1m_input_tokens": 1.36,
-            "price_1m_output_tokens": 4.18
-          },
-          "throughput": {
-            "outputTokensPerSecond": 106.853,
-            "timeToFirstTokenSeconds": 0.936,
-            "timeToFirstAnswerTokenSeconds": 19.653
+            "outputTokensPerSecond": 126.204,
+            "timeToFirstTokenSeconds": 0.957,
+            "timeToFirstAnswerTokenSeconds": 16.804
           }
         }
       }
@@ -1816,7 +1694,6 @@
           "aaSlug": "muse-spark-1-2",
           "label": "Muse Spark 1.2 (Xhigh)",
           "evaluations": {
-            "artificial_analysis_coding_index": 72.2,
             "gpqa": 0.904,
             "hle": 0.455,
             "scicode": 0.574,
@@ -1850,7 +1727,6 @@
           "aaSlug": "muse-spark-1-2",
           "label": "Muse Spark 1.2 (Xhigh)",
           "evaluations": {
-            "artificial_analysis_coding_index": 72.2,
             "gpqa": 0.904,
             "hle": 0.455,
             "scicode": 0.574,
@@ -1885,7 +1761,6 @@
           "label": "Muse Spark 1.3 (Max)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 36.4,
-            "artificial_analysis_coding_index": 75.8,
             "gpqa": 0.935,
             "hle": 0.487,
             "scicode": 0.588,
@@ -1910,7 +1785,6 @@
           "aaSlug": "muse-spark-1-3-xhigh",
           "label": "Muse Spark 1.3 (Xhigh)",
           "evaluations": {
-            "artificial_analysis_coding_index": 76.5,
             "gpqa": 0.941,
             "hle": 0.475,
             "scicode": 0.597,
@@ -1945,7 +1819,6 @@
           "label": "Muse Spark 1.3 (Max)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 36.4,
-            "artificial_analysis_coding_index": 75.8,
             "gpqa": 0.935,
             "hle": 0.487,
             "scicode": 0.588,
@@ -1970,7 +1843,6 @@
           "aaSlug": "muse-spark-1-3-xhigh",
           "label": "Muse Spark 1.3 (Xhigh)",
           "evaluations": {
-            "artificial_analysis_coding_index": 76.5,
             "gpqa": 0.941,
             "hle": 0.475,
             "scicode": 0.597,
@@ -2004,7 +1876,6 @@
           "aaSlug": "nemotron-3-5-lightning",
           "label": "Nemotron 3.5 Lightning",
           "evaluations": {
-            "artificial_analysis_coding_index": 26.8,
             "gpqa": 0.743,
             "hle": 0.106,
             "scicode": 0.321,
@@ -2019,9 +1890,9 @@
             "price_1m_output_tokens": 0.2
           },
           "throughput": {
-            "outputTokensPerSecond": 291.124,
-            "timeToFirstTokenSeconds": 0.438,
-            "timeToFirstAnswerTokenSeconds": 7.308
+            "outputTokensPerSecond": 282.761,
+            "timeToFirstTokenSeconds": 0.421,
+            "timeToFirstAnswerTokenSeconds": 7.494
           }
         }
       }
@@ -2050,9 +1921,9 @@
             "price_1m_output_tokens": 0.575
           },
           "throughput": {
-            "outputTokensPerSecond": 429.96,
-            "timeToFirstTokenSeconds": 0.554,
-            "timeToFirstAnswerTokenSeconds": 5.205
+            "outputTokensPerSecond": 410.015,
+            "timeToFirstTokenSeconds": 0.555,
+            "timeToFirstAnswerTokenSeconds": 5.433
           }
         }
       }
@@ -2069,7 +1940,6 @@
           "aaSlug": "qwen3-6-plus",
           "label": "Qwen3.6 Plus",
           "evaluations": {
-            "artificial_analysis_coding_index": 54.5,
             "gpqa": 0.882,
             "hle": 0.278,
             "ifbench": 0.751700680272109,
@@ -2093,43 +1963,6 @@
       }
     },
     {
-      "id": "qwen3.7-max",
-      "aaBase": "qwen3-7-max",
-      "name": "Qwen3.7 Max",
-      "creator": "Alibaba",
-      "releaseDate": "2026-05-19",
-      "reasoningLevels": {
-        "default": {
-          "aaModelId": "69534bed-2ffd-4235-832b-e20a810333ab",
-          "aaSlug": "qwen3-7-max",
-          "label": "Qwen3.7 Max",
-          "evaluations": {
-            "artificial_analysis_coding_index": 66,
-            "gpqa": 0.923,
-            "hle": 0.405,
-            "scicode": 0.495,
-            "ifbench": 0.805442176870748,
-            "lcr": 0.79,
-            "terminalbench_hard": 0.507575757575758,
-            "terminalbench_v2_1": 0.745318352059925,
-            "terminalbench_v4_0": 0.0151515151515152,
-            "tau2": 0.947368421052632,
-            "tau_banking": 0.117525773195876
-          },
-          "pricing": {
-            "price_1m_blended_3_to_1": 3.75,
-            "price_1m_input_tokens": 2.5,
-            "price_1m_output_tokens": 7.5
-          },
-          "throughput": {
-            "outputTokensPerSecond": 0,
-            "timeToFirstTokenSeconds": 0,
-            "timeToFirstAnswerTokenSeconds": 0
-          }
-        }
-      }
-    },
-    {
       "id": "qwen3.7-plus",
       "aaBase": "qwen3-7-plus",
       "name": "Qwen3.7 Plus",
@@ -2141,7 +1974,6 @@
           "aaSlug": "qwen3-7-plus",
           "label": "Qwen3.7 Plus",
           "evaluations": {
-            "artificial_analysis_coding_index": 55.9,
             "gpqa": 0.9,
             "hle": 0.356,
             "scicode": 0.461,
@@ -2159,9 +1991,9 @@
             "price_1m_output_tokens": 1.6
           },
           "throughput": {
-            "outputTokensPerSecond": 55.949,
-            "timeToFirstTokenSeconds": 1.899,
-            "timeToFirstAnswerTokenSeconds": 37.645
+            "outputTokensPerSecond": 55.368,
+            "timeToFirstTokenSeconds": 1.786,
+            "timeToFirstAnswerTokenSeconds": 37.908
           }
         }
       }
@@ -2179,7 +2011,6 @@
           "label": "Qwen3.8 Max (0902)",
           "evaluations": {
             "artificial_analysis_intelligence_index": 33.6,
-            "artificial_analysis_coding_index": 76.2,
             "gpqa": 0.928,
             "hle": 0.431,
             "scicode": 0.521,
@@ -2194,9 +2025,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 40.372,
-            "timeToFirstTokenSeconds": 1.901,
-            "timeToFirstAnswerTokenSeconds": 51.44
+            "outputTokensPerSecond": 38.452,
+            "timeToFirstTokenSeconds": 1.879,
+            "timeToFirstAnswerTokenSeconds": 53.892
           }
         }
       }
