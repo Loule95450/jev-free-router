@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-10-29T11:35:45.044Z",
+  "generatedAt": "2026-10-30T11:27:39.359Z",
   "source": "artificial-analysis",
   "sourceUrl": "https://artificialanalysis.ai/",
   "metrics": {
@@ -118,9 +118,9 @@
             "price_1m_output_tokens": 3.96
           },
           "throughput": {
-            "outputTokensPerSecond": 76.139,
-            "timeToFirstTokenSeconds": 1.072,
-            "timeToFirstAnswerTokenSeconds": 27.34
+            "outputTokensPerSecond": 76.885,
+            "timeToFirstTokenSeconds": 1.104,
+            "timeToFirstAnswerTokenSeconds": 27.117
           }
         },
         "non-reasoning": {
@@ -139,9 +139,9 @@
             "price_1m_output_tokens": 3.96
           },
           "throughput": {
-            "outputTokensPerSecond": 76.146,
-            "timeToFirstTokenSeconds": 1.162,
-            "timeToFirstAnswerTokenSeconds": 1.162
+            "outputTokensPerSecond": 82.518,
+            "timeToFirstTokenSeconds": 1.302,
+            "timeToFirstAnswerTokenSeconds": 1.302
           }
         }
       }
@@ -239,68 +239,6 @@
             "price_1m_blended_3_to_1": 0.525,
             "price_1m_input_tokens": 0.3,
             "price_1m_output_tokens": 1.2
-          },
-          "throughput": {
-            "outputTokensPerSecond": 0,
-            "timeToFirstTokenSeconds": 0,
-            "timeToFirstAnswerTokenSeconds": 0
-          }
-        }
-      }
-    },
-    {
-      "id": "gemini-3-flash",
-      "aaBase": "gemini-3-flash",
-      "name": "Gemini 3 Flash Preview",
-      "creator": "Google",
-      "releaseDate": "2025-12-17",
-      "reasoningLevels": {
-        "default": {
-          "aaModelId": "783a0ea2-1eef-422a-8c3d-f6d40d943f54",
-          "aaSlug": "gemini-3-flash",
-          "label": "Gemini 3 Flash Preview (Non-reasoning)",
-          "evaluations": {
-            "mmlu_pro": 0.882,
-            "gpqa": 0.812,
-            "hle": 0.15,
-            "livecodebench": 0.797,
-            "aime_25": 0.556666666666667,
-            "ifbench": 0.551020408163265,
-            "lcr": 0.553333333333333,
-            "terminalbench_hard": 0.318181818181818,
-            "tau2": 0.432748538011696
-          },
-          "pricing": {
-            "price_1m_blended_3_to_1": 1.125,
-            "price_1m_input_tokens": 0.5,
-            "price_1m_output_tokens": 3
-          },
-          "throughput": {
-            "outputTokensPerSecond": 0,
-            "timeToFirstTokenSeconds": 0,
-            "timeToFirstAnswerTokenSeconds": 0
-          }
-        },
-        "reasoning": {
-          "aaModelId": "7c73c3be-7f51-4d14-bec8-d5789488df25",
-          "aaSlug": "gemini-3-flash-reasoning",
-          "label": "Gemini 3 Flash Preview (Reasoning)",
-          "evaluations": {
-            "mmlu_pro": 0.89,
-            "gpqa": 0.898,
-            "hle": 0.366,
-            "livecodebench": 0.908,
-            "aime_25": 0.97,
-            "ifbench": 0.779591836734694,
-            "lcr": 0.78,
-            "terminalbench_hard": 0.386363636363636,
-            "tau2": 0.804093567251462,
-            "tau_banking": 0.208247422680412
-          },
-          "pricing": {
-            "price_1m_blended_3_to_1": 1.125,
-            "price_1m_input_tokens": 0.5,
-            "price_1m_output_tokens": 3
           },
           "throughput": {
             "outputTokensPerSecond": 0,
@@ -419,7 +357,7 @@
             "price_1m_output_tokens": 2.5
           },
           "throughput": {
-            "outputTokensPerSecond": 409.864,
+            "outputTokensPerSecond": 399.371,
             "timeToFirstTokenSeconds": 4.766,
             "timeToFirstAnswerTokenSeconds": 4.766
           }
@@ -565,9 +503,9 @@
             "price_1m_output_tokens": 3.75
           },
           "throughput": {
-            "outputTokensPerSecond": 133.857,
-            "timeToFirstTokenSeconds": 18.86,
-            "timeToFirstAnswerTokenSeconds": 18.86
+            "outputTokensPerSecond": 127.237,
+            "timeToFirstTokenSeconds": 18.006,
+            "timeToFirstAnswerTokenSeconds": 18.006
           }
         },
         "medium": {
@@ -646,9 +584,9 @@
             "price_1m_output_tokens": 20
           },
           "throughput": {
-            "outputTokensPerSecond": 80.556,
-            "timeToFirstTokenSeconds": 27.202,
-            "timeToFirstAnswerTokenSeconds": 27.202
+            "outputTokensPerSecond": 81.219,
+            "timeToFirstTokenSeconds": 27.767,
+            "timeToFirstAnswerTokenSeconds": 27.767
           }
         }
       }
@@ -852,9 +790,9 @@
             "price_1m_output_tokens": 4.4
           },
           "throughput": {
-            "outputTokensPerSecond": 77.174,
-            "timeToFirstTokenSeconds": 2.209,
-            "timeToFirstAnswerTokenSeconds": 28.124
+            "outputTokensPerSecond": 77.604,
+            "timeToFirstTokenSeconds": 1.429,
+            "timeToFirstAnswerTokenSeconds": 27.201
           }
         },
         "low": {
@@ -874,9 +812,9 @@
             "price_1m_output_tokens": 4.4
           },
           "throughput": {
-            "outputTokensPerSecond": 78.742,
-            "timeToFirstTokenSeconds": 1.642,
-            "timeToFirstAnswerTokenSeconds": 27.042
+            "outputTokensPerSecond": 78.064,
+            "timeToFirstTokenSeconds": 1.489,
+            "timeToFirstAnswerTokenSeconds": 27.109
           }
         }
       }
@@ -893,6 +831,7 @@
           "aaSlug": "glm-5-3-flash",
           "label": "GLM-5.3-Flash",
           "evaluations": {
+            "artificial_analysis_intelligence_index": 27.8,
             "gpqa": 0.912,
             "hle": 0.399,
             "scicode": 0.516,
@@ -907,9 +846,9 @@
             "price_1m_output_tokens": 0.5
           },
           "throughput": {
-            "outputTokensPerSecond": 66.589,
-            "timeToFirstTokenSeconds": 2.053,
-            "timeToFirstAnswerTokenSeconds": 32.088
+            "outputTokensPerSecond": 65.034,
+            "timeToFirstTokenSeconds": 1.31,
+            "timeToFirstAnswerTokenSeconds": 32.064
           }
         }
       }
@@ -926,6 +865,7 @@
           "aaSlug": "glm-5-3-flash",
           "label": "GLM-5.3-Flash",
           "evaluations": {
+            "artificial_analysis_intelligence_index": 27.8,
             "gpqa": 0.912,
             "hle": 0.399,
             "scicode": 0.516,
@@ -940,9 +880,9 @@
             "price_1m_output_tokens": 0.5
           },
           "throughput": {
-            "outputTokensPerSecond": 66.589,
-            "timeToFirstTokenSeconds": 2.053,
-            "timeToFirstAnswerTokenSeconds": 32.088
+            "outputTokensPerSecond": 65.034,
+            "timeToFirstTokenSeconds": 1.31,
+            "timeToFirstAnswerTokenSeconds": 32.064
           }
         }
       }
@@ -1109,7 +1049,7 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 83.208,
+            "outputTokensPerSecond": 75.288,
             "timeToFirstTokenSeconds": 10.254,
             "timeToFirstAnswerTokenSeconds": 10.254
           }
@@ -1131,9 +1071,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 86.313,
-            "timeToFirstTokenSeconds": 19.881,
-            "timeToFirstAnswerTokenSeconds": 19.881
+            "outputTokensPerSecond": 85.579,
+            "timeToFirstTokenSeconds": 21.164,
+            "timeToFirstAnswerTokenSeconds": 21.164
           }
         },
         "low": {
@@ -1153,9 +1093,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 79.218,
-            "timeToFirstTokenSeconds": 4.091,
-            "timeToFirstAnswerTokenSeconds": 4.091
+            "outputTokensPerSecond": 68.13,
+            "timeToFirstTokenSeconds": 3.617,
+            "timeToFirstAnswerTokenSeconds": 3.617
           }
         }
       }
@@ -1186,9 +1126,9 @@
             "price_1m_output_tokens": 0.555
           },
           "throughput": {
-            "outputTokensPerSecond": 81.834,
-            "timeToFirstTokenSeconds": 1.887,
-            "timeToFirstAnswerTokenSeconds": 26.326
+            "outputTokensPerSecond": 84.503,
+            "timeToFirstTokenSeconds": 1.881,
+            "timeToFirstAnswerTokenSeconds": 25.549
           }
         },
         "non-reasoning": {
@@ -1361,9 +1301,9 @@
             "price_1m_output_tokens": 4
           },
           "throughput": {
-            "outputTokensPerSecond": 49.119,
-            "timeToFirstTokenSeconds": 1.051,
-            "timeToFirstAnswerTokenSeconds": 46.431
+            "outputTokensPerSecond": 48.868,
+            "timeToFirstTokenSeconds": 1.081,
+            "timeToFirstAnswerTokenSeconds": 46.694
           }
         }
       }
@@ -1380,6 +1320,7 @@
           "aaSlug": "kimi-k3-low",
           "label": "Kimi K3 (Low)",
           "evaluations": {
+            "artificial_analysis_intelligence_index": 17.4,
             "gpqa": 0.842,
             "hle": 0.25,
             "scicode": 0.527,
@@ -1449,9 +1390,9 @@
             "price_1m_output_tokens": 10
           },
           "throughput": {
-            "outputTokensPerSecond": 33.303,
-            "timeToFirstTokenSeconds": 2.54,
-            "timeToFirstAnswerTokenSeconds": 62.595
+            "outputTokensPerSecond": 30.997,
+            "timeToFirstTokenSeconds": 2.667,
+            "timeToFirstAnswerTokenSeconds": 67.19
           }
         }
       }
@@ -1482,9 +1423,9 @@
             "price_1m_output_tokens": 2.95
           },
           "throughput": {
-            "outputTokensPerSecond": 74.779,
-            "timeToFirstTokenSeconds": 1.837,
-            "timeToFirstAnswerTokenSeconds": 28.583
+            "outputTokensPerSecond": 70.367,
+            "timeToFirstTokenSeconds": 1.823,
+            "timeToFirstAnswerTokenSeconds": 30.246
           }
         }
       }
@@ -1513,9 +1454,9 @@
             "price_1m_output_tokens": 0.28
           },
           "throughput": {
-            "outputTokensPerSecond": 56.185,
-            "timeToFirstTokenSeconds": 2.214,
-            "timeToFirstAnswerTokenSeconds": 37.81
+            "outputTokensPerSecond": 48.337,
+            "timeToFirstTokenSeconds": 3.088,
+            "timeToFirstAnswerTokenSeconds": 44.464
           }
         }
       }
@@ -1544,9 +1485,9 @@
             "price_1m_output_tokens": 0.28
           },
           "throughput": {
-            "outputTokensPerSecond": 56.185,
-            "timeToFirstTokenSeconds": 2.214,
-            "timeToFirstAnswerTokenSeconds": 37.81
+            "outputTokensPerSecond": 48.337,
+            "timeToFirstTokenSeconds": 3.088,
+            "timeToFirstAnswerTokenSeconds": 44.464
           }
         }
       }
@@ -1575,9 +1516,9 @@
             "price_1m_output_tokens": 0.87
           },
           "throughput": {
-            "outputTokensPerSecond": 47.647,
-            "timeToFirstTokenSeconds": 2.873,
-            "timeToFirstAnswerTokenSeconds": 44.849
+            "outputTokensPerSecond": 43.007,
+            "timeToFirstTokenSeconds": 2.893,
+            "timeToFirstAnswerTokenSeconds": 49.396
           }
         }
       }
@@ -1645,8 +1586,8 @@
           },
           "throughput": {
             "outputTokensPerSecond": 104.428,
-            "timeToFirstTokenSeconds": 0.686,
-            "timeToFirstAnswerTokenSeconds": 19.838
+            "timeToFirstTokenSeconds": 0.845,
+            "timeToFirstAnswerTokenSeconds": 19.997
           }
         }
       }
@@ -1675,9 +1616,56 @@
             "price_1m_output_tokens": 0.6
           },
           "throughput": {
-            "outputTokensPerSecond": 126.204,
-            "timeToFirstTokenSeconds": 0.957,
-            "timeToFirstAnswerTokenSeconds": 16.804
+            "outputTokensPerSecond": 128.76,
+            "timeToFirstTokenSeconds": 0.838,
+            "timeToFirstAnswerTokenSeconds": 16.37
+          }
+        }
+      }
+    },
+    {
+      "id": "mistral-large-4",
+      "aaBase": "mistral-large-4",
+      "name": "Mistral Large 4",
+      "creator": "Mistral",
+      "releaseDate": "2026-10-29",
+      "reasoningLevels": {
+        "default": {
+          "aaModelId": "ea5019ae-b0b7-49a5-80b3-0e584807af0f",
+          "aaSlug": "mistral-large-4",
+          "label": "Mistral Large 4 (High)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 26,
+            "terminalbench_v4_0": 0.247474747474747
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.05,
+            "price_1m_input_tokens": 0.7,
+            "price_1m_output_tokens": 2.1
+          },
+          "throughput": {
+            "outputTokensPerSecond": 169.058,
+            "timeToFirstTokenSeconds": 2.881,
+            "timeToFirstAnswerTokenSeconds": 14.711
+          }
+        },
+        "medium": {
+          "aaModelId": "27b24366-fd1a-44b7-8011-e24d7501318d",
+          "aaSlug": "mistral-large-4-medium",
+          "label": "Mistral Large 4 (Medium)",
+          "evaluations": {
+            "artificial_analysis_intelligence_index": 23.1,
+            "terminalbench_v4_0": 0.232323232323232
+          },
+          "pricing": {
+            "price_1m_blended_3_to_1": 1.05,
+            "price_1m_input_tokens": 0.7,
+            "price_1m_output_tokens": 2.1
+          },
+          "throughput": {
+            "outputTokensPerSecond": 0,
+            "timeToFirstTokenSeconds": 0,
+            "timeToFirstAnswerTokenSeconds": 0
           }
         }
       }
@@ -1876,6 +1864,7 @@
           "aaSlug": "nemotron-3-5-lightning",
           "label": "Nemotron 3.5 Lightning",
           "evaluations": {
+            "artificial_analysis_intelligence_index": 5.5,
             "gpqa": 0.743,
             "hle": 0.106,
             "scicode": 0.321,
@@ -1890,9 +1879,9 @@
             "price_1m_output_tokens": 0.2
           },
           "throughput": {
-            "outputTokensPerSecond": 282.761,
-            "timeToFirstTokenSeconds": 0.421,
-            "timeToFirstAnswerTokenSeconds": 7.494
+            "outputTokensPerSecond": 275.974,
+            "timeToFirstTokenSeconds": 0.44,
+            "timeToFirstAnswerTokenSeconds": 7.687
           }
         }
       }
@@ -1921,9 +1910,9 @@
             "price_1m_output_tokens": 0.575
           },
           "throughput": {
-            "outputTokensPerSecond": 410.015,
-            "timeToFirstTokenSeconds": 0.555,
-            "timeToFirstAnswerTokenSeconds": 5.433
+            "outputTokensPerSecond": 409.763,
+            "timeToFirstTokenSeconds": 0.56,
+            "timeToFirstAnswerTokenSeconds": 5.441
           }
         }
       }
@@ -1991,9 +1980,9 @@
             "price_1m_output_tokens": 1.6
           },
           "throughput": {
-            "outputTokensPerSecond": 55.368,
-            "timeToFirstTokenSeconds": 1.786,
-            "timeToFirstAnswerTokenSeconds": 37.908
+            "outputTokensPerSecond": 54.825,
+            "timeToFirstTokenSeconds": 1.753,
+            "timeToFirstAnswerTokenSeconds": 38.233
           }
         }
       }
@@ -2025,9 +2014,9 @@
             "price_1m_output_tokens": 6
           },
           "throughput": {
-            "outputTokensPerSecond": 38.452,
-            "timeToFirstTokenSeconds": 1.879,
-            "timeToFirstAnswerTokenSeconds": 53.892
+            "outputTokensPerSecond": 38.231,
+            "timeToFirstTokenSeconds": 2.111,
+            "timeToFirstAnswerTokenSeconds": 54.424
           }
         }
       }
